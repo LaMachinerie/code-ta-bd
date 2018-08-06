@@ -1,0 +1,17 @@
+{
+  "room": {
+    "entrance": {
+      "character": {
+        "Maman": {
+          "cri": "calling.png",
+          "descend": "down.png"
+        }
+      },
+      "time": {
+        "jour": "room.png",
+        "nuit": "room.png"
+      }
+    },
+    "kitchen": {}
+  }
+}
