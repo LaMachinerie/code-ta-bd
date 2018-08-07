@@ -44,7 +44,7 @@ BotlyStudio.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
       trashcan: true,
       zoom: {
         controls: true,
-        wheel: false,
+        wheel: true,
         startScale: 1.0,
         maxScale: 2,
         minScale: 0.2,
