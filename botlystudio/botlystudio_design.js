@@ -1,9 +1,3 @@
-/**
- * @license Licensed under the Apache License, Version 2.0 (the "License"):
- *          http://www.apache.org/licenses/LICENSE-2.0
- *
- * @fileoverview JavaScript to configure front end design for BotlyStudio app.
- */
 'use strict';
 
 /** Create a namespace for the application. */

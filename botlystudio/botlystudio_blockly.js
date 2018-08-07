@@ -1,9 +1,3 @@
-/**
- * @license Licensed under the Apache License, Version 2.0 (the "License"):
- *          http://www.apache.org/licenses/LICENSE-2.0
- *
- * @fileoverview BotlyStudio JavaScript for the Blockly resources and bindings.
- */
 'use strict';
 
 /** Create a namespace for the application. */
@@ -73,21 +67,10 @@ BotlyStudio.bindBlocklyEventListeners = function() {
 		}, false);
 };
 
-/** @return {!string} Generated Arduino code from the Blockly workspace. */
-BotlyStudio.generateArduino = function() {
-  return Blockly.Arduino.workspaceToCode(BotlyStudio.workspace);
-};
-
 
 /** @return {!string} Generated Javascript code from the Blockly workspace. */
 BotlyStudio.generateJavaScript = function() {
   return Blockly.JavaScript.workspaceToCode(BotlyStudio.workspace);
-};
-
-
-/** @return {!string} Generated Python code from the Blockly workspace. */
-BotlyStudio.generatePython = function() {
-  return Blockly.Python.workspaceToCode(BotlyStudio.workspace);
 };
 
 /** @return {!string} Generated XML code from the Blockly workspace. */
@@ -226,7 +209,7 @@ BotlyStudio.changeBlocklyArduinoBoard = function(newBoard) {
 
 /** Update the toolbox categories language. */
 BotlyStudio.updateToolboxLanguage = function() {
-  var categories = ['catBotly','catLogic', 'catLoops', 'catMath', 'catText',
+  var categories = ['catLogic', 'catLoops', 'catMath', 'catText',
                     'catVariables', 'catFunctions', 'catInputOutput',
                     'catTime', 'catAudio', 'catMotors', 'catComms'];
   var categoryNodes = BotlyStudio.xmlTree.getElementsByTagName('category');

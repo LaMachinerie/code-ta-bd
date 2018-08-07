@@ -1,9 +1,3 @@
-/**
- * @license Licensed under the Apache License, Version 2.0 (the "License"):
- *          http://www.apache.org/licenses/LICENSE-2.0
- *
- * @fileoverview General javaScript for Arduino app with material design.
- */
 'use strict';
 
 /** Create a namespace for the application. */
@@ -15,8 +9,7 @@ BotlyStudio.init = function() {
   BotlyStudio.changeToolbox();
   BotlyStudio.initLanguage();
   BotlyStudio.initDifficulty();
-  BotlyStudio.initOutputLanguage();
-  Turtle.init();
+  Renderer.init();
 
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
@@ -29,8 +22,6 @@ BotlyStudio.init = function() {
   BotlyStudio.bindDesignEventListeners();
   BotlyStudio.bindActionFunctions();
   BotlyStudio.bindBlocklyEventListeners();
-
-  
 };
 
 /** Binds functions to each of the buttons, nav links, and related. */
@@ -57,11 +48,6 @@ BotlyStudio.bindActionFunctions = function() {
     BotlyStudio.openSettings();
     $('.button-collapse').sideNav('hide');
   });
-  BotlyStudio.bindClick_('menu_example_1', function() {
-    BotlyStudio.loadServerXmlFile('../examples/Scott_dessin.xml');
-    $('.button-collapse').sideNav('hide');
-  });
-
   // Floating buttons
   BotlyStudio.bindClick_('button_ide_large', function() {
     BotlyStudio.ideButtonLargeAction();
@@ -77,50 +63,11 @@ BotlyStudio.bindActionFunctions = function() {
 
 };
 
-/** Sets the BotlyStudio server IDE setting to upload and sends the code. */
-BotlyStudio.ideSendUpload = function() {
-  // Check if this is the currently selected option before edit sever setting
-  if (BotlyStudio.ideButtonLargeAction !== BotlyStudio.ideSendUpload) {
-    BotlyStudio.showExtraIdeButtons(false);
-    BotlyStudio.setIdeSettings(null, 'upload');
-  }
-  BotlyStudio.shortMessage(BotlyStudio.getLocalStr('uploadingSketch'));
-  BotlyStudio.resetIdeOutputContent();
-  BotlyStudio.sendCode();
-};
+BotlyStudio.ideButtonLargeAction = function(){};
 
-/** Sets the BotlyStudio server IDE setting to verify and sends the code. */
-BotlyStudio.ideSendVerify = function() {
-  // Check if this is the currently selected option before edit sever setting
-  if (BotlyStudio.ideButtonLargeAction !== BotlyStudio.ideSendVerify) {
-    BotlyStudio.showExtraIdeButtons(false);
-    BotlyStudio.setIdeSettings(null, 'verify');
-  }
-  BotlyStudio.shortMessage(BotlyStudio.getLocalStr('verifyingSketch'));
-  BotlyStudio.resetIdeOutputContent();
-  BotlyStudio.sendCode();
-};
+BotlyStudio.ideButtonMiddleAction = function(){};
 
-/** Sets the BotlyStudio server IDE setting to open and sends the code. */
-BotlyStudio.ideSendOpen = function() {
-  // Check if this is the currently selected option before edit sever setting
-  if (BotlyStudio.ideButtonLargeAction !== BotlyStudio.ideSendOpen) {
-    BotlyStudio.showExtraIdeButtons(false);
-    BotlyStudio.setIdeSettings(null, 'open');
-  }
-  BotlyStudio.shortMessage(BotlyStudio.getLocalStr('openingSketch'));
-  BotlyStudio.resetIdeOutputContent();
-  BotlyStudio.sendCode();
-};
-
-/** Function bound to the left IDE button, to be changed based on settings. */
-BotlyStudio.ideButtonLargeAction = BotlyStudio.ideSendUpload;
-
-/** Function bound to the middle IDE button, to be changed based on settings. */
-BotlyStudio.ideButtonMiddleAction = BotlyStudio.ideSendVerify;
-
-/** Function bound to the large IDE button, to be changed based on settings. */
-BotlyStudio.ideButtonLeftAction = BotlyStudio.ideSendOpen;
+BotlyStudio.ideButtonLeftAction = function(){};
 
 /** Initialises the IDE buttons with the default option from the server. */
 BotlyStudio.initialiseIdeButtons = function() {
@@ -263,16 +210,6 @@ BotlyStudio.saveXmlFile = function() {
       BotlyStudio.generateXml());
 };
 
-/**
- * Creates an Arduino Sketch file containing the Arduino code generated from
- * the Blockly workspace and prompts the users to save it into their local file
- * system.
- */
-BotlyStudio.saveSketchFile = function() {
-  BotlyStudio.saveTextFileAs(
-      document.getElementById('sketch_name').value + '.ino',
-      BotlyStudio.generateArduino());
-};
 
 /**
  * Creates an text file with the input content and files name, and prompts the

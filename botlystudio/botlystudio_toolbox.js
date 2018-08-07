@@ -1,9 +1,3 @@
-/**
- * @license Licensed under the Apache License, Version 2.0 (the "License"):
- *          http://www.apache.org/licenses/LICENSE-2.0
- *
- * @fileoverview XML toolbox embedded into a JavaScript text string.
- */
 'use strict';
 
 /** Create a namespace for the application. */
@@ -14,24 +8,6 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 1){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
-		'  <category id="catBotly" name="Scott">' +
-		'    <block type="botly_deplacement">' +
-		'		<value name="VALUE">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">10</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_rotation">' +
-		'		<value name="angle">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">90</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_crayon"></block>' +
-		'  </category>' +
-		'  <sep></sep>' +
 		'  <category id="catLoops" name="Loops">' +
 		'    <block type="controls_repeat_ext">' +
 		'      <value name="TIMES">' +
@@ -54,37 +30,6 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 2){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
-		'  <category id="catBotly" name="Scott">' +
-		'    <block type="botly_forward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_backward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_right">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">90</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_left">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">90</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_crayon"></block>' +
-		'  </category>' +		'  <sep></sep>' +
 		'  <category id="catLoops" name="Loops">' +
 		'    <block type="controls_repeat_ext">' +
 		'      <value name="TIMES">' +
@@ -142,60 +87,6 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 3){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
-		'  <category id="catBotly" name="Scott">' +
-		'    <block type="botly_forward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_backward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_deplacement">' +
-		'		<value name="VALUE">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">10</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_rotation">' +
-		'		<value name="angle">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">90</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_right">' +
-		'      <value name="angle">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_left">' +
-		'      <value name="angle">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_stop"></block>' +
-		'    <block type="botly_turn_go"></block>' +
-		'    <block type="botly_crayon"></block>' +
-		'    <block type="botly_polygone"></block>' +
-		'    <block type="botly_cercle"></block>' +
-		'    <block type="botly_ligne"></block>' +
-		'    <block type="botly_contact"></block>' +
-		'    <block type="botly_lever_crayon"></block>' +
-		'    <block type="botly_descendre_crayon"></block>' +
-		'  </category>' +
-		'  <sep></sep>' +
 		'  <category id="catLogic" name="Logic">' +
 		'    <block type="controls_if"></block>' +
 		'    <block type="logic_compare"></block>' +
@@ -316,60 +207,6 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 4){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
-		'  <category id="catBotly" name="Scott">' +
-		'    <block type="botly_forward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_backward">' +
-		'      <value name="VALUE">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_deplacement">' +
-		'		<value name="VALUE">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">10</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_rotation">' +
-		'		<value name="angle">' +
-		'       	<shadow type="math_number">' +
-		'          		<field name="NUM">90</field>' +
-		'        	</shadow>' +
-		'		</value>' +
-		'    </block>' +
-		'    <block type="botly_right">' +
-		'      <value name="angle">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_left">' +
-		'      <value name="angle">' +
-		'        <shadow type="math_number">' +
-		'          <field name="NUM">10</field>' +
-		'        </shadow>' +
-		'      </value>' +
-		'    </block>' +
-		'    <block type="botly_stop"></block>' +
-		'    <block type="botly_turn_go"></block>' +
-		'    <block type="botly_crayon"></block>' +
-		'    <block type="botly_polygone"></block>' +
-		'    <block type="botly_cercle"></block>' +
-		'    <block type="botly_ligne"></block>' +
-		'    <block type="botly_contact"></block>' +
-		'    <block type="botly_lever_crayon"></block>' +
-		'    <block type="botly_descendre_crayon"></block>' +
-		'  </category>' +
-		'  <sep></sep>' +
 		'  <category id="catLogic" name="Logic">' +
 		'    <block type="controls_if"></block>' +
 		'    <block type="logic_compare"></block>' +

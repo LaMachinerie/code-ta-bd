@@ -16,13 +16,7 @@
   <!-- BotlyStudio - These three files contain the compress version -->
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
-  <script src="blockly/arduino_compressed.js"></script>
-  <script src="blockly/blocks/arduino/botly.js"></script>
-  <script src="blockly/generators/arduino/botly.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
-  <script src="blockly/generators/javascript/botly.js"></script>
-  <script src="blockly/python_compressed.js"></script>
-  <script src="blockly/generators/python/botly.js"></script>
 
   <!-- Default language js files, user selection appended to head on load -->
   <script src="blockly/msg/js/fr.js"></script>
@@ -212,12 +206,6 @@
           <div id="visualization" class="content content_height_transition content_xml_large" wrap="soft">
             <canvas id="scratch" width="380" height="350" style="display: none"></canvas>
             <canvas id="display" width="380" height="350"></canvas>
-            <a class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange" id="button_execute">
-              <i class="mdi-av-play-arrow"></i>
-            </a>
-            <a class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange" id="button_reset">
-              <i class="mdi-action-delete"></i>
-            </a>
             <svg id="slider" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1" width="150" height="50" class="slider2">
               <!-- Slow icon. -->
@@ -251,11 +239,6 @@
         <label>
           <span class="translatable_difficulty">Difficulté</span>:</label>
         <select name="settings_difficulty" id="difficulty"></select>
-      </div>
-      <div class="modal_section">
-        <label>
-          <span class="translatable_output_language">Langage de programmation</span>:</label>
-        <select name="settings_output_language" id="outputLang"></select>
       </div>
       <div class="modal_section">
         <label>
@@ -343,11 +326,12 @@
   <script src="botlystudio/botlystudio_blockly.js"></script>
   <script src="botlystudio/botlystudio_difficulty.js"></script>
   <script src="botlystudio/botlystudio_outputLang.js"></script>
+  <script src="botlystudio/botlystudio_renderer.js"></script>
+  <script src="calques/tree.js"></script>
   <script src="botlystudio/botlystudio.js"></script>
 
 
   <!-- BotlyStudio ad-on -->
-  <script src="botlystudio/turtle.js"></script>
   <script src="botlystudio/JS-Interpreter/compiled.js"></script>
   <!-- BotlyStudio ad-on Libs -->
   <!--script src="js_libs/BlocklyGames/js-blocks.js"></script>
