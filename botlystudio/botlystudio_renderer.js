@@ -9,6 +9,9 @@ var Renderer = Renderer || {};
 
 /** Initialize function for Renderer */
 Renderer.init = function () {
+    var sliderSvg = document.getElementById('slider');
+    Renderer.speedSlider = new Slider(10, 35, 130, sliderSvg);
+
 
 };
 

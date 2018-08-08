@@ -130,7 +130,7 @@
   <!-- Content -->
   <div class="container">
     <div class="row">
-      <div class="col s7 m7 l7" style="position:relative">
+      <div class="col s12 m12 l7" style="position:relative">
         <!-- Toolbox visibility button -->
         <a id="button_toggle_toolbox" class="waves-effect waves-light btn-flat button_toggle_toolbox_off" style="display: none">
           <i id="button_toggle_toolbox_icon" class="mdi-action-visibility-off"></i>
@@ -201,27 +201,29 @@
         </div>
       </div>
 
-      <div class="col s5 m5 l5">
+      <div class="col s12 m12 l5">
         <div class="card-panel white" style="padding: 0">
           <div id="visualization" class="content content_height_transition content_xml_large" wrap="soft">
-            <canvas id="display"></canvas>
-            <svg id="slider" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1" width="150" height="50" class="slider2">
-              <!-- Slow icon. -->
-              <clipPath id="slowClipPath">
-                <rect width="26" height="12" x="5" y="14"></rect>
-              </clipPath>
-              <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="-21" y="-10" clip-path="url(#slowClipPath)"></image>
-              <!-- Fast icon. -->
-              <clipPath id="fastClipPath">
-                <rect width="26" height="16" x="120" y="10"></rect>
-              </clipPath>
-              <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)"></image-->
-                <line class="sliderTrack" x1="10" y1="35" x2="140" y2="35"></line>
-                <rect style="opacity: 0" x="-10" y="15" width="170" height="40" rx="20" ry="20"></rect>
-                <path class="sliderKnob" d="m 0,0 l -8,8 v 12 h 16 v -12 z" transform="translate(75,23)"></path>
-                <circle style="opacity: 0" r="20" cy="35" cx="75"></circle>
-            </svg>
+            <div class="scrollbar" id="style-10">
+              <canvas id="display"></canvas>
+              <svg id="slider" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" width="150" height="50" class="slider2">
+                <!-- Slow icon. -->
+                <clipPath id="slowClipPath">
+                  <rect width="26" height="12" x="5" y="14"></rect>
+                </clipPath>
+                <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="-21" y="-10" clip-path="url(#slowClipPath)"></image>
+                <!-- Fast icon. -->
+                <clipPath id="fastClipPath">
+                  <rect width="26" height="16" x="120" y="10"></rect>
+                </clipPath>
+                <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)"></image-->
+                  <line class="sliderTrack" x1="10" y1="35" x2="140" y2="35"></line>
+                  <rect style="opacity: 0" x="-10" y="15" width="170" height="40" rx="20" ry="20"></rect>
+                  <path class="sliderKnob" d="m 0,0 l -8,8 v 12 h 16 v -12 z" transform="translate(75,23)"></path>
+                  <circle style="opacity: 0" r="20" cy="35" cx="75"></circle>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -326,7 +328,7 @@
   <script src="botlystudio/botlystudio_difficulty.js"></script>
   <script src="botlystudio/botlystudio_outputLang.js"></script>
   <script src="botlystudio/botlystudio_renderer.js"></script>
-  <script src="calques/tree.js"></script>
+  <script src="botlystudio/calques/tree.js"></script>
   <script src="botlystudio/botlystudio.js"></script>
 
 
