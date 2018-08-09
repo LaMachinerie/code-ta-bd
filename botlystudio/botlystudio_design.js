@@ -50,6 +50,14 @@ BotlyStudio.bindDesignEventListeners = function() {
   $('#ide_buttons_wrapper').mouseleave(function() {
       BotlyStudio.showExtraIdeButtons(false);
   });
+    // Display/hide the XML load button when the XML collapsible header is clicked
+  document.getElementById('xml_collapsible_header').addEventListener(
+      'click', BotlyStudio.buttonLoadXmlCodeDisplay);
+  // Toggle the content height on click to the IDE output collapsible header
+  document.getElementById('ide_output_collapsible_header').addEventListener(
+      'click', function() {
+        BotlyStudio.contentHeightToggle();
+      });
 };
 
 /**
@@ -57,15 +65,7 @@ BotlyStudio.bindDesignEventListeners = function() {
  * collapsible 'xml_collapsible_body'.
  */
 BotlyStudio.buttonLoadXmlCodeDisplay = function() {
-  var xmlCollapsibleBody = document.getElementById('xml_collapsible_body');
-  // Waiting 400 ms to check status due to the animation delay (300 ms)
-  setTimeout(function() {
-    if (xmlCollapsibleBody.style.display == 'none') {
-      $('#button_load_xml').hide();
-    } else {
-      $('#button_load_xml').fadeIn('slow');
-    }
-  }, 400);
+
 };
 
 /**

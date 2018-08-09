@@ -1,5 +1,4 @@
 'use strict';
-
 /** Create a namespace for the application. */
 var BotlyStudio = BotlyStudio || {};
 
@@ -10,6 +9,7 @@ BotlyStudio.init = function() {
   BotlyStudio.initLanguage();
   BotlyStudio.initDifficulty();
   Renderer.init();
+  BotlyStudio.initSlider();
 
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
@@ -58,7 +58,7 @@ BotlyStudio.bindActionFunctions = function() {
   BotlyStudio.bindClick_('button_ide_left', function() {
     BotlyStudio.ideButtonLeftAction();
   });
-  //BotlyStudio.bindClick_('button_load_xml', BotlyStudio.XmlTextareaToBlocks);
+
   BotlyStudio.bindClick_('button_toggle_toolbox', BotlyStudio.toogleToolbox);
 
 };
@@ -296,6 +296,19 @@ BotlyStudio.renderContent = function() {
   // Generate plain XML into element
   document.getElementById('content_xml').value = BotlyStudio.generateXml();
 };
+
+
+
+BotlyStudio.openCodeDialog = function(){
+  $('#code_dialog').openModal({
+    dismissible: true,
+    opacity: .5,
+    in_duration: 200,
+    out_duration: 250
+  });
+};
+
+
 
 /**
  * Private variable to indicate if the toolbox is meant to be shown.

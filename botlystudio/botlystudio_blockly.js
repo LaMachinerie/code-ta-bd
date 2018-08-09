@@ -63,7 +63,6 @@ BotlyStudio.bindBlocklyEventListeners = function() {
   window.addEventListener('resize',
       function() {
 		  Blockly.asyncSvgResize(BotlyStudio.workspace);
-		  Turtle.resizeCanvas();
 		}, false);
 };
 

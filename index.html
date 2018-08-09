@@ -203,21 +203,43 @@
 
       <div class="col s12 m12 l5">
         <div class="card-panel white" style="padding: 0">
-          <div id="visualization" class="content content_height_transition content_xml_large" wrap="soft">
+          <div id="code_dialog" class="modal modal-fixed-footer">
+            <ul class="collapsible z-depth-1" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header  active" id="ide_output_collapsible_header">
+                  <span class="collapsible_logo">{ }</span>
+                  <span class="translatable_arduinoSourceCode">Code Source</span>
+                </div>
+                <div class="collapsible-body">
+                  <pre id="content_code" class="content content_height_transition content_xml_large"></pre>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header" id="xml_collapsible_header">
+                  <span class="collapsible_logo">{ }</span>
+                  <span class="translatable_blocksXml">Blocks XML</span>
+                </div>
+                <div class="collapsible-body">
+                  <textarea id="content_xml" class="content content_height_transition content_xml_large" wrap="soft"></textarea>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="visualization" class="content content_height_transition content_display_large" wrap="soft">
             <div class="scrollbar" id="style-10">
-              <canvas id="display"></canvas>
+              <canvas id="display" width="1380" height="1380"></canvas>
               <svg id="slider" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="1.1" width="150" height="50" class="slider2">
                 <!-- Slow icon. -->
                 <clipPath id="slowClipPath">
                   <rect width="26" height="12" x="5" y="14"></rect>
                 </clipPath>
-                <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="-21" y="-10" clip-path="url(#slowClipPath)"></image>
+                <image xlink:href="botlystudio/slider/icons.png" height="42" width="84" x="-21" y="-10" clip-path="url(#slowClipPath)"></image>
                 <!-- Fast icon. -->
                 <clipPath id="fastClipPath">
                   <rect width="26" height="16" x="120" y="10"></rect>
                 </clipPath>
-                <image xlink:href="botlystudio/turtle/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)"></image-->
+                <image xlink:href="botlystudio/slider/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)"></image-->
                   <line class="sliderTrack" x1="10" y1="35" x2="140" y2="35"></line>
                   <rect style="opacity: 0" x="-10" y="15" width="170" height="40" rx="20" ry="20"></rect>
                   <path class="sliderKnob" d="m 0,0 l -8,8 v 12 h 16 v -12 z" transform="translate(75,23)"></path>
@@ -328,7 +350,9 @@
   <script src="botlystudio/botlystudio_difficulty.js"></script>
   <script src="botlystudio/botlystudio_outputLang.js"></script>
   <script src="botlystudio/botlystudio_renderer.js"></script>
-  <script src="botlystudio/calques/tree.js"></script>
+  <script src="botlystudio/slider/slider.js"></script>
+  <script src="botlystudio/sprites/spriteManager.js"></script>
+  <script src="botlystudio/sprites/tree.js"></script>
   <script src="botlystudio/botlystudio.js"></script>
 
 
