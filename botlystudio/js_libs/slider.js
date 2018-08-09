@@ -115,7 +115,7 @@ Slider.startKnobX_ = 0;
 Slider.prototype.mouseWheel_ = function (e) {
   if (e.type == 'mousewheel') {
     var x = e.deltaY / 1000;
-    this.setValue(this.value_ + x);
+    this.setValue(this.value_ - x);
   }
   e.preventDefault();
 };
