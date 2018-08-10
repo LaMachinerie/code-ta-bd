@@ -224,7 +224,7 @@ BotlyStudio.updateToolboxLanguage = function() {
 /**
  * Adds a category to the current toolbox.
  * @param {!string} categoryTitle Toolbox category title.
- * @param {!Element} categoryDom Toolbox category to add add the end of tree.
+ * @param {!Element} categoryDom Toolbox category to add at the end of tree.
  */
 BotlyStudio.addToolboxCategory = function(categoryTitle, categoryDom) {
   categoryDom.id = 'cat' + categoryTitle.replace(/\s+/g, '');

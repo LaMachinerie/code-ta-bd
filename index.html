@@ -18,9 +18,14 @@
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
 
+  <!-- BotlyStudio - Blocs -->
+  <script src="blocks/Sprite/blocks.js"></script>
+  <script src="blocks/Sprite/generator_bd.js"></script>
+
   <!-- Default language js files, user selection appended to head on load -->
   <script src="blockly/msg/js/fr.js"></script>
   <script src="botlystudio/msg/fr.js"></script>
+
 </head>
 
 <body>
@@ -53,7 +58,7 @@
           </a>
         </li>
         <li>
-          <a href="#" id="button_delete">
+          <a href="#" id="button_delete" hidden>
             <span class="translatable_deleteAll">Tout Supprimer</span>
             <i class="mdi-action-delete left"></i>
           </a>
@@ -67,6 +72,11 @@
     <li class="no-padding side-menu-begin">&nbsp;</li>
     <li class="no-padding">
       <ul>
+        <li>
+          <div id="background">
+            <img id="side_logo" src="botlystudio/Maison de la nuit.jpg">
+          </div>
+        </li>
         <li id="menu_load">
           <a href="#">
             <span class="translatable_open">Ouvrir</span>

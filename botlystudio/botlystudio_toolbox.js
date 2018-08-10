@@ -26,6 +26,9 @@ BotlyStudio.changeToolbox = function(){
 		'    <block type="infinite_loop"></block>' +
 		'  </category>' +
 		'</xml>';
+
+
+		
 	}
 	if(BotlyStudio.DIFFICULTY == 2){
 		BotlyStudio.TOOLBOX_XML =

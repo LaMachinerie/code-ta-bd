@@ -3,7 +3,7 @@
 var BotlyStudio = BotlyStudio || {};
 
 /** Initialize function for BotlyStudio, to be called on page load. */
-BotlyStudio.init = function() {
+BotlyStudio.init = function () {
   // Lang init must run first for the rest of the page to pick the right msgs
   BotlyStudio.changeToolbox();
   BotlyStudio.initLanguage();
@@ -13,7 +13,7 @@ BotlyStudio.init = function() {
 
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
-                            BotlyStudio.TOOLBOX_XML, 'blockly/');
+    BotlyStudio.TOOLBOX_XML, 'blockly/');
   //BotlyStudio.importExtraBlocks();
 
   BotlyStudio.designJsInit();
@@ -25,37 +25,37 @@ BotlyStudio.init = function() {
 };
 
 /** Binds functions to each of the buttons, nav links, and related. */
-BotlyStudio.bindActionFunctions = function() {
+BotlyStudio.bindActionFunctions = function () {
   // Navigation buttons
   BotlyStudio.bindClick_('button_load', BotlyStudio.loadUserXmlFile);
   BotlyStudio.bindClick_('button_save', BotlyStudio.saveXmlFile);
   BotlyStudio.bindClick_('button_delete', BotlyStudio.discardAllBlocks);
 
   // Side menu buttons, they also close the side menu
-  BotlyStudio.bindClick_('menu_load', function() {
+  BotlyStudio.bindClick_('menu_load', function () {
     BotlyStudio.loadUserXmlFile();
     $('.button-collapse').sideNav('hide');
   });
-  BotlyStudio.bindClick_('menu_save', function() {
+  BotlyStudio.bindClick_('menu_save', function () {
     BotlyStudio.saveXmlFile();
     $('.button-collapse').sideNav('hide');
   });
-  BotlyStudio.bindClick_('menu_delete', function() {
+  BotlyStudio.bindClick_('menu_delete', function () {
     BotlyStudio.discardAllBlocks();
     $('.button-collapse').sideNav('hide');
   });
-  BotlyStudio.bindClick_('menu_settings', function() {
+  BotlyStudio.bindClick_('menu_settings', function () {
     BotlyStudio.openSettings();
     $('.button-collapse').sideNav('hide');
   });
   // Floating buttons
-  BotlyStudio.bindClick_('button_ide_large', function() {
+  BotlyStudio.bindClick_('button_ide_large', function () {
     BotlyStudio.ideButtonLargeAction();
   });
-  BotlyStudio.bindClick_('button_ide_middle', function() {
-      BotlyStudio.ideButtonMiddleAction();
+  BotlyStudio.bindClick_('button_ide_middle', function () {
+    BotlyStudio.ideButtonMiddleAction();
   });
-  BotlyStudio.bindClick_('button_ide_left', function() {
+  BotlyStudio.bindClick_('button_ide_left', function () {
     BotlyStudio.ideButtonLeftAction();
   });
 
@@ -63,20 +63,20 @@ BotlyStudio.bindActionFunctions = function() {
 
 };
 
-BotlyStudio.ideButtonLargeAction = function(){};
+BotlyStudio.ideButtonLargeAction = function () { };
 
-BotlyStudio.ideButtonMiddleAction = function(){};
+BotlyStudio.ideButtonMiddleAction = function () { };
 
-BotlyStudio.ideButtonLeftAction = function(){};
+BotlyStudio.ideButtonLeftAction = function () { };
 
 /** Initialises the IDE buttons with the default option from the server. */
-BotlyStudio.initialiseIdeButtons = function() {
+BotlyStudio.initialiseIdeButtons = function () {
   document.getElementById('button_ide_left').title =
-      BotlyStudio.getLocalStr('openSketch');
+    BotlyStudio.getLocalStr('openSketch');
   document.getElementById('button_ide_middle').title =
-      BotlyStudio.getLocalStr('verifySketch');
+    BotlyStudio.getLocalStr('verifySketch');
   document.getElementById('button_ide_large').title =
-      BotlyStudio.getLocalStr('uploadSketch');
+    BotlyStudio.getLocalStr('uploadSketch');
 };
 
 /**
@@ -84,7 +84,7 @@ BotlyStudio.initialiseIdeButtons = function() {
  * @param {!string} value One of the 3 possible values from the drop down select
  *     in the settings modal: 'upload', 'verify', or 'open'.
  */
-BotlyStudio.changeIdeButtons = function(value) {
+BotlyStudio.changeIdeButtons = function (value) {
   var largeButton = document.getElementById('button_ide_large');
   var middleButton = document.getElementById('button_ide_middle');
   var leftButton = document.getElementById('button_ide_left');
@@ -123,20 +123,20 @@ BotlyStudio.changeIdeButtons = function(value) {
  * Blockly workspace.
  * @param {!string} xmlFile Server location of the XML file to load.
  */
-BotlyStudio.loadServerXmlFile = function(xmlFile) {
-  var loadXmlfileAccepted = function() {
+BotlyStudio.loadServerXmlFile = function (xmlFile) {
+  var loadXmlfileAccepted = function () {
     // loadXmlBlockFile loads the file asynchronously and needs a callback
-    var loadXmlCb = function(sucess) {
+    var loadXmlCb = function (sucess) {
       if (sucess) {
         BotlyStudio.renderContent();
       } else {
         BotlyStudio.alertMessage(
-            BotlyStudio.getLocalStr('invalidXmlTitle'),
-            BotlyStudio.getLocalStr('invalidXmlBody'),
-            false);
+          BotlyStudio.getLocalStr('invalidXmlTitle'),
+          BotlyStudio.getLocalStr('invalidXmlBody'),
+          false);
       }
     };
-    var connectionErrorCb = function() {
+    var connectionErrorCb = function () {
     };
     BotlyStudio.loadXmlBlockFile(xmlFile, loadXmlCb, connectionErrorCb);
   };
@@ -145,9 +145,9 @@ BotlyStudio.loadServerXmlFile = function(xmlFile) {
     loadXmlfileAccepted();
   } else {
     BotlyStudio.alertMessage(
-        BotlyStudio.getLocalStr('loadNewBlocksTitle'),
-        BotlyStudio.getLocalStr('loadNewBlocksBody'),
-        true, loadXmlfileAccepted);
+      BotlyStudio.getLocalStr('loadNewBlocksTitle'),
+      BotlyStudio.getLocalStr('loadNewBlocksBody'),
+      true, loadXmlfileAccepted);
   }
 };
 
@@ -155,9 +155,9 @@ BotlyStudio.loadServerXmlFile = function(xmlFile) {
  * Loads an XML file from the users file system and adds the blocks into the
  * Blockly workspace.
  */
-BotlyStudio.loadUserXmlFile = function() {
+BotlyStudio.loadUserXmlFile = function () {
   // Create File Reader event listener function
-  var parseInputXMLfile = function(e) {
+  var parseInputXMLfile = function (e) {
     var xmlFile = e.target.files[0];
     var filename = xmlFile.name;
     var extensionPosition = filename.lastIndexOf('.');
@@ -166,16 +166,16 @@ BotlyStudio.loadUserXmlFile = function() {
     }
 
     var reader = new FileReader();
-    reader.onload = function() {
+    reader.onload = function () {
       var success = BotlyStudio.replaceBlocksfromXml(reader.result);
       if (success) {
         BotlyStudio.renderContent();
         BotlyStudio.sketchNameSet(filename);
       } else {
         BotlyStudio.alertMessage(
-            BotlyStudio.getLocalStr('invalidXmlTitle'),
-            BotlyStudio.getLocalStr('invalidXmlBody'),
-            false);
+          BotlyStudio.getLocalStr('invalidXmlTitle'),
+          BotlyStudio.getLocalStr('invalidXmlBody'),
+          false);
       }
     };
     reader.readAsText(xmlFile);
@@ -204,10 +204,10 @@ BotlyStudio.loadUserXmlFile = function() {
  * Creates an XML file containing the blocks from the Blockly workspace and
  * prompts the users to save it into their local file system.
  */
-BotlyStudio.saveXmlFile = function() {
+BotlyStudio.saveXmlFile = function () {
   BotlyStudio.saveTextFileAs(
-      document.getElementById('sketch_name').value + '.xml',
-      BotlyStudio.generateXml());
+    document.getElementById('sketch_name').value + '.xml',
+    BotlyStudio.generateXml());
 };
 
 
@@ -217,28 +217,28 @@ BotlyStudio.saveXmlFile = function() {
  * @param {!string} fileName Name for the file to be saved.
  * @param {!string} content Text datd to be saved in to the file.
  */
-BotlyStudio.saveTextFileAs = function(fileName, content) {
-  var blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
+BotlyStudio.saveTextFileAs = function (fileName, content) {
+  var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
   saveAs(blob, fileName);
 };
 
-BotlyStudio.openSettings = function() {
+BotlyStudio.openSettings = function () {
   // Language menu only set on page load within BotlyStudio.initLanguage()
   BotlyStudio.openSettingsModal();
 };
 
 
 /** Populate the workspace blocks with the XML written in the XML text area. */
-BotlyStudio.XmlTextareaToBlocks = function() {
+BotlyStudio.XmlTextareaToBlocks = function () {
   var success = BotlyStudio.replaceBlocksfromXml(
-      document.getElementById('content_xml').value);
+    document.getElementById('content_xml').value);
   if (success) {
     BotlyStudio.renderContent();
   } else {
     BotlyStudio.alertMessage(
-        BotlyStudio.getLocalStr('invalidXmlTitle'),
-        BotlyStudio.getLocalStr('invalidXmlBody'),
-        false);
+      BotlyStudio.getLocalStr('invalidXmlTitle'),
+      BotlyStudio.getLocalStr('invalidXmlBody'),
+      false);
   }
 };
 
@@ -247,19 +247,19 @@ BotlyStudio.XmlTextareaToBlocks = function() {
  * Populate the Arduino Code and Blocks XML panels with content generated from
  * the blocks.
  */
-BotlyStudio.renderContent = function() {
+BotlyStudio.renderContent = function () {
   // Only regenerate the code if a block is not being dragged
   if (BotlyStudio.blocklyIsDragging()) return;
 
   // Render Arduino Code with latest change highlight and syntax highlighting
 
   var outputCode = "";
-  if(BotlyStudio.OUTPUT_LANGUAGE == 1){
-	outputCode = BotlyStudio.generateArduino();
-  }else if(BotlyStudio.OUTPUT_LANGUAGE == 2){
-	outputCode = BotlyStudio.generatePython();
-  }else if(BotlyStudio.OUTPUT_LANGUAGE == 3){
-	outputCode = BotlyStudio.generateJavaScript();
+  if (BotlyStudio.OUTPUT_LANGUAGE == 1) {
+    outputCode = BotlyStudio.generateArduino();
+  } else if (BotlyStudio.OUTPUT_LANGUAGE == 2) {
+    outputCode = BotlyStudio.generatePython();
+  } else if (BotlyStudio.OUTPUT_LANGUAGE == 3) {
+    outputCode = BotlyStudio.generateJavaScript();
   }
 
 
@@ -269,10 +269,10 @@ BotlyStudio.renderContent = function() {
     for (var i = 0; i < diff.length; i++) {
       if (!diff[i].removed) {
         var escapedCode = diff[i].value.replace(/</g, '&lt;')
-                                       .replace(/>/g, '&gt;');
+          .replace(/>/g, '&gt;');
         if (diff[i].added) {
           resultStringArray.push(
-              '<span class="code_highlight_new">' + escapedCode + '</span>');
+            '<span class="code_highlight_new">' + escapedCode + '</span>');
         } else {
           resultStringArray.push(escapedCode);
         }
@@ -280,16 +280,16 @@ BotlyStudio.renderContent = function() {
     }
     BotlyStudio.PREV_OUTPUT_CODE_ = outputCode;
 
-	if(BotlyStudio.OUTPUT_LANGUAGE == 1){
-		document.getElementById('content_code').innerHTML =
-			prettyPrintOne(resultStringArray.join(''), 'cpp', false);
-	}else if(BotlyStudio.OUTPUT_LANGUAGE == 2){
-		document.getElementById('content_code').innerHTML =
-			prettyPrintOne(resultStringArray.join(''), 'py', false);
-	}else if(BotlyStudio.OUTPUT_LANGUAGE == 3){
-		document.getElementById('content_code').innerHTML =
-			prettyPrintOne(resultStringArray.join(''), 'js', false);
-	}
+    if (BotlyStudio.OUTPUT_LANGUAGE == 1) {
+      document.getElementById('content_code').innerHTML =
+        prettyPrintOne(resultStringArray.join(''), 'cpp', false);
+    } else if (BotlyStudio.OUTPUT_LANGUAGE == 2) {
+      document.getElementById('content_code').innerHTML =
+        prettyPrintOne(resultStringArray.join(''), 'py', false);
+    } else if (BotlyStudio.OUTPUT_LANGUAGE == 3) {
+      document.getElementById('content_code').innerHTML =
+        prettyPrintOne(resultStringArray.join(''), 'js', false);
+    }
 
   }
 
@@ -299,7 +299,7 @@ BotlyStudio.renderContent = function() {
 
 
 
-BotlyStudio.openCodeDialog = function(){
+BotlyStudio.openCodeDialog = function () {
   $('#code_dialog').openModal({
     dismissible: true,
     opacity: .5,
@@ -321,7 +321,7 @@ BotlyStudio.TOOLBAR_SHOWING_ = true;
  * Toggles the blockly toolbox and the BotlyStudio toolbox button On and Off.
  * Uses namespace member variable TOOLBAR_SHOWING_ to toggle state.
  */
-BotlyStudio.toogleToolbox = function() {
+BotlyStudio.toogleToolbox = function () {
   if (BotlyStudio.TOOLBAR_SHOWING_) {
     BotlyStudio.blocklyCloseToolbox();
     BotlyStudio.displayToolbox(false);
@@ -332,7 +332,7 @@ BotlyStudio.toogleToolbox = function() {
 };
 
 /** @return {boolean} Indicates if the toolbox is currently visible. */
-BotlyStudio.isToolboxVisible = function() {
+BotlyStudio.isToolboxVisible = function () {
   return BotlyStudio.TOOLBAR_SHOWING_;
 };
 
@@ -341,107 +341,99 @@ BotlyStudio.isToolboxVisible = function() {
  * Initialises any additional BotlyStudio extensions.
  * TODO: Loads the examples into the examples modal
  */
-BotlyStudio.importExtraBlocks = function() {
+BotlyStudio.importExtraBlocks = function () {
   /**
    * Parses the JSON data to find the block and languages js files.
    * @param {jsonDataObj} jsonDataObj JSON in JavaScript object format, null
    *     indicates an error occurred.
    * @return {undefined} Might exit early if response is null.
    */
-  var jsonDataCb = function(jsonDataObj) {
-    if (jsonDataObj.categories !== undefined) {
-      var head = document.getElementsByTagName('head')[0];
-      for (var catDir in jsonDataObj.categories) {
-        var blocksJsLoad = document.createElement('script');
-        blocksJsLoad.src = '../blocks/' + catDir + '/blocks.js';
-        head.appendChild(blocksJsLoad);
+  var jsonDataObj = BotlyStudio.BlocJSON;
 
-        var blocksLangJsLoad = document.createElement('script');
-        blocksLangJsLoad.src = '../blocks/' + catDir + '/msg/' + 'messages.js';
-            //'lang/' + BotlyStudio.LANG + '.js';
-        head.appendChild(blocksLangJsLoad);
+  if (jsonDataObj.categories !== undefined) {
+    var head = document.getElementsByTagName('head')[0];
+    for (var catDir in jsonDataObj.categories) {
+      var blocksJsLoad = document.createElement('script');
+      blocksJsLoad.src = 'blocks/' + catDir + '/blocks.js';
+      head.appendChild(blocksJsLoad);
 
-        var blocksGeneratorJsLoad = document.createElement('script');
-        blocksGeneratorJsLoad.src = '../blocks/' + catDir +
-            '/generator_arduino.js';
-        head.appendChild(blocksGeneratorJsLoad);
+      var blocksLangJsLoad = document.createElement('script');
+      blocksLangJsLoad.src = 'blocks/' + catDir + '/msg/' + 'messages.js';
+      //'lang/' + BotlyStudio.LANG + '.js';
+      head.appendChild(blocksLangJsLoad);
 
-        // Check if the blocks add additional BotlyStudio functionality
-        var extensions = jsonDataObj.categories[catDir].extensions;
-        if (extensions) {
-          for (var i = 0; i < extensions.length; i++) {
-            var blockExtensionJsLoad = document.createElement('script');
-            blockExtensionJsLoad.src = '../blocks/' + catDir + '/extensions.js';
-            head.appendChild(blockExtensionJsLoad);
-            // Add function to scheduler as lazy loading has to complete first
-            setTimeout(function(category, extension) {
-              var extensionNamespaces = extension.split('.');
-              var extensionCall = window;
-              var invalidFunc = false;
-              for (var j = 0; j < extensionNamespaces.length; j++) {
-                extensionCall = extensionCall[extensionNamespaces[j]];
-                if (extensionCall === undefined) {
-                  invalidFunc = true;
-                  break;
-                }
-              }
-              if (typeof extensionCall != 'function') {
+      var blocksGeneratorJsLoad = document.createElement('script');
+      blocksGeneratorJsLoad.src = 'blocks/' + catDir +
+        '/generator_bd.js';
+      head.appendChild(blocksGeneratorJsLoad);
+
+      var cat = jsonDataObj.categories[catDir];
+      var catDom = (new DOMParser()).parseFromString(
+        cat.toolbox.join(''), 'text/xml').firstChild;
+
+      BotlyStudio.addToolboxCategory(cat.toolboxName, catDom);
+
+      // Check if the blocks add additional BotlyStudio functionality
+      var extensions = jsonDataObj.categories[catDir].extensions;
+      if (extensions) {
+        for (var i = 0; i < extensions.length; i++) {
+          var blockExtensionJsLoad = document.createElement('script');
+          blockExtensionJsLoad.src = 'blocks/' + catDir + '/extensions.js';
+          head.appendChild(blockExtensionJsLoad);
+          // Add function to scheduler as lazy loading has to complete first
+          setTimeout(function (category, extension) {
+            var extensionNamespaces = extension.split('.');
+            var extensionCall = window;
+            var invalidFunc = false;
+            for (var j = 0; j < extensionNamespaces.length; j++) {
+              extensionCall = extensionCall[extensionNamespaces[j]];
+              if (extensionCall === undefined) {
                 invalidFunc = true;
+                break;
               }
-              if (invalidFunc) {
-                throw 'Blocks ' + category.categoryName + ' extension "' +
-                      extension + '" is not a valid function.';
-              } else {
-                extensionCall();
-              }
-            }, 800, jsonDataObj.categories[catDir], extensions[i]);
-          }
+            }
+            if (typeof extensionCall != 'function') {
+              invalidFunc = true;
+            }
+            if (invalidFunc) {
+              throw 'Blocks ' + category.categoryName + ' extension "' +
+              extension + '" is not a valid function.';
+            } else {
+              extensionCall();
+            }
+          }, 800, jsonDataObj.categories[catDir], extensions[i]);
         }
       }
     }
-  };
-  // Reads the JSON data containing all block categories from ./blocks directory
-  // TODO: Now reading a local file, to be replaced by server generated JSON
-  BotlyStudio.getJsonData('../blocks/blocks_data.json', jsonDataCb);
+  }
 };
 
 /** Opens a modal with a list of categories to add or remove to the toolbox */
-BotlyStudio.openExtraCategoriesSelect = function() {
-  /**
-   * Parses the JSON data from the server into a list of additional categories.
-   * @param {jsonDataObj} jsonDataObj JSON in JavaScript object format, null
-   *     indicates an error occurred.
-   * @return {undefined} Might exit early if response is null.
-   */
-  var jsonDataCb = function(jsonDataObj) {
-    var htmlContent = document.createElement('div');
-    if (jsonDataObj.categories !== undefined) {
-      for (var catDir in jsonDataObj.categories) {
-        // Function required to maintain each loop variable scope separated
-        (function(cat) {
-          var clickBind = function(tickValue) {
-            if (tickValue) {
-              var catDom = (new DOMParser()).parseFromString(
-                  cat.toolbox.join(''), 'text/xml').firstChild;
-              BotlyStudio.addToolboxCategory(cat.toolboxName, catDom);
-            } else {
-              BotlyStudio.removeToolboxCategory(cat.toolboxName);
-            }
-          };
-          htmlContent.appendChild(BotlyStudio.createExtraBlocksCatHtml(
-              cat.categoryName, cat.description, clickBind));
-        })(jsonDataObj.categories[catDir]);
-      }
+BotlyStudio.openExtraCategoriesSelect = function () {
+  var jsonDataObj = BotlyStudio.BlocJSON
+  var htmlContent = document.createElement('div');
+  if (jsonDataObj.categories !== undefined) {
+    for (var catDir in jsonDataObj.categories) {
+      // Function required to maintain each loop variable scope separated
+      (function (cat) {
+        var clickBind = function (tickValue) {
+          if (tickValue) {
+            var catDom = (new DOMParser()).parseFromString(
+              cat.toolbox.join(''), 'text/xml').firstChild;
+            BotlyStudio.addToolboxCategory(cat.toolboxName, catDom);
+          } else {
+            BotlyStudio.removeToolboxCategory(cat.toolboxName);
+          }
+        };
+        htmlContent.appendChild(BotlyStudio.createExtraBlocksCatHtml(
+          cat.categoryName, cat.description, clickBind));
+      })(jsonDataObj.categories[catDir]);
     }
-    BotlyStudio.openAdditionalBlocksModal(htmlContent);
-  };
-  // Reads the JSON data containing all block categories from ./blocks directory
-  // TODO: Now reading a local file, to be replaced by server generated JSON
-  BotlyStudio.getJsonData('../blocks/blocks_data.json', jsonDataCb);
+  }
 };
 
 /** Informs the user that the selected function is not yet implemented. */
-BotlyStudio.functionNotImplemented = function() {
+BotlyStudio.functionNotImplemented = function () {
   BotlyStudio.shortMessage('Function not yet implemented');
 };
 
@@ -454,7 +446,7 @@ BotlyStudio.functionNotImplemented = function() {
  * @param {string=|function=} callback If confirm option is selected this would
  *     be the function called when clicked 'OK'.
  */
-BotlyStudio.alertMessage = function(title, body, confirm, callback) {
+BotlyStudio.alertMessage = function (title, body, confirm, callback) {
   BotlyStudio.materialAlert(title, body, confirm, callback);
 };
 
@@ -462,7 +454,7 @@ BotlyStudio.alertMessage = function(title, body, confirm, callback) {
  * Interface to displays a short message, which disappears after a time out.
  * @param {!string} message Text to be temporarily displayed.
  */
-BotlyStudio.shortMessage = function(message) {
+BotlyStudio.shortMessage = function (message) {
   BotlyStudio.MaterialToast(message);
 };
 
@@ -473,12 +465,12 @@ BotlyStudio.shortMessage = function(message) {
  * @param {!function} func Event handler to bind.
  * @private
  */
-BotlyStudio.bindClick_ = function(el, func) {
+BotlyStudio.bindClick_ = function (el, func) {
   if (typeof el == 'string') {
     el = document.getElementById(el);
   }
   // Need to ensure both, touch and click, events don't fire for the same thing
-  var propagateOnce = function(e) {
+  var propagateOnce = function (e) {
     e.stopPropagation();
     e.preventDefault();
     func();
