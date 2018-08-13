@@ -109,7 +109,16 @@ SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
     room = SpriteManager.getRoomSubTree[roomKey];
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     path = basePath + "room/" + roomKey + "/background/" + background.filename;
-    return path;
+    if(path != null ) return path;
+    else return null;
+}
+
+SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
+    room = SpriteManager.getRoomSubTree[roomKey];
+    character = SpriteManager.getCharacterSubTree(roomKey)[characterKey];
+    path = basePath + "room/" + roomKey + "/character/" + characterKey + '/actions/' + character.actions[actionKey].filename;
+    if(path != null ) return path;
+    else return null;
 }
 
 SpriteManager.getDisplayNameArray = function(tree){
