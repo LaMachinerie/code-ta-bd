@@ -75,15 +75,14 @@ BotlyStudio.LOCALISED_TEXT = {
   blocksXml: "Blocs XML",
   /* Toolbox Categories*/
   catLogic: "Logique",
-  catLoops: "Scènes",
-  catMath: "Personnages",
+  catLoops: "Boucles",
+  catMath: "Math",
   catText: "Texte",
   catVariables: "Variables",
   catFunctions: "Fonctions",
   catInputOutput: "Entree/Sortie",
-  catTime: "Objets",
+  catTime: "Temps",
   catAudio: "Audio",
-  catBotly: "Botly",
   catMotors: "Moteurs",
   catComms: "Comms",
 };

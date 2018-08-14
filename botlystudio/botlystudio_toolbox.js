@@ -4,6 +4,46 @@
 var BotlyStudio = BotlyStudio || {};
 BotlyStudio.TOOLBOX_XML = null;
 
+
+BotlyStudio.BlocJSON = {
+	"categories": {
+	  "room": {
+		"categoryName": "scene",
+		"description": "Affiche la pièce selectionnée",
+		"languages": ["fr", "en"],
+		"toolboxName": "Scène",
+		"toolbox": [
+		  "  <category>",
+		  "    <block type=\"room\"></block>",
+		  "  </category>",
+		]
+	  },
+	  "character": {
+		"categoryName": "character",
+		"description": "Affiche les personnages selectionnée",
+		"languages": ["fr", "en"],
+		"toolboxName": "Personnages",
+		"toolbox": [
+		  "  <category>",
+		  "    <block type=\"character\"></block>",
+		  "  </category>",
+		]
+	  },
+	  "object": {
+		"categoryName": "object",
+		"description": "Affiche les objets selectionnée",
+		"languages": ["fr", "en"],
+		"toolboxName": "Objets",
+		"toolbox": [
+		  "  <category>",
+		  "    <block type=\"object\"></block>",
+		  "  </category>",
+		]
+	  },
+	}
+  }
+
+
 BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 1){
 		BotlyStudio.TOOLBOX_XML =

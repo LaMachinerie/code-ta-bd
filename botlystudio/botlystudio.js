@@ -299,7 +299,7 @@ BotlyStudio.renderContent = function () {
 
 
 
-BotlyStudio.openCodeDialog = function () {
+BotlyStudio.devTools = function () {
   $('#code_dialog').openModal({
     dismissible: true,
     opacity: .5,

@@ -2,6 +2,8 @@ var SpriteManager = SpriteManager || {};
 
 const basePath = "botlystudio/sprites/"
 
+const missingPath = basePath + "missingFile.png"
+
 const defaulTree = {
     room: { //Room array
         entrance: {
@@ -53,7 +55,7 @@ SpriteManager.Tree = defaulTree;
 SpriteManager.getRoomSubTree = function () {
     tree = SpriteManager.Tree;
     if (tree != null) return tree.room;
-    else return null;
+    else return defaultTree.room;
 }
 
 SpriteManager.getCharacterSubTree = function (room) {
@@ -63,7 +65,7 @@ SpriteManager.getCharacterSubTree = function (room) {
         if (roomJSON != null) return roomJSON.character
         else return null;
     }
-    else return null;
+    else return defaultTree.room.entrance.character;
 }
 
 
@@ -72,9 +74,9 @@ SpriteManager.getBackgroundSubTree = function (room) {
     if (tree != null) {
         roomJSON = tree[room];
         if (roomJSON != null) return roomJSON.background
-        else return null;
+        else return defaultTree.room.entrance.background;
     }
-    else return null;
+    else return defaultTree.room.entrance.background;
 }
 
 SpriteManager.getActionsSubTree = function (room, character) {
@@ -82,9 +84,9 @@ SpriteManager.getActionsSubTree = function (room, character) {
     if (tree != null) {
         characterJSON = tree[character];
         if (characterJSON != null) return characterJSON.actions
-        else return null;
+        else return defaultTree.room.entrance.character.actions;
     }
-    else return null;
+    else return defaultTree.room.entrance.character.actions;
 }
 
 SpriteManager.getJsonElementByName = function (json, name) {
@@ -93,7 +95,7 @@ SpriteManager.getJsonElementByName = function (json, name) {
             return subTree;
         }
     }
-    return null;
+    return json[0];
 }
 
 SpriteManager.getJsonElementById = function (json, id) {
@@ -102,7 +104,7 @@ SpriteManager.getJsonElementById = function (json, id) {
             return subTree;
         }
     }
-    return null;
+    return json[0];
 }
 
 SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
@@ -110,7 +112,7 @@ SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     path = basePath + "room/" + roomKey + "/background/" + background.filename;
     if(path != null ) return path;
-    else return null;
+    else return missingPath;
 }
 
 SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
@@ -118,14 +120,14 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
     character = SpriteManager.getCharacterSubTree(roomKey)[characterKey];
     path = basePath + "room/" + roomKey + "/character/" + characterKey + '/actions/' + character.actions[actionKey].filename;
     if(path != null ) return path;
-    else return null;
+    else return missingPath;
 }
 
 SpriteManager.getDisplayNameArray = function(tree){
     array = [];
     if(tree != null){
         for(obj in tree){
-            array.push(tree[obj].displayName);
+            array.push([tree[obj].displayName, obj]);
         }
     }
     return array;
