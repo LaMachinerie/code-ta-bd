@@ -255,8 +255,6 @@ BotlyStudio.resizeBlocklyWorkspace = function() {
   contentBlocks.style.width = wrapperPanelSize.width + 'px';
   contentBlocks.style.width =
       (2 * wrapperPanelSize.width - contentBlocks.offsetWidth) + 'px';
-	  
-  //Turtle.resizeCanvas();
 };
 
 /**

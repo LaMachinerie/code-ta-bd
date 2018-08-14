@@ -221,6 +221,7 @@ BotlyStudio.updateToolboxLanguage = function() {
   }
 };
 
+
 /**
  * Adds a category to the current toolbox.
  * @param {!string} categoryTitle Toolbox category title.
@@ -230,9 +231,12 @@ BotlyStudio.addToolboxCategory = function(categoryTitle, categoryDom) {
   categoryDom.id = 'cat' + categoryTitle.replace(/\s+/g, '');
   categoryDom.setAttribute('name', categoryTitle);
   BotlyStudio.xmlTree.appendChild(document.createElement('sep'));
-  BotlyStudio.xmlTree.appendChild(categoryDom);
-  BotlyStudio.workspace.updateToolbox(BotlyStudio.xmlTree);
+  BotlyStudio.xmlTree.appendChild(categoryDom);  
+  BotlyStudio.workspace.updateToolbox(this.xmlTree);
 };
+
+
+
 
 /**
  * Removes a category to the current toolbox.
@@ -260,6 +264,7 @@ BotlyStudio.blocklyCloseToolbox = function() {
 
 /** @return {!integer} The width of the blockly workspace toolbox. */
 BotlyStudio.blocklyToolboxWidth = function() {
+  BotlyStudio.workspace.toolbox_.position();
   return BotlyStudio.workspace.toolbox_.width;
 };
 

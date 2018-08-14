@@ -14,7 +14,13 @@ BotlyStudio.init = function () {
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
     BotlyStudio.TOOLBOX_XML, 'blockly/');
-  //BotlyStudio.importExtraBlocks();
+
+
+
+
+
+  BotlyStudio.importExtraBlocks();
+
 
   BotlyStudio.designJsInit();
   BotlyStudio.initialiseIdeButtons();
@@ -342,12 +348,7 @@ BotlyStudio.isToolboxVisible = function () {
  * TODO: Loads the examples into the examples modal
  */
 BotlyStudio.importExtraBlocks = function () {
-  /**
-   * Parses the JSON data to find the block and languages js files.
-   * @param {jsonDataObj} jsonDataObj JSON in JavaScript object format, null
-   *     indicates an error occurred.
-   * @return {undefined} Might exit early if response is null.
-   */
+
   var jsonDataObj = BotlyStudio.BlocJSON;
 
   if (jsonDataObj.categories !== undefined) {
@@ -372,6 +373,7 @@ BotlyStudio.importExtraBlocks = function () {
         cat.toolbox.join(''), 'text/xml').firstChild;
 
       BotlyStudio.addToolboxCategory(cat.toolboxName, catDom);
+      BotlyStudio.resizeToggleToolboxBotton();
 
       // Check if the blocks add additional BotlyStudio functionality
       var extensions = jsonDataObj.categories[catDir].extensions;
