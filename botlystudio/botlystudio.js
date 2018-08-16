@@ -19,7 +19,7 @@ BotlyStudio.init = function () {
 
 
 
-  BotlyStudio.importExtraBlocks();
+  //BotlyStudio.importExtraBlocks();
 
 
   BotlyStudio.designJsInit();
@@ -69,11 +69,17 @@ BotlyStudio.bindActionFunctions = function () {
 
 };
 
-BotlyStudio.ideButtonLargeAction = function () { };
+BotlyStudio.ideButtonLargeAction = function () {
+  Renderer.execute();
+};
 
-BotlyStudio.ideButtonMiddleAction = function () { };
+BotlyStudio.ideButtonMiddleAction = function () {
+  Renderer.reset();
+};
 
-BotlyStudio.ideButtonLeftAction = function () { };
+BotlyStudio.ideButtonLeftAction = function () {
+  BotlyStudio.devTools();
+};
 
 /** Initialises the IDE buttons with the default option from the server. */
 BotlyStudio.initialiseIdeButtons = function () {

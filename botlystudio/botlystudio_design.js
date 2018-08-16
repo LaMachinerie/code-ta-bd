@@ -451,7 +451,7 @@ BotlyStudio.contentHeightToggle = function() {
   // small screens as the minimum height of the content will kick in and cause
   // the content to be behind the IDE output data anyway.
   if (!outputHeader.className.match('active') && $(window).height() > 800) {
-    blocks.className = 'content height_transition blocks_panel_small';
+    //blocks.className = 'content height_transition blocks_panel_small';
     arduino.className = 'content height_transition content_arduino_small';
     xml.className = 'content height_transition content_xml_small';
   } else {
@@ -462,7 +462,7 @@ BotlyStudio.contentHeightToggle = function() {
 
   // If the height transition CSS is left then blockly does not resize
   setTimeout(function() {
-    blocks.className = blocks.className.replace('height_transition', '');
+    //blocks.className = blocks.className.replace('height_transition', '');
     arduino.className = arduino.className.replace('height_transition', '');
     xml.className = xml.className.replace('height_transition', '');
   }, 400);

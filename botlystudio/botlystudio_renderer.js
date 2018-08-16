@@ -2,13 +2,16 @@
 
 var Renderer = Renderer || {};
 
-Renderer.numSprites = 0,
-    Renderer.sprites = [];
-    Renderer.canvas = null;
-
+Renderer.interpreter = null;
+Renderer.numSprites = 0;
+Renderer.sprites = [];
+Renderer.canvas = null;
+Renderer.pidList = [];
+Renderer.pause = 10;
 
 Renderer.init = function () {
     Renderer.canvas = document.getElementById("display");
+    Renderer.reset();
 };
 
 Renderer.renderSprites = function () {
@@ -35,11 +38,11 @@ Renderer.sprite = function (options) {
 
         // Draw the animation
         that.context.drawImage(
-		    that.image,
-		    (that.x),
-		    (that.y),
-		    that.width * that.scaleRatio,
-		    that.height * that.scaleRatio);
+            that.image,
+            (that.x),
+            (that.y),
+            that.width * that.scaleRatio,
+            that.height * that.scaleRatio);
         return true;
     };
 
@@ -50,9 +53,21 @@ Renderer.sprite = function (options) {
     return that;
 }
 
+Renderer.destroySprite = function (sprite) {
+
+    var i;
+
+    for (i = 0; i < sprites.length; i += 1) {
+        if (sprites[i] === sprite) {
+            sprites[i] = null;
+            sprites.splice(i, 1);
+            break;
+        }
+    }
+}
 
 
-Renderer.spawnSprite = function(path) {
+Renderer.spawnSprite = function (path) {
 
     var spriteIndex,
         spriteImg;
@@ -60,8 +75,9 @@ Renderer.spawnSprite = function(path) {
     // Create sprite sheet
     spriteImg = new Image();
 
-    spriteImg.onload = function() {
+    spriteImg.onload = function () {
         console.log("Loaded !");
+        Renderer.renderSprites();
     };
 
 
@@ -95,14 +111,14 @@ Renderer.setBackGround = function (path) {
 };
 
 
-Renderer.moveSprite = function(id, x,y){
+Renderer.moveSprite = function (id, x, y) {
     Renderer.sprites[id].x = x;
     Renderer.sprites[id].y = y;
 
     Renderer.renderSprites();
 }
 
-Renderer.scaleSprite = function(id, scale){
+Renderer.scaleSprite = function (id, scale) {
     Renderer.sprites[id].scaleRatio = scale;
 
     Renderer.renderSprites();
@@ -116,8 +132,8 @@ Renderer.calculateAspectRatio = function (image) {
     var AspectRatio = new Object();
     // If image's aspect ratio is less than canvas's we fit on height
     // and place the image centrally along width
-    if(imageAspectRatio < canvasAspectRatio) {
-        renderableHeight = canvas.height ;
+    if (imageAspectRatio < canvasAspectRatio) {
+        renderableHeight = canvas.height;
         renderableWidth = image.width * (renderableHeight / image.height);
         xStart = (canvas.width - renderableWidth) / 2;
         yStart = 0;
@@ -125,16 +141,16 @@ Renderer.calculateAspectRatio = function (image) {
 
     // If image's aspect ratio is greater than canvas's we fit on width
     // and place the image centrally along height
-    else if(imageAspectRatio > canvasAspectRatio) {
+    else if (imageAspectRatio > canvasAspectRatio) {
         renderableWidth = canvas.width;
         renderableHeight = image.height * (renderableWidth / image.width);
         xStart = 0;
-        yStart = ( canvas.width  - renderableHeight) / 2;
+        yStart = (canvas.width - renderableHeight) / 2;
     }
 
     //keep aspect ratio
     else {
-        renderableHeight =  canvas.height ;
+        renderableHeight = canvas.height;
         renderableWidth = canvas.width;
         xStart = 0;
         yStart = 0;
@@ -145,3 +161,108 @@ Renderer.calculateAspectRatio = function (image) {
     AspectRatio.startY = yStart;
     return AspectRatio;
 }
+
+Renderer.reset = function () {
+    // Kill all tasks.
+    for (var i = 0; i < Renderer.pidList.length; i++) {
+        window.clearTimeout(Renderer.pidList[i]);
+    }
+    Renderer.pidList.length = 0;
+    Renderer.interpreter = null;
+
+    var canvasStyle = document.getElementById("display").style;
+    canvasStyle.background = "#ffffff";
+
+    Renderer.canvas.getContext("2d").fillStyle = '#F2F2F2';
+    Renderer.canvas.getContext("2d").fill();
+
+    Renderer.sprites = [];
+    Renderer.renderSprites();
+}
+
+
+Renderer.execute = function () {
+    if (!('Interpreter' in window)) {
+        // Interpreter lazy loads and hasn't arrived yet.  Try again later.
+        setTimeout(Renderer.execute, 250);
+        return;
+    }
+
+    Renderer.reset();
+    var code = BotlyStudio.generateJavaScript();
+    Renderer.interpreter = new Interpreter(code, Renderer.initInterpreter);
+    Renderer.pidList.push(setTimeout(Renderer.executeChunk_, 100));
+}
+
+
+Renderer.initInterpreter = function (interpreter, scope) {
+    // API
+    var wrapper;
+    wrapper = function (room, background) {
+        Renderer.setBackGround(SpriteManager.getBackgroundPath(room, background))
+    };
+    interpreter.setProperty(scope, 'room',
+        interpreter.createNativeFunction(wrapper));
+
+    wrapper = function (room, character, action) {
+        Renderer.spawnSprite(SpriteManager.getCharacterPath(room, character, action));
+        Renderer.renderSprites();
+    };
+    interpreter.setProperty(scope, 'character',
+        interpreter.createNativeFunction(wrapper));
+
+
+    wrapper = function (id) {
+        console.log("Not implemented");
+    };
+    interpreter.setProperty(scope, 'none',
+        interpreter.createNativeFunction(wrapper));
+};
+
+
+
+
+Renderer.map = function (x, in_min, in_max, out_min, out_max) {
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+};
+
+
+Renderer.executeChunk_ = function () {
+    // All tasks should be complete now.  Clean up the PID list.
+    Renderer.pidList.length = 0;
+    var stepSpeed = BotlyStudio.speedSlider.getValue();
+    Renderer.pause = Renderer.map(stepSpeed, 0, 1, 40, 0) + 1;
+    var go;
+    do {
+        try {
+            go = Renderer.interpreter.step();
+        } catch (e) {
+            // User error, terminate in shame.
+            alert(e);
+            go = false;
+        }
+        if (go && Renderer.pause) {
+            // The last executed command requested a pause.
+            go = false;
+            Renderer.pidList.push(
+                setTimeout(Renderer.executeChunk_, Renderer.pause));
+        }
+    } while (go);
+    // Wrap up if complete.
+    if (!Renderer.pause) {
+        BotlyStudio.workspace.highlightBlock(null);
+        // Image complete; allow the user to submit this image to Reddit.
+        Renderer.canSubmit = true;
+    }
+};
+
+
+Renderer.animate = function (id) {
+    Renderer.display();
+    if (id) {
+        BotlyStudio.workspace.highlightBlock(id);
+        // Scale the speed non-linearly, to give better precision at the fast end.
+        var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
+        Renderer.pause = Math.max(1, stepSpeed);
+    }
+};

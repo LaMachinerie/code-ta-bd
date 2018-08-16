@@ -4,58 +4,11 @@ const basePath = "botlystudio/sprites/"
 
 const missingPath = basePath + "missingFile.png"
 
-const defaulTree = {
-    room: { //Room array
-        entrance: {
-            key: "entrance",
-            id: "0",
-            displayName: "Entrée",
-            character: { //Character array
-                maman: {
-                    key: "maman",
-                    id: "0",
-                    displayName: "Maman",
-                    actions: { //Actions array
-                        calling: {
-                            key: "calling",
-                            id: "0",
-                            displayName: "appelle",
-                            filename: "calling.png"
-                        },
-                        down: {
-                            key: "down",
-                            id: "1",
-                            displayName: "descend",
-                            filename: "down.png"
-                        }
-                    }
-                }
-            },
-            background: {
-                day: {
-                    key: "day",
-                    id: "0",
-                    displayName: "jour",
-                    filename: "day.png"
-                },
-                night: {
-                    key: "night",
-                    id: "1",
-                    displayName: "nuit",
-                    filename: "night.png"
-                }
-            }
-        }
-    }
-}
-
-
-SpriteManager.Tree = defaulTree;
 
 SpriteManager.getRoomSubTree = function () {
     tree = SpriteManager.Tree;
     if (tree != null) return tree.room;
-    else return defaultTree.room;
+    else return SpriteManager.defaultTree.room;
 }
 
 SpriteManager.getCharacterSubTree = function (room) {
@@ -65,7 +18,7 @@ SpriteManager.getCharacterSubTree = function (room) {
         if (roomJSON != null) return roomJSON.character
         else return null;
     }
-    else return defaultTree.room.entrance.character;
+    else return SpriteManager.defaultTree.room.entrance.character;
 }
 
 
@@ -74,9 +27,9 @@ SpriteManager.getBackgroundSubTree = function (room) {
     if (tree != null) {
         roomJSON = tree[room];
         if (roomJSON != null) return roomJSON.background
-        else return defaultTree.room.entrance.background;
+        else return SpriteManager.defaultTree.room.entrance.background;
     }
-    else return defaultTree.room.entrance.background;
+    else return SpriteManager.defaultTree.room.entrance.background;
 }
 
 SpriteManager.getActionsSubTree = function (room, character) {
@@ -84,9 +37,9 @@ SpriteManager.getActionsSubTree = function (room, character) {
     if (tree != null) {
         characterJSON = tree[character];
         if (characterJSON != null) return characterJSON.actions
-        else return defaultTree.room.entrance.character.actions;
+        else return SpriteManager.defaultTree.room.entrance.character.actions;
     }
-    else return defaultTree.room.entrance.character.actions;
+    else return SpriteManager.defaultTree.room.entrance.character.actions;
 }
 
 SpriteManager.getJsonElementByName = function (json, name) {
@@ -111,25 +64,50 @@ SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
     room = SpriteManager.getRoomSubTree[roomKey];
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     path = basePath + "room/" + roomKey + "/background/" + background.filename;
-    if(path != null ) return path;
+    if (path != null) return path;
     else return missingPath;
 }
 
 SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
+    if (characterKey == "missing") return missingPath;
     room = SpriteManager.getRoomSubTree[roomKey];
     character = SpriteManager.getCharacterSubTree(roomKey)[characterKey];
     path = basePath + "room/" + roomKey + "/character/" + characterKey + '/actions/' + character.actions[actionKey].filename;
-    if(path != null ) return path;
+    if (path != null) return path;
     else return missingPath;
 }
 
-SpriteManager.getDisplayNameArray = function(tree){
+SpriteManager.getDisplayNameArray = function (tree) {
     array = [];
-    if(tree != null){
-        for(obj in tree){
+    if (tree != null) {
+        for (obj in tree) {
             array.push([tree[obj].displayName, obj]);
         }
     }
-    if(array[0] != null) return array;
-    else return [["Default","maman"]];
+    if (array[0] != null) return array;
+    else return [["Default", "missing"]];
 }
+
+
+/*
+SpriteManager.addActionsBranch = function (room, character, actions) {
+    tree = SpriteManager.Tree;
+    if (tree.room[room] != null) {
+        if ()
+    }
+}
+
+SpriteManager.addBackgroundBranch = function (room, ,background, displayName, filename) {
+    tree = SpriteManager.Tree;
+    if (tree.room[room] != null) {
+        if (tree.room[room].background[background] != null) console.log("Already exist");
+        else tree.room[room].background[background] = {
+            key: background,
+            id: "",
+            displayName: displayName,
+            filename: filename
+        }
+    } console.log(room + " does not exist !");
+}
+
+*/

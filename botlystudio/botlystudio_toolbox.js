@@ -15,6 +15,7 @@ BotlyStudio.BlocJSON = {
 		"toolbox": [
 		  "  <category>",
 		  "    <block type=\"room\"></block>",
+		  "    <block type=\"light\"></block>",
 		  "  </category>",
 		]
 	  },
@@ -48,22 +49,17 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 1){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
-		'  <category id="catLoops" name="Loops">' +
-		'    <block type="controls_repeat_ext">' +
-		'      <value name="TIMES">' +
-		'        <block type="math_number">' +
-		'          <field name="NUM">5</field>' +
-		'        </block>' +
-		'      </value>' +
-		'    </block>' +
+		'  <category id="room" name="Scènes">' +
+		'    <block type="room"></block>' +
+		'    <block type="light"></block>' +
 		'  </category>' +
 		'  <sep></sep>' +
-		'  <category id="catMath" name="Math">' +
-		'    <block type="math_number"></block>' +
+		'  <category id="character" name="Personnages">' +
+		'    <block type="character"></block>' +
 		'  </category>' +
 		'  <sep></sep>' +
-		'  <category id="catTime" name="Time">' +
-		'    <block type="infinite_loop"></block>' +
+		'  <category id="object" name="Objet">' +
+		'    <block type="object"></block>' +
 		'  </category>' +
 		'</xml>';
 
@@ -73,6 +69,18 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 2){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
+		'  <category id="room" name="Scènes">' +
+		'    <block type="room"></block>' +
+		'    <block type="light"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="character" name="Personnages">' +
+		'    <block type="character"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="object" name="Objet">' +
+		'    <block type="object"></block>' +
+		'  </category>' +
 		'  <category id="catLoops" name="Loops">' +
 		'    <block type="controls_repeat_ext">' +
 		'      <value name="TIMES">' +
@@ -130,6 +138,18 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 3){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
+		'  <category id="room" name="Scènes">' +
+		'    <block type="room"></block>' +
+		'    <block type="light"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="character" name="Personnages">' +
+		'    <block type="character"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="object" name="Objet">' +
+		'    <block type="object"></block>' +
+		'  </category>' +
 		'  <category id="catLogic" name="Logic">' +
 		'    <block type="controls_if"></block>' +
 		'    <block type="logic_compare"></block>' +
@@ -250,6 +270,18 @@ BotlyStudio.changeToolbox = function(){
 	if(BotlyStudio.DIFFICULTY == 4){
 		BotlyStudio.TOOLBOX_XML =
 		'<xml>' +
+		'  <category id="room" name="Scènes">' +
+		'    <block type="room"></block>' +
+		'    <block type="light"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="character" name="Personnages">' +
+		'    <block type="character"></block>' +
+		'  </category>' +
+		'  <sep></sep>' +
+		'  <category id="object" name="Objet">' +
+		'    <block type="object"></block>' +
+		'  </category>' +
 		'  <category id="catLogic" name="Logic">' +
 		'    <block type="controls_if"></block>' +
 		'    <block type="logic_compare"></block>' +
