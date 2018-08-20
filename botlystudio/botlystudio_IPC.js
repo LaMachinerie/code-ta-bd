@@ -3,55 +3,64 @@
 
 /** Create a name space for the application. */
 var BotlyStudioIPC = {};
-const electron = require('electron');
-
-
-const ipc = electron.ipcRenderer;
 
 
 BotlyStudioIPC.pendingRequest = 0;
 
 BotlyStudioIPC.initIPC = function () {
-  ipc.on('get-json-response', function (event, json_str, flag, roomKey, characterKey) {
-    BotlyStudioIPC.pendingRequest --;
-    var json = JSON.parse(json_str);
-    if (json != null) {
-      switch (flag) {
-        case 'root':
-          SpriteManager.processRootJson(json);
-          break;
-        case 'room':
-          SpriteManager.processRoomJson(json, roomKey);
-          break;
-        case 'character':
-          SpriteManager.processCharacterJson(json, roomKey);
-          break;
-        case 'background':
-          SpriteManager.processBackgroundJson(json, roomKey);
-          break;
-        case 'actions':
-          SpriteManager.processActionsJson(json, roomKey, characterKey);
-          break;
-        default :
-          console.log("Unknown flag : " + flag);
-      }
-    }
-    if(BotlyStudioIPC.pendingRequest <= 0){
-      BotlyStudioIPC.pendingRequest = 0;
-      SpriteManager.saveTree();
-    }
-  });
+
 }
 
 
 
+BotlyStudioIPC.processResponse = function (json_str, flag, roomKey, characterKey) {
+  BotlyStudioIPC.pendingRequest--;
+  var json = JSON.parse(json_str);
+  if (json != null) {
+    switch (flag) {
+      case 'root':
+        SpriteManager.processRootJson(json);
+        break;
+      case 'room':
+        SpriteManager.processRoomJson(json, roomKey);
+        break;
+      case 'character':
+        SpriteManager.processCharacterJson(json, roomKey);
+        break;
+      case 'background':
+        SpriteManager.processBackgroundJson(json, roomKey);
+        break;
+      case 'actions':
+        SpriteManager.processActionsJson(json, roomKey, characterKey);
+        break;
+      default:
+        console.log("Unknown flag : " + flag);
+    }
+  }
+  if (BotlyStudioIPC.pendingRequest <= 0) {
+    BotlyStudioIPC.pendingRequest = 0;
+    SpriteManager.saveTree();
+  }
+};
+
+
+
 BotlyStudioIPC.getJson = function (path, flag, keyA, keyB) {
-  ipc.send('get-json', "botlystudio/sprites/room/" + path, flag, keyA, keyB);
-  BotlyStudioIPC.pendingRequest ++;
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', 'my_data.json', true); // Replace 'my_data' with the path to your file
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+      BotlyStudioIPC.processResponse(xobj.responseText,flag, keyA, keyB);
+    }
+  };
+  xobj.send(null);
+  BotlyStudioIPC.pendingRequest++;
 };
 
 BotlyStudioIPC.addJsonElement = function (path, jsonElement) {
-  ipc.send('add-json-element', "botlystudio/sprites/room/" + path, flag, keyA, keyB);
+
 };
 
 
