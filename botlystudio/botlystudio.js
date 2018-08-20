@@ -1,7 +1,7 @@
 'use strict';
 /** Create a namespace for the application. */
 var BotlyStudio = BotlyStudio || {};
-
+var SpriteManager = SpriteManager || {};
 /** Initialize function for BotlyStudio, to be called on page load. */
 BotlyStudio.init = function () {
   // Lang init must run first for the rest of the page to pick the right msgs
@@ -10,6 +10,7 @@ BotlyStudio.init = function () {
   BotlyStudio.initDifficulty();
   Renderer.init();
   BotlyStudio.initSlider();
+  SpriteManager.importTreeJson();
 
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),

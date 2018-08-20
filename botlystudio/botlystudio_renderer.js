@@ -77,7 +77,7 @@ Renderer.spawnSprite = function (path) {
 
     spriteImg.onload = function () {
         console.log("Loaded !");
-        Renderer.renderSprites();
+        Renderer.sprites[spriteIndex].render();
     };
 
 
@@ -99,7 +99,7 @@ Renderer.spawnSprite = function (path) {
     // Load sprite sheet
     spriteImg.src = path;
 
-    Renderer.renderSprites();
+    Renderer.sprites[spriteIndex].render();
 }
 
 

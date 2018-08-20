@@ -10,7 +10,7 @@ SpriteManager.defaultTree = {
                 maman: {
                     key: "maman",
                     id: "0",
-                    displayName: "Maman",
+                    displayName: "la maman",
                     actions: { //Actions array
                         calling: {
                             key: "calling",
@@ -23,42 +23,63 @@ SpriteManager.defaultTree = {
                             id: "1",
                             displayName: "descend l'escalier",
                             filename: "down.png"
-                        },
+                        }
+                    }
+                },
+                papa: {
+                    key: "papa",
+                    id: "1",
+                    displayName: "le papa",
+                    actions: { //Actions array
+                        up: {
+                            key: "up",
+                            id: "0",
+                            displayName: "monte l'escalier",
+                            filename: "up.png"
+                        }
+                    }
+                },
+                kid: {
+                    key: "kid",
+                    id: "2",
+                    displayName: "l'enfant",
+                    actions: {
                         go_out: {
                             key: "go_out",
-                            id: "2",
+                            id: "0",
                             displayName: "sort par la porte",
                             filename: "go_out.png"
                         },
-                        wear_jacket: {
-                            key: "wear_jacket",
-                            id: "3",
-                            displayName: "met son manteau",
-                            filename: "wear_jacket.png"
+                        climb_up: {
+                            key: "climb_up",
+                            id: "1",
+                            displayName: "monte l'escalier en courant",
+                            filename: "climb_up.png"
+                        }
+                    }
+                },
+                cat: {
+                    key: "cat",
+                    id: "3",
+                    displayName: "le chat",
+                    actions: {
+                        affraid_cat: {
+                            key: "affraid_cat",
+                            id: "0",
+                            displayName: "est surpris",
+                            filename: "affraid_cat.png"
                         },
-                        speaking: {
-                            key: "speaking",
-                            id: "4",
-                            displayName: "monte l'escalier en parlant",
-                            filename: "speaking.png"
+                        cat_down: {
+                            key: "cat_down",
+                            id: "1",
+                            displayName: "descend l'escalier",
+                            filename: "cat_down.png"
                         },
-                        down_slow: {
-                            key: "down_slow",
-                            id: "5",
-                            displayName: "descend l'escalier prudemment",
-                            filename: "down_slow.png"
-                        },
-                        up: {
-                            key: "up",
-                            id: "6",
-                            displayName: "monte l'escalier",
-                            filename: "up.png"
-                        },
-                        up_nuisette: {
-                            key: "up_nuisette",
-                            id: "7",
-                            displayName: "monte l'escalier en pyjama",
-                            filename: "up_nuisette.png"
+                        drunk_cat: {
+                            key: "drunk_cat",
+                            id: "2",
+                            displayName: "est ivre",
+                            filename: "drunk_cat.png"
                         }
                     }
                 }
@@ -82,51 +103,6 @@ SpriteManager.defaultTree = {
             key: "bedRoom",
             id: "1",
             displayName: "Chambre des parents",
-            character: { //Character array
-            },
-            background: {
-                day: {
-                    key: "day",
-                    id: "0",
-                    displayName: "jour",
-                    filename: "day.png"
-                }
-            }
-        },
-        kidRoom: {
-            key: "kidRoom",
-            id: "2",
-            displayName: "Chambre de l'enfant",
-            character: { //Character array
-            },
-            background: {
-                day: {
-                    key: "day",
-                    id: "0",
-                    displayName: "jour",
-                    filename: "day.png"
-                }
-            }
-        },
-        kitchen: {
-            key: "kitchen",
-            id: "3",
-            displayName: "Cuisine",
-            character: { //Character array
-            },
-            background: {
-                day: {
-                    key: "day",
-                    id: "0",
-                    displayName: "jour",
-                    filename: "day.png"
-                }
-            }
-        },
-        roof: {
-            key: "roof",
-            id: "4",
-            displayName: "Toît",
             character: { //Character array
             },
             background: {
