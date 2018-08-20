@@ -116,24 +116,24 @@ SpriteManager.saveTree = function(){
 
 SpriteManager.processRootJson = function (rootJson) {
     for (roomKey in rootJson) {
-        if (SpriteManager.treeBuffer[roomKey] == null)
-            SpriteManager.treeBuffer[roomKey] = rootJson[roomKey];
+        if (SpriteManager.Tree.room[roomKey] == null)
+            SpriteManager.Tree.room[roomKey] = rootJson[roomKey];
         BotlyStudioIPC.getJson(roomKey + "/tree.json", 'room', roomKey, null);
     }
 }
 
 SpriteManager.processRoomJson = function (roomJson, roomKey) {
     for (cat in roomJson) {
-        if (SpriteManager.treeBuffer[roomKey][cat] == null)
-            SpriteManager.treeBuffer[roomKey][cat] = {};
+        if (SpriteManager.Tree.room[roomKey][cat] == null)
+            SpriteManager.Tree.room[roomKey][cat] = {};
         BotlyStudioIPC.getJson(roomKey + "/" + cat + "/tree.json", cat, roomKey, null); //Get each cat
     }
 }
 
 SpriteManager.processCharacterJson = function (characterJson, roomKey) {
     for (characterKey in characterJson) {
-        if (SpriteManager.treeBuffer[roomKey].character[characterKey] == null)
-            SpriteManager.treeBuffer[roomKey].character[characterKey] = characterJson[characterKey];
+        if (SpriteManager.Tree.room[roomKey].character[characterKey] == null)
+            SpriteManager.Tree.room[roomKey].character[characterKey] = characterJson[characterKey];
         BotlyStudioIPC.getJson(roomKey + "/character/" + characterKey  + "/actions/tree.json", 'actions', roomKey, characterKey);
     }
 }
@@ -142,15 +142,15 @@ SpriteManager.processActionsJson = function (actionsJson, roomKey, characterKey)
     for (actionsKey in actionsJson) {
         console.log(actionsJson);
         console.log('\n ********** \n' + roomKey + '\n ********** \n' + characterKey);
-        if (SpriteManager.treeBuffer[roomKey].character[characterKey].actions[actionsKey] == null)
-            SpriteManager.treeBuffer[roomKey].character[characterKey].actions[actionsKey] = actionsJson[actionsKey];
+        if (SpriteManager.Tree.room[roomKey].character[characterKey].actions[actionsKey] == null)
+            SpriteManager.Tree.room[roomKey].character[characterKey].actions[actionsKey] = actionsJson[actionsKey];
     }
 }
 
 SpriteManager.processBackgroundJson = function (backgroundJson, roomKey) {
     for (backgroundKey in backgroundJson) {
-        if (SpriteManager.treeBuffer[roomKey].background[backgroundKey] == null)
-            SpriteManager.treeBuffer[roomKey].background[backgroundKey] = backgroundJson[backgroundKey];
+        if (SpriteManager.Tree.room[roomKey].background[backgroundKey] == null)
+            SpriteManager.Tree.room[roomKey].background[backgroundKey] = backgroundJson[backgroundKey];
     }
 }
 
