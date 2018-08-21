@@ -85,7 +85,7 @@
         </li>
         <li id="menu_load">
           <a href="#">
-            <i class="material-icons left" style="line-height: 2">folder</i>
+            <i class="medium material-icons left" style="line-height: 2">folder</i>
             <span class="translatable_open">Ouvrir</span>
           </a>
         </li>
@@ -107,16 +107,10 @@
             <i class="mdi-action-settings left"></i>
           </a>
         </li>
-        <li id="menu_wiki">
-          <a href="https://github.com/LaMachinerie/BotlyStudio-Scott/wiki" target="_blank">
-            <span class="translatable_documentation">Documentation</span>
-            <i class="mdi-action-help left"></i>
-          </a>
-        </li>
-        <li id="menu_bug">
-          <a href="http://github.com/LaMachinerie/BotlyStudio-JS/issues" target="_blank">
-            <span class="translatable_reportBug">Signaler un Bug</span>
-            <i class="mdi-action-bug-report left"></i>
+        <li id="menu_sprite">
+          <a href="#">
+            <i class="medium material-icons left" style="line-height: 2">note_add</i>
+            <span class="translatable_open">Ajouter un sprite</span>
           </a>
         </li>
       </ul>
@@ -125,7 +119,7 @@
           <li>
             <div class="collapsible-header">
               <span class="translatable_examples">Exemples</span>
-              <i class="material-icons left" style="line-height: 2">lightbulb_outline</i>
+              <i class="medium material-icons left" style="line-height: 2">lightbulb_outline</i>
               <i class="mdi-navigation-arrow-drop-down right"></i>
             </div>
             <div class="collapsible-body">
@@ -148,21 +142,26 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l7" style="position:relative">
+        <a href="#" class="button" id="downloadImg" hidden></a>
         <!-- Toolbox visibility button -->
         <a id="button_toggle_toolbox" class="waves-effect waves-light btn-flat button_toggle_toolbox_off" style="display: none">
           <i id="button_toggle_toolbox_icon" class="mdi-action-visibility-off"></i>
         </a>
         <!-- Arduino IDE action buttons -->
         <div id="ide_buttons_wrapper">
-          <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow">
+          <a id="button_ide_last" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow">
             <i class="material-icons">code</i>
+          </a>          
+          <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange">
+            <i class="material-icons">photo</i>
           </a>
-          <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_teal">
+          <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_red">
             <i class="material-icons">delete</i>
           </a>
-          <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange">
+          <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_blue">
             <i class="material-icons left">play_arrow</i>
           </a>
+          
           <div id="button_ide_large_spinner" class="preloader-wrapper active ide_loader" style="display:none">
             <div class="spinner-layer spinner-orange">
               <div class="circle-clipper left">
@@ -257,8 +256,7 @@
                 <clipPath id="fastClipPath">
                   <rect width="26" height="16" x="120" y="10"></rect>
                 </clipPath>
-                <image xlink:href="botlystudio/slider/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)">
-                  </image-->
+                <image xlink:href="botlystudio/slider/icons.png" height="42" width="84" x="120" y="-11" clip-path="url(#fastClipPath)"></image-->
                   <line class="sliderTrack" x1="10" y1="35" x2="140" y2="35"></line>
                   <rect style="opacity: 0" x="-10" y="15" width="170" height="40" rx="20" ry="20"></rect>
                   <path class="sliderKnob" d="m 0,0 l -8,8 v 12 h 16 v -12 z" transform="translate(75,23)"></path>
@@ -295,48 +293,49 @@
     </div>
   </div>
 
-  <div id="sprite_dialog" class="modal modal-fixed-footer"></div>
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-        <label for="disabled">Disabled</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        This is an inline input field:
-        <div class="input-field inline">
-          <input id="email_inline" type="email" class="validate">
-          <label for="email_inline">Email</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+  <div id="sprite_dialog" class="modal modal-fixed-footer">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
         </div>
       </div>
-    </div>
-  </form>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email_inline" type="email" class="validate">
+            <label for="email_inline">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
+
 
   <!-- Select Additional Blocks menu -->
   <div id="blocks_menu" class="modal modal-fixed-footer">
@@ -358,8 +357,7 @@
   <!-- General Alert: Content is loaded using JavaScript to display alerts -->
   <div id="gen_alert" class="modal modal_small modal-fixed-footer">
     <div class="modal-content">
-      <h5 id="gen_alert_title">Empty Alert
-        </h4>
+      <h5 id="gen_alert_title">Empty Alert</h4>
         <p>
           <span id="gen_alert_body">Empty alert text</span>
         </p>
@@ -393,9 +391,6 @@
       </a>
     </div>
   </div>
-
-
-
 
 
   <!-- jQuery and Materialize JS -->

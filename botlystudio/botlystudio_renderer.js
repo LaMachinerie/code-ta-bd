@@ -15,7 +15,7 @@ Renderer.init = function () {
 };
 
 Renderer.renderSprites = function () {
-    Renderer.canvas.getContext("2d").clearRect(0, 0, Renderer.canvas.width, Renderer.canvas.height);
+    //Renderer.canvas.getContext("2d").clearRect(0, 0, Renderer.canvas.width, Renderer.canvas.height);
 
     for (var i = 0; i < Renderer.sprites.length; i++) {
         Renderer.sprites[i].render();
@@ -105,9 +105,15 @@ Renderer.spawnSprite = function (path) {
 
 
 Renderer.setBackGround = function (path) {
-    var canvasStyle = document.getElementById("display").style;
-    canvasStyle.background = "#ffffff url('" + path + "') no-repeat center";
-    canvasStyle.backgroundSize = "contain";
+    var ctx = document.getElementById("display").getContext("2d");
+    var background = new Image();
+    background.src = path;
+
+    // Make sure the image is loaded first otherwise nothing will draw.
+    background.onload = function(){
+        ctx.drawImage(background,0,0);   
+    }
+    Renderer.renderSprites();
 };
 
 
