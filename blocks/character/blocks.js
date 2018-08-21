@@ -22,8 +22,6 @@ Blockly.Blocks['character'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(event) {
-
-
     if(event.type == Blockly.Events.MOVE){
       if(this.previousConnection.isConnected()){
         var surround = this.getSurroundParent()
