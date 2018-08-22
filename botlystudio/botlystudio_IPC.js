@@ -13,51 +13,54 @@ BotlyStudioIPC.initIPC = function () {
 
 
 
-BotlyStudioIPC.processResponse = function (json_str, flag, roomKey, characterKey) {
+BotlyStudioIPC.processResponse = function (json_str, flag, roomKey, characterKey, override) {
   BotlyStudioIPC.pendingRequest--;
   var json = JSON.parse(json_str);
   if (json != null) {
     switch (flag) {
       case 'root':
-        SpriteManager.processRootJson(json);
+        SpriteManager.processRootJson(json, override);
         break;
       case 'room':
-        SpriteManager.processRoomJson(json, roomKey);
+        SpriteManager.processRoomJson(json, roomKey, override);
         break;
       case 'character':
-        SpriteManager.processCharacterJson(json, roomKey);
+        SpriteManager.processCharacterJson(json, roomKey, override);
         break;
       case 'background':
-        SpriteManager.processBackgroundJson(json, roomKey);
+        SpriteManager.processBackgroundJson(json, roomKey, override);
         break;
       case 'actions':
-        SpriteManager.processActionsJson(json, roomKey, characterKey);
+        SpriteManager.processActionsJson(json, roomKey, characterKey, override);
         break;
       default:
         console.log("Unknown flag : " + flag);
     }
   }
-  if (BotlyStudioIPC.pendingRequest <= 0) {
-    BotlyStudioIPC.pendingRequest = 0;
-    SpriteManager.saveTree();
-  }
+  
+  /* if (BotlyStudioIPC.pendingRequest <= 0) {
+      BotlyStudioIPC.pendingRequest = 0;
+      SpriteManager.saveTree();
+    } */
+  
 };
 
 
 
-BotlyStudioIPC.getJson = function (path, flag, keyA, keyB) {
+BotlyStudioIPC.getJson = function (path, flag, keyA, keyB, override) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
   xobj.open('GET', 'botlystudio/sprites/room/' + path, true); // Replace 'my_data' with the path to your file
   xobj.onreadystatechange = function () {
     if (xobj.readyState == 4 && xobj.status == "200") {
       // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-      BotlyStudioIPC.processResponse(xobj.responseText,flag, keyA, keyB);
+      BotlyStudioIPC.processResponse(xobj.responseText,flag, keyA, keyB, override);
     }
   };
   xobj.send(null);
   BotlyStudioIPC.pendingRequest++;
 };
+
 
 BotlyStudioIPC.addJsonElement = function (path, jsonElement) {
 

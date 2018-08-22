@@ -106,52 +106,51 @@ SpriteManager.getDisplayNameArray = function (tree) {
 
 
 
-SpriteManager.importTreeJson = function () {
-    BotlyStudioIPC.getJson("tree.json", 'root', null, null);
+SpriteManager.importTreeJson = function (override) {
+    BotlyStudioIPC.getJson("tree.json", 'root', null, null, override);
 }
 
 SpriteManager.saveTree = function(){
     SpriteManager.Tree.room =  SpriteManager.treeBuffer;
 }
 
-SpriteManager.processRootJson = function (rootJson) {
+SpriteManager.processRootJson = function (rootJson, override) {
     for (roomKey in rootJson) {
-        if (SpriteManager.Tree.room[roomKey] == null)
+        if (SpriteManager.Tree.room[roomKey] == null || override)
             SpriteManager.Tree.room[roomKey] = rootJson[roomKey];
         BotlyStudioIPC.getJson(roomKey + "/tree.json", 'room', roomKey, null);
     }
 }
 
-SpriteManager.processRoomJson = function (roomJson, roomKey) {
+SpriteManager.processRoomJson = function (roomJson, roomKey, override) {
     for (cat in roomJson) {
-        if (SpriteManager.Tree.room[roomKey][cat] == null)
+        if (SpriteManager.Tree.room[roomKey][cat] == null || override)
             SpriteManager.Tree.room[roomKey][cat] = {};
-        BotlyStudioIPC.getJson(roomKey + "/" + cat + "/tree.json", cat, roomKey, null); //Get each cat
+        BotlyStudioIPC.getJson(roomKey + "/" + cat + "/tree.json", cat, roomKey, null);
     }
 }
 
-SpriteManager.processCharacterJson = function (characterJson, roomKey) {
+SpriteManager.processCharacterJson = function (characterJson, roomKey, override) {
     for (characterKey in characterJson) {
-        if (SpriteManager.Tree.room[roomKey].character[characterKey] == null)
+        if (SpriteManager.Tree.room[roomKey].character[characterKey] == null || override)
             SpriteManager.Tree.room[roomKey].character[characterKey] = characterJson[characterKey];
         BotlyStudioIPC.getJson(roomKey + "/character/" + characterKey  + "/actions/tree.json", 'actions', roomKey, characterKey);
     }
 }
 
-SpriteManager.processActionsJson = function (actionsJson, roomKey, characterKey) {
+SpriteManager.processActionsJson = function (actionsJson, roomKey, characterKey, override) {
     for (actionsKey in actionsJson) {
-        if (SpriteManager.Tree.room[roomKey].character[characterKey].actions[actionsKey] == null)
+        if (SpriteManager.Tree.room[roomKey].character[characterKey].actions[actionsKey] == null || override)
             SpriteManager.Tree.room[roomKey].character[characterKey].actions[actionsKey] = actionsJson[actionsKey];
     }
 }
 
-SpriteManager.processBackgroundJson = function (backgroundJson, roomKey) {
+SpriteManager.processBackgroundJson = function (backgroundJson, roomKey, override) {
     for (backgroundKey in backgroundJson) {
-        if (SpriteManager.Tree.room[roomKey].background[backgroundKey] == null)
+        if (SpriteManager.Tree.room[roomKey].background[backgroundKey] == null || override)
             SpriteManager.Tree.room[roomKey].background[backgroundKey] = backgroundJson[backgroundKey];
     }
 }
-
 
 /*
 SpriteManager.addRoom = function(key, displayName){

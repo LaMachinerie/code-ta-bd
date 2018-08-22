@@ -11,7 +11,7 @@ BotlyStudio.init = function () {
   Renderer.init();
   BotlyStudio.initSlider();
   BotlyStudioIPC.initIPC();
-  SpriteManager.importTreeJson();
+  SpriteManager.importTreeJson(true); //override past ressource
 
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
