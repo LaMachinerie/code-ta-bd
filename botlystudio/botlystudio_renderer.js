@@ -105,6 +105,7 @@ Renderer.spawnSprite = function (path) {
 
 
 Renderer.setBackGround = function (path) {
+	Renderer.reset();
     var ctx = document.getElementById("display").getContext("2d");
     var background = new Image();
     background.src = path;
