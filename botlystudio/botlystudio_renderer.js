@@ -181,7 +181,7 @@ Renderer.reset = function () {
 
     Renderer.canvas.getContext("2d").fillStyle = '#F2F2F2';
     Renderer.canvas.getContext("2d").fill();
-
+	Renderer.canvas.getContext("2d").clearRect(0, 0, Renderer.canvas.width, Renderer.canvas.height);
     Renderer.sprites = [];
     Renderer.renderSprites();
 }
