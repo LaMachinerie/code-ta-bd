@@ -172,7 +172,7 @@ SpriteManager.addBackground = function (room, key, displayName) {
 */
 
 SpriteManager.downloadJson = function(){
-	var content = SpriteManager.Tree;
+	var content = JSON.stringify(SpriteManager.Tree,null,2);
 	// any kind of extension (.txt,.cpp,.cs,.bat)
 	var filename = "sprite.json";
 
