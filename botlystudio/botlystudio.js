@@ -12,7 +12,7 @@ BotlyStudio.init = function () {
   BotlyStudio.initSlider();
   BotlyStudioIPC.initIPC();
   SpriteManager.importTreeJson(true); //override past ressource
-
+	BotlyStudio.initDropzone();
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
     BotlyStudio.TOOLBOX_XML, 'blockly/');
@@ -89,6 +89,19 @@ BotlyStudio.ideButtonLeftAction = function () {
 BotlyStudio.ideButtonLastAction = function () {
   BotlyStudio.devTools();
 };
+
+BotlyStudio.initDropzone = function(){
+	var holder = document.getElementById('holder');
+
+	holder.ondrop = function(e) {
+		console.log("it works !")
+		e.preventDefault();
+
+		var file = e.dataTransfer.files[0];
+		console.log(file);
+	};
+}
+
 
 BotlyStudio.saveCanvas = function(){
   var canvas = document.getElementById("display");
