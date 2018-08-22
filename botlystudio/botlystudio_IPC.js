@@ -37,12 +37,12 @@ BotlyStudioIPC.processResponse = function (json_str, flag, roomKey, characterKey
         console.log("Unknown flag : " + flag);
     }
   }
-  
+
   /* if (BotlyStudioIPC.pendingRequest <= 0) {
       BotlyStudioIPC.pendingRequest = 0;
       SpriteManager.saveTree();
     } */
-  
+
 };
 
 
@@ -54,7 +54,7 @@ BotlyStudioIPC.getJson = function (path, flag, keyA, keyB, override) {
   xobj.onreadystatechange = function () {
     if (xobj.readyState == 4 && xobj.status == "200") {
       // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-      BotlyStudioIPC.processResponse(xobj.responseText,flag, keyA, keyB, override);
+      BotlyStudioIPC.processResponse(xobj.responseText, flag, keyA, keyB, override);
     }
   };
   xobj.send(null);

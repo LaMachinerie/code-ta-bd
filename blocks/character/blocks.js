@@ -1,6 +1,6 @@
 'use strict';
 var SpriteManager = SpriteManager || {};
-
+var BotlyStudio = BotlyStudio || {};
 
 goog.provide('Blockly.Blocks.character');
 
@@ -22,19 +22,22 @@ Blockly.Blocks['character'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(event) {
-    if(event.type == Blockly.Events.MOVE){
+    var surround = this.getSurroundParent()
+    var selectedBlock = BotlyStudio.workspace.getBlockById(Blockly.selected.id);
+    if(event.type == Blockly.Events.MOVE && selectedBlock == this && !BotlyStudio.leftMouse && surround != this.oldSurround){
+      console.log(event);
       if(this.previousConnection.isConnected()){
-        var surround = this.getSurroundParent()
         if(surround != null){
           if(surround.getFieldValue("ROOMS") != null){
             var room = surround.getFieldValue("ROOMS");
+            this.oldSurround = surround;
             setDropdown(room, this);
             return;
           }
         }
       }
       resetDropdown(this);
-    }else if(event.type == Blockly.Events.CHANGE && event.element == 'field' && event.name == 'CHAR'){
+    }else if(event.type == Blockly.Events.CHANGE && event.element == 'field' && event.name == 'CHAR' && selectedBlock == this){
       if(this.previousConnection.isConnected()){
         var surround = this.getSurroundParent()
         if(surround != null){
@@ -89,9 +92,10 @@ function resetDropdown(block){
   CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
   CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
 
-  var char = block.getFieldValue("CHAR");
   var actionsDropdown = block.getField('ACTIONS');
   actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree());
   actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
   actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
+
+  block.oldSurround = null;
 }

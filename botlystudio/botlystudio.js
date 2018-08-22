@@ -2,6 +2,12 @@
 /** Create a namespace for the application. */
 var BotlyStudio = BotlyStudio || {};
 var SpriteManager = SpriteManager || {};
+
+
+
+BotlyStudio.leftMouse = false;
+
+
 /** Initialize function for BotlyStudio, to be called on page load. */
 BotlyStudio.init = function () {
   // Lang init must run first for the rest of the page to pick the right msgs
@@ -12,13 +18,19 @@ BotlyStudio.init = function () {
   BotlyStudio.initSlider();
   BotlyStudioIPC.initIPC();
   SpriteManager.importTreeJson(true); //override past ressource
-	BotlyStudio.initDropzone();
   // Inject Blockly into content_blocks and fetch additional blocks
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
     BotlyStudio.TOOLBOX_XML, 'blockly/');
 
   //BotlyStudio.importExtraBlocks();
 
+
+
+
+  
+  document.body.onmousedown = BotlyStudio.setLeftButtonState;
+  document.body.onmousemove = BotlyStudio.setLeftButtonState;
+  document.body.onmouseup = BotlyStudio.setLeftButtonState;
 
   BotlyStudio.designJsInit();
   BotlyStudio.initialiseIdeButtons();
@@ -27,6 +39,14 @@ BotlyStudio.init = function () {
   BotlyStudio.bindActionFunctions();
   BotlyStudio.bindBlocklyEventListeners();
 };
+
+BotlyStudio.setLeftButtonState = function(e) {
+  BotlyStudio.leftMouse = e.buttons === undefined 
+    ? e.which === 1 
+    : e.buttons === 1;
+}
+
+
 
 /** Binds functions to each of the buttons, nav links, and related. */
 BotlyStudio.bindActionFunctions = function () {
@@ -89,18 +109,6 @@ BotlyStudio.ideButtonLeftAction = function () {
 BotlyStudio.ideButtonLastAction = function () {
   BotlyStudio.devTools();
 };
-
-BotlyStudio.initDropzone = function(){
-	var holder = document.getElementById('holder');
-
-	holder.ondrop = function(e) {
-		console.log("it works !")
-		e.preventDefault();
-
-		var file = e.dataTransfer.files[0];
-		console.log(file);
-	};
-}
 
 
 BotlyStudio.saveCanvas = function(){
