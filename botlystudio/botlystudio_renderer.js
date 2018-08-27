@@ -276,8 +276,8 @@ Renderer.animate = function (id) {
     Renderer.display();
     if (id) {
         BotlyStudio.workspace.highlightBlock(id);
-        // Scale the speed non-linearly, to give better precision at the fast end.
-        var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
-        Renderer.pause = Math.max(1, stepSpeed);
     }
+    // Scale the speed non-linearly, to give better precision at the fast end.
+    var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
+    Renderer.pause = Math.max(1, stepSpeed);
 };

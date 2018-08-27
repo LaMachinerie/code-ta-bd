@@ -24,9 +24,6 @@ BotlyStudio.init = function () {
 
   //BotlyStudio.importExtraBlocks();
 
-
-
-
   
   document.body.onmousedown = BotlyStudio.setLeftButtonState;
   document.body.onmousemove = BotlyStudio.setLeftButtonState;
