@@ -12,7 +12,8 @@ Blockly.Blocks['room'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Dans")
-        .appendField(new Blockly.FieldDropdown(SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree())), "ROOMS");
+        .appendField(new Blockly.FieldDropdown(SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]])), "ROOMS")
+        .appendField(new Blockly.FieldDropdown([["le jour", "day"],["la nuit", "night"]]), "TIME");
     this.appendStatementInput("CODE")
         .setCheck(null);
     this.setPreviousStatement(true, null);
@@ -22,7 +23,7 @@ Blockly.Blocks['room'] = {
   }
 };
 
-
+/*
 Blockly.Blocks['light'] = {
   init: function() {
     this.appendDummyInput()
@@ -35,3 +36,4 @@ Blockly.Blocks['light'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+*/
