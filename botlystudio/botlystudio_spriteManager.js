@@ -11,7 +11,7 @@ SpriteManager.defaultTree = {
             character : {
                 dad : {
                     displayName : "Papa",
-                    missing :{
+                    default :{
                         displayName: "fait quelque chose",
                         filename: "default"
                     }
@@ -85,9 +85,9 @@ SpriteManager.getActionsSubTree = function (room, character) {
         }
 
         if (actionsTree[0] != undefined) return actionsTree
-        else return SpriteManager.defaultTree.rooms.entrance.character;
+        else return SpriteManager.defaultTree.rooms.entrance.character.dad;
     }
-    else return SpriteManager.defaultTree.rooms.entrance.character;
+    else return SpriteManager.defaultTree.rooms.entrance.character.dad;
 }
 
 
