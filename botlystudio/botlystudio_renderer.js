@@ -185,6 +185,11 @@ Renderer.reset = function () {
     Renderer.pidList.length = 0;
     Renderer.interpreter = null;
 
+    SpriteManager.bathroomLight = {
+        bathroom: true,
+        stairs: true
+    };
+
     var canvasStyle = document.getElementById("display").style;
     canvasStyle.background = "#ffffff";
 
