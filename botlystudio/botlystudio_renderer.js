@@ -128,6 +128,7 @@ Renderer.setBackGround = function (path) {
             Renderer.currentBackGroundIMG = background;
         }
     }else{
+        Renderer.sprites = [];
         ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
     }
     Renderer.renderSprites();
