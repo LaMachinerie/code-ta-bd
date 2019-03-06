@@ -229,6 +229,7 @@ BotlyStudio.loadUserXmlFile = function () {
       if (success) {
         BotlyStudio.renderContent();
         BotlyStudio.sketchNameSet(filename);
+        BotlyStudio.refreshDynamicDropdown();
       } else {
         BotlyStudio.alertMessage(
           BotlyStudio.getLocalStr('invalidXmlTitle'),
@@ -251,12 +252,41 @@ BotlyStudio.loadUserXmlFile = function () {
     selectFileWrapperDom.style.display = 'none';
     selectFileWrapperDom.appendChild(selectFileDom);
 
-    document.body.appendChild(selectFileWrapperDom);
+    document.body.appendChild(selectFileWrapperDom);  
     selectFile = document.getElementById('select_file');
     selectFile.addEventListener('change', parseInputXMLfile, false);
   }
   selectFile.click();
 };
+
+
+BotlyStudio.refreshDynamicDropdown = function(){
+  let Blocks = BotlyStudio.workspace.getAllBlocks();
+  for(block in Blocks){
+    if(Blocks[block].isDynamic == true){
+      b = Blocks[block];
+      roomDropValue = b.getFieldValue("ROOMS");
+      if(roomDropValue != undefined){
+        let field = b.getField("ROOMS")
+        let possibilitieTree = SpriteManager.getRoomSubTree();
+        let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]]);
+        field.menuGenerator_ = possibilities;
+        field.setText(possibilitieTree[roomDropValue].displayName());
+        field.setValue(roomDropValue);
+      }
+      
+      characterDropValue = b.getFieldValue();
+      Blocks[block].onchange();
+    }
+  }
+}
+
+
+
+
+
+
+
 
 /**
  * Creates an XML file containing the blocks from the Blockly workspace and

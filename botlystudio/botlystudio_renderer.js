@@ -8,6 +8,8 @@ Renderer.sprites = [];
 Renderer.canvas = null;
 Renderer.pidList = [];
 Renderer.pause = 10;
+
+Renderer.currentBackgroundKey = "none";
 Renderer.currentBackGround = "none";
 Renderer.currentBackGroundIMG = undefined;
 
@@ -129,7 +131,7 @@ Renderer.setBackGround = function (path) {
         }
     }else{
         Renderer.sprites = [];
-        //ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
+        ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
     }
     Renderer.renderSprites();
 };

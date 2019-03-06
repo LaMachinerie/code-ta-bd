@@ -19,7 +19,8 @@ Blockly.Blocks['room'] = {
     this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
-  }
+  },
+  isDynamic: true
 };
 
 
@@ -45,7 +46,8 @@ Blockly.Blocks['light'] = {
         return;
       }
     }
-  }
+  },
+  isDynamic: true
 };
 
 
