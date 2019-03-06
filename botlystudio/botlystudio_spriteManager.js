@@ -129,7 +129,8 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     array = [];
     if (tree != undefined) {
         for (obj in tree) {
-            array.push([tree[obj].displayName, obj]);
+            if(tree[obj].displayName != "" && tree[obj].displayName != undefined)
+                array.push([tree[obj].displayName, obj]);
         }
     }
     if (array[0] != undefined) return array;
