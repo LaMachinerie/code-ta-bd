@@ -279,7 +279,7 @@ BotlyStudio.refreshDynamicDropdown = function(){
       var actionsDropValue = b.getFieldValue("ACTIONS");
       if(characterDropValue != undefined && actionsDropValue != undefined){
         let field = b.getField("CHAR")
-        let parentRoom = b.getSurroundParent();
+        let parentRoom = b.getSurroundParent().getFieldValue("ROOMS");
         let possibilitieTree = SpriteManager.getCharacterSubTree(parentRoom);
         let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(parentRoom), [["Quelqu'un","default"]]);
         field.menuGenerator_ = possibilities;
