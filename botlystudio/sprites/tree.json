@@ -1,0 +1,1242 @@
+{
+  "room": {
+    "bathroom": {
+      "bathroom": {
+        "displayName": "la salle de bain",
+        "background": {
+          "bathroom_light": {
+            "id": "1",
+            "displayName": "la salle de bain",
+            "filename": "SDB_0045_Calque-5.png"
+          },
+          "stairs_light": {
+            "id": "2",
+            "displayName": "l'escalier",
+            "filename": "SDB_0047_Calque-3.png"
+          },
+          "no_light": {
+            "id": "0",
+            "displayName": "",
+            "filename": "SDB_0048_Calque-2.png"
+          },
+          "full_light": {
+            "id": "3",
+            "displayName": "",
+            "filename": "SDB_0049_Calque-1.png"
+          }
+        },
+        "character": {
+          "cat": {
+            "displayName": "le chat",
+            "SDB_0014_Calque-36": {
+              "displayName": "monte sur le palier",
+              "filename": "SDB_0014_Calque-36.png"
+            },
+            "SDB_0015_Calque-35": {
+              "displayName": "observe depuis l'escalier",
+              "filename": "SDB_0015_Calque-35.png"
+            },
+            "SDB_0017_Calque-33": {
+              "displayName": "fait sa toilette",
+              "filename": "SDB_0017_Calque-33.png"
+            },
+            "SDB_0035_Calque-15": {
+              "displayName": "s'apprête à descendre",
+              "filename": "SDB_0035_Calque-15.png"
+            },
+            "SDB_0037_Calque-13": {
+              "displayName": "descend l'escalier",
+              "filename": "SDB_0037_Calque-13.png"
+            },
+            "SDB_0041_Calque-9": {
+              "displayName": "monte l'escalier",
+              "filename": "SDB_0041_Calque-9.png"
+            },
+            "SDB_0042_Calque-8": {
+              "displayName": "s'enfuit de la chambre",
+              "filename": "SDB_0042_Calque-8.png"
+            }
+          },
+          "dad": {
+            "displayName": "le papa",
+            "SDB_0007_Calque-43": {
+              "displayName": "baille",
+              "filename": "SDB_0007_Calque-43.png"
+            },
+            "SDB_0008_Calque-42": {
+              "displayName": "se brosse les dents",
+              "filename": "SDB_0008_Calque-42.png"
+            },
+            "SDB_0009_Calque-41": {
+              "displayName": "siffle un air de musique",
+              "filename": "SDB_0009_Calque-41.png"
+            },
+            "SDB_0016_Calque-34": {
+              "displayName": "descend l'escalier",
+              "filename": "SDB_0016_Calque-34.png"
+            },
+            "SDB_0019_Calque-31": {
+              "displayName": "monte l'escalier",
+              "filename": "SDB_0019_Calque-31.png"
+            },
+            "SDB_0020_Calque-30": {
+              "displayName": "entre dans la chambre",
+              "filename": "SDB_0020_Calque-30.png"
+            },
+            "SDB_0021_Calque-29": {
+              "displayName": "se brosse les dents",
+              "filename": "SDB_0021_Calque-29.png"
+            },
+            "SDB_0022_Calque-28": {
+              "displayName": "met du dentifrice",
+              "filename": "SDB_0022_Calque-28.png"
+            },
+            "SDB_0023_Calque-27": {
+              "displayName": "soigne son visage",
+              "filename": "SDB_0023_Calque-27.png"
+            },
+            "SDB_0036_Calque-14": {
+              "displayName": "est au toilette",
+              "filename": "SDB_0036_Calque-14.png"
+            }
+          },
+          "dad_and_mom": {
+            "displayName": "le papa et la maman",
+            "SDB_0024_Calque-26": {
+              "displayName": "se prépare à aller dormir",
+              "filename": "SDB_0024_Calque-26.png"
+            },
+            "SDB_0025_Calque-25": {
+              "displayName": "se font un bisou",
+              "filename": "SDB_0025_Calque-25.png"
+            }
+          },
+          "green_monster": {
+            "displayName": "le monstre vert",
+            "SDB_0010_Calque-40": {
+              "displayName": "écoute a la porte",
+              "filename": "SDB_0010_Calque-40.png"
+            }
+          },
+          "kid": {
+            "displayName": "le petit garçon",
+            "SDB_0001_Calque-49": {
+              "displayName": "descend l'escalier avec son cartable",
+              "filename": "SDB_0001_Calque-49.png"
+            },
+            "SDB_0033_Calque-17": {
+              "displayName": "est au toilette",
+              "filename": "SDB_0033_Calque-17.png"
+            },
+            "SDB_0034_Calque-16": {
+              "displayName": "glisse sur la rampe",
+              "filename": "SDB_0034_Calque-16.png"
+            },
+            "SDB_0038_Calque-12": {
+              "displayName": "se brosse les dents",
+              "filename": "SDB_0038_Calque-12.png"
+            },
+            "SDB_0040_Calque-10": {
+              "displayName": "descend l'escalier",
+              "filename": "SDB_0040_Calque-10.png"
+            },
+            "SDB_0043_Calque-7": {
+              "displayName": "marche sur le palier avec son cartable",
+              "filename": "SDB_0043_Calque-7.png"
+            }
+          },
+          "mom": {
+            "displayName": "la maman",
+            "SDB_0002_Calque-48": {
+              "displayName": "appelle son le petit garçon",
+              "filename": "SDB_0002_Calque-48.png"
+            },
+            "SDB_0006_Calque-44": {
+              "displayName": "descend l'escalier en chemise de nuit",
+              "filename": "SDB_0006_Calque-44.png"
+            },
+            "SDB_0018_Calque-32": {
+              "displayName": "descend dans l'entrée en chemise de nuit",
+              "filename": "SDB_0018_Calque-32.png"
+            },
+            "SDB_0026_Calque-24": {
+              "displayName": "s'essuie les mains",
+              "filename": "SDB_0026_Calque-24.png"
+            },
+            "SDB_0027_Calque-23": {
+              "displayName": "pépare un masque de beauté",
+              "filename": "SDB_0027_Calque-23.png"
+            },
+            "SDB_0028_Calque-22": {
+              "displayName": "cherche quelque chose dans le placard",
+              "filename": "SDB_0028_Calque-22.png"
+            },
+            "SDB_0029_Calque-21": {
+              "displayName": "met du parfum",
+              "filename": "SDB_0029_Calque-21.png"
+            },
+            "SDB_0030_Calque-20": {
+              "displayName": "se brosse les dents",
+              "filename": "SDB_0030_Calque-20.png"
+            },
+            "SDB_0031_Calque-19": {
+              "displayName": "félicite son petit garçon",
+              "filename": "SDB_0031_Calque-19.png"
+            }
+          },
+          "mom_and_kid": {
+            "displayName": "la maman et le petit garçon",
+            "SDB_0032_Calque-18": {
+              "displayName": "discutent au toilette",
+              "filename": "SDB_0032_Calque-18.png"
+            }
+          },
+          "mouse": {
+            "displayName": "Une souris",
+            "SDB_0000_Calque-50": {
+              "displayName": "descend l'escalier à toute allure",
+              "filename": "SDB_0000_Calque-50.png"
+            },
+            "SDB_0003_Calque-47": {
+              "displayName": "est dans le lavabo",
+              "filename": "SDB_0003_Calque-47.png"
+            },
+            "SDB_0004_Calque-46": {
+              "displayName": "descend dans la salle de bain",
+              "filename": "SDB_0004_Calque-46.png"
+            },
+            "SDB_0005_Calque-45": {
+              "displayName": "dort avec les autres",
+              "filename": "SDB_0005_Calque-45.png"
+            },
+            "SDB_0011_Calque-39": {
+              "displayName": "file dans sa cachette !",
+              "filename": "SDB_0011_Calque-39.png"
+            },
+            "SDB_0012_Calque-38": {
+              "displayName": "regarde dans l'escalier",
+              "filename": "SDB_0012_Calque-38.png"
+            },
+            "SDB_0039_Calque-11": {
+              "displayName": "sort de la chambre",
+              "filename": "SDB_0039_Calque-11.png"
+            }
+          }
+        },
+        "object": {}
+      }
+    },
+    "bedRoom": {
+      "bedRoom": {
+        "displayName": "la chambre des parents",
+        "background": {
+          "day": {
+            "displayName": "jour",
+            "filename": "day.png"
+          },
+          "night": {
+            "displayName": "nuit",
+            "filename": "night.png"
+          }
+        },
+        "character": {
+          "cat": {
+            "displayName": "le chat",
+            "deep_sleep": {
+              "displayName": "dort profondément",
+              "filename": "deep_sleep.png"
+            },
+            "sleep": {
+              "displayName": "écoute un bruit",
+              "filename": "sleep.png"
+            },
+            "wash": {
+              "displayName": "fait sa toilette",
+              "filename": "wash.png"
+            }
+          },
+          "maman": {
+            "displayName": "la maman",
+            "break": {
+              "displayName": "fait une pause",
+              "filename": "break.png"
+            },
+            "CHAMBRE-_0004_Calque-26": {
+              "displayName": "rejoint papa dans le lit",
+              "filename": "CHAMBRE-_0004_Calque-26.png"
+            },
+            "drinking_coffee": {
+              "displayName": "qui se réchauffe avec son café",
+              "filename": "drinking_coffee.png"
+            },
+            "hunting": {
+              "displayName": "chasse le chat",
+              "filename": "hunting.png"
+            },
+            "placing_left": {
+              "displayName": "dépose un tissu sur la lampe de papa",
+              "filename": "placing_left.png"
+            },
+            "placing_right": {
+              "displayName": "dépose un tissu sur sa lampe",
+              "filename": "placing_right.png"
+            },
+            "sitting": {
+              "displayName": "est essouflée",
+              "filename": "sitting.png"
+            },
+            "taking_coffee": {
+              "displayName": "prend son café",
+              "filename": "taking_coffee.png"
+            },
+            "unwear": {
+              "displayName": "se déshabille",
+              "filename": "unwear.png"
+            },
+            "wear": {
+              "displayName": "met sa chemise de nuit",
+              "filename": "wear.png"
+            }
+          },
+          "maman_and_papa": {
+            "displayName": "la maman et le papa",
+            "CHAMBRE-_0002_Calque-28": {
+              "displayName": "se reveillent",
+              "filename": "CHAMBRE-_0002_Calque-28.png"
+            },
+            "CHAMBRE-_0003_Calque-27": {
+              "displayName": "dorment",
+              "filename": "CHAMBRE-_0003_Calque-27.png"
+            },
+            "CHAMBRE-_0007_Calque-23": {
+              "displayName": "chahutent",
+              "filename": "CHAMBRE-_0007_Calque-23.png"
+            },
+            "CHAMBRE-_0009_Calque-22": {
+              "displayName": "font un calîn",
+              "filename": "CHAMBRE-_0009_Calque-22.png"
+            },
+            "CHAMBRE-_0012_Calque-21": {
+              "displayName": "s'embrassent",
+              "filename": "CHAMBRE-_0012_Calque-21.png"
+            },
+            "CHAMBRE-_0013_Calque-20": {
+              "displayName": "sont heureux de se retrouver",
+              "filename": "CHAMBRE-_0013_Calque-20.png"
+            },
+            "CHAMBRE-_0020_Calque-15": {
+              "displayName": "regarde le plafond",
+              "filename": "CHAMBRE-_0020_Calque-15.png"
+            }
+          },
+          "mouse": {
+            "displayName": "les souris",
+            "chill": {
+              "displayName": "se promènent",
+              "filename": "chill.png"
+            },
+            "eat": {
+              "displayName": "mangent du fromage",
+              "filename": "eat.png"
+            },
+            "plan": {
+              "displayName": "planifient une opération risquée",
+              "filename": "plan.png"
+            },
+            "run": {
+              "displayName": "courent",
+              "filename": "run.png"
+            },
+            "steal": {
+              "displayName": "volent le fromage",
+              "filename": "steal.png"
+            }
+          },
+          "papa": {
+            "displayName": "le papa",
+            "unwear": {
+              "displayName": "se déshabille",
+              "filename": "unwear.png"
+            },
+            "wake_up": {
+              "displayName": "s'étire",
+              "filename": "wake_up.png"
+            }
+          }
+        },
+        "object": {
+          "CHAMBRE-_0016_tasse-nuit": {
+            "displayName": "une tasse",
+            "time": "night",
+            "filename": "CHAMBRE-_0016_tasse-nuit.png"
+          },
+          "CHAMBRE-_0017_tasse": {
+            "displayName": "une tasse",
+            "time": "day",
+            "filename": "CHAMBRE-_0017_tasse.png"
+          }
+        }
+      }
+    },
+    "entrance": {
+      "entrance": {
+        "displayName": "l'entrée",
+        "background": {
+          "day": {
+            "displayName": "jour",
+            "filename": "day.png"
+          },
+          "night": {
+            "displayName": "nuit",
+            "filename": "night.png"
+          }
+        },
+        "character": {
+          "cat": {
+            "displayName": "le chat",
+            "affraid": {
+              "displayName": "est effrayé",
+              "filename": "affraid.png"
+            },
+            "cat_down": {
+              "displayName": "descend l'escalier",
+              "filename": "cat_down.png"
+            },
+            "drunk": {
+              "displayName": "est ivre",
+              "filename": "drunk.png"
+            },
+            "ENTREE_0023_Calque-17": {
+              "displayName": "monte l'escalier",
+              "filename": "ENTREE_0023_Calque-17.png"
+            },
+            "ENTREE_0026_Calque-32": {
+              "displayName": "s'enfui",
+              "filename": "ENTREE_0026_Calque-32.png"
+            }
+          },
+          "dad": {
+            "displayName": "le papa",
+            "climb": {
+              "displayName": "monte les escalier",
+              "filename": "climb.png"
+            },
+            "climb2": {
+              "displayName": "monte l'escalier",
+              "filename": "climb2.png"
+            },
+            "close": {
+              "displayName": "ferme la porte",
+              "filename": "close.png"
+            },
+            "down": {
+              "displayName": "descend l'escalier",
+              "filename": "down.png"
+            },
+            "enter": {
+              "displayName": "entre dans la maison",
+              "filename": "enter.png"
+            }
+          },
+          "green_monster": {
+            "displayName": "le monstre vert",
+            "ENTREE_0015_Calque-24": {
+              "displayName": "s'enfui en courant",
+              "filename": "ENTREE_0015_Calque-24.png"
+            },
+            "ENTREE_0016_Calque-23": {
+              "displayName": "dévale les escaliers",
+              "filename": "ENTREE_0016_Calque-23.png"
+            }
+          },
+          "kid": {
+            "displayName": "le petit garçon",
+            "climb": {
+              "displayName": "monte les escaliers",
+              "filename": "climb.png"
+            },
+            "enter": {
+              "displayName": "entre dans la maison",
+              "filename": "enter.png"
+            },
+            "ENTREE_0000_Calque-31": {
+              "displayName": "sort de la maison",
+              "filename": "ENTREE_0000_Calque-31.png"
+            }
+          },
+          "mom": {
+            "displayName": "la maman",
+            "call": {
+              "displayName": "appelle quelqu'un à l'étage",
+              "filename": "call.png"
+            },
+            "climb1": {
+              "displayName": "monte les escaliers",
+              "filename": "climb1.png"
+            },
+            "climb2": {
+              "displayName": "monte les escaliers en chemise de nuit",
+              "filename": "climb2.png"
+            },
+            "down": {
+              "displayName": "descend les escaliers",
+              "filename": "down.png"
+            },
+            "down_slow": {
+              "displayName": "descend prudemment les escaliers",
+              "filename": "down_slow.png"
+            },
+            "speaking": {
+              "displayName": "parle à quelqu'un",
+              "filename": "speaking.png"
+            }
+          },
+          "mom_and_dad": {
+            "displayName": "le papa et la maman",
+            "ENTREE_0003_Calque-28": {
+              "displayName": "se préparent à sortir",
+              "filename": "ENTREE_0003_Calque-28.png"
+            }
+          },
+          "mom_and_kid": {
+            "displayName": "la maman et le petit garçon",
+            "ENTREE_0004_Calque-27": {
+              "displayName": "se prépare a sortir",
+              "filename": "ENTREE_0004_Calque-27.png"
+            },
+            "ENTREE_0040_Calque-3": {
+              "displayName": "entre dans la maison",
+              "filename": "ENTREE_0040_Calque-3.png"
+            }
+          },
+          "mouse": {
+            "displayName": "une souris",
+            "ENTREE_0022_Calque-33": {
+              "displayName": "se cache",
+              "filename": "ENTREE_0022_Calque-33.png"
+            },
+            "ENTREE_0025_Calque-15": {
+              "displayName": "s'enfui de la cuisine",
+              "filename": "ENTREE_0025_Calque-15.png"
+            },
+            "ENTREE_0030_Calque-11": {
+              "displayName": "descend l'escalier",
+              "filename": "ENTREE_0030_Calque-11.png"
+            },
+            "ENTREE_COMPLET_0014_Calque-17": {
+              "displayName": "se cache du chat",
+              "filename": "ENTREE_COMPLET_0014_Calque-17.png"
+            },
+            "ENTREE_COMPLET_0019_Calque-12": {
+              "displayName": "fui le papa",
+              "filename": "ENTREE_COMPLET_0019_Calque-12.png"
+            }
+          },
+          "pink_monster": {
+            "displayName": "le monstre rose",
+            "ENTREE_0018_Calque-21": {
+              "displayName": "sort de la cave",
+              "filename": "ENTREE_0018_Calque-21.png"
+            },
+            "ENTREE_COMPLET_0009_Calque-22": {
+              "displayName": "regarde dans l'escalier",
+              "filename": "ENTREE_COMPLET_0009_Calque-22.png"
+            }
+          }
+        },
+        "object": {
+          "bag": {
+            "displayName": "le cartable",
+            "filename": "bag.png"
+          },
+          "ENTREE_0005_manteau-accroché": {
+            "displayName": "une echarpe blanche",
+            "filename": "ENTREE_0005_manteau-accroché.png"
+          },
+          "ENTREE_0006_porte-manteau-nuit": {
+            "displayName": "le porte manteau",
+            "time": "night",
+            "filename": "ENTREE_0006_porte-manteau-nuit.png"
+          },
+          "ENTREE_0007_porte-manteau": {
+            "displayName": "le porte manteau",
+            "time": "day",
+            "filename": "ENTREE_0007_porte-manteau.png"
+          },
+          "ENTREE_0008_cartable": {
+            "displayName": "le cartable",
+            "filename": "ENTREE_0008_cartable.png"
+          },
+          "ENTREE_0009_manteau-jour": {
+            "displayName": "un vêtement par terre",
+            "time": "day",
+            "filename": "ENTREE_0009_manteau-jour.png"
+          },
+          "ENTREE_0012_manteau-nuit": {
+            "displayName": "un vêtement par terre",
+            "time": "night",
+            "filename": "ENTREE_0012_manteau-nuit.png"
+          },
+          "ENTREE_0037_vestes-full": {
+            "displayName": "le porte mateau plein",
+            "filename": "ENTREE_0037_vestes-full.png"
+          }
+        }
+      }
+    },
+    "kidRoom": {
+      "kidRoom": {
+        "displayName": "la chambre de l'enfant",
+        "background": {
+          "night": {
+            "displayName": "nuit",
+            "filename": "night.png"
+          },
+          "day": {
+            "displayName": "jour",
+            "filename": "day.png"
+          }
+        },
+        "character": {
+          "cat": {
+            "displayName": "le chat",
+            "CHAMBRE-ENFANT_0004_Calque-36": {
+              "displayName": "dort sur le lit",
+              "filename": "CHAMBRE-ENFANT_0004_Calque-36.png"
+            },
+            "CHAMBRE-ENFANT_0005_Calque-35": {
+              "displayName": "saute sur le lit",
+              "filename": "CHAMBRE-ENFANT_0005_Calque-35.png"
+            },
+            "CHAMBRE-ENFANT_0018_Calque-23bis": {
+              "displayName": "entre dans la chambre",
+              "filename": "CHAMBRE-ENFANT_0018_Calque-23bis.png"
+            },
+            "CHAMBRE-ENFANT_0040_Calque-8": {
+              "displayName": "se reveille",
+              "filename": "CHAMBRE-ENFANT_0040_Calque-8.png"
+            },
+            "CHAMBRE-ENFANT_0041_Calque-7": {
+              "displayName": "dort",
+              "filename": "CHAMBRE-ENFANT_0041_Calque-7.png"
+            },
+            "CHAMBRE-ENFANT_0042_Calque-6": {
+              "displayName": "entre discrètement dans la chambre",
+              "filename": "CHAMBRE-ENFANT_0042_Calque-6.png"
+            }
+          },
+          "dad": {
+            "displayName": "le papa",
+            "CHAMBRE-ENFANT_0024_Calque-18bis": {
+              "displayName": "sort de la chambre",
+              "filename": "CHAMBRE-ENFANT_0024_Calque-18bis.png"
+            },
+            "CHAMBRE-ENFANT_0026_Calque-17bis": {
+              "displayName": "est faché",
+              "filename": "CHAMBRE-ENFANT_0026_Calque-17bis.png"
+            }
+          },
+          "green_monster": {
+            "displayName": "le monstre vert",
+            "CHAMBRE-ENFANT_0025_Calque-18": {
+              "displayName": "souffle de soulagement",
+              "filename": "CHAMBRE-ENFANT_0025_Calque-18.png"
+            },
+            "CHAMBRE-ENFANT_0027_Calque-17": {
+              "displayName": "se cache effrayé",
+              "filename": "CHAMBRE-ENFANT_0027_Calque-17.png"
+            },
+            "CHAMBRE-ENFANT_0017_Calque-24": {
+              "displayName": "pose le chat par terre",
+              "filename": "CHAMBRE-ENFANT_0017_Calque-24.png"
+            },
+            "CHAMBRE-ENFANT_0019_Calque-23": {
+              "displayName": "regarde l'enfant dormir",
+              "filename": "CHAMBRE-ENFANT_0019_Calque-23.png"
+            },
+            "CHAMBRE-ENFANT_0020_Calque-22": {
+              "displayName": "borde le petit garçon",
+              "filename": "CHAMBRE-ENFANT_0020_Calque-22.png"
+            },
+            "CHAMBRE-ENFANT_0028_Calque-16bis": {
+              "displayName": "écoute à la porte",
+              "filename": "CHAMBRE-ENFANT_0028_Calque-16bis.png"
+            },
+            "CHAMBRE-ENFANT_0032_Calque-14": {
+              "displayName": "saute de l'étagère",
+              "filename": "CHAMBRE-ENFANT_0032_Calque-14.png"
+            },
+            "CHAMBRE-ENFANT_0034_Calque-13": {
+              "displayName": "sort de la boîte",
+              "filename": "CHAMBRE-ENFANT_0034_Calque-13.png"
+            },
+            "CHAMBRE-ENFANT_0035_Calque-12": {
+              "displayName": "ouvre la boîte",
+              "filename": "CHAMBRE-ENFANT_0035_Calque-12.png"
+            }
+          },
+          "kid": {
+            "displayName": "le petit garçon",
+            "CHAMBRE-ENFANT_0006_Calque-34": {
+              "displayName": "s'en va avec son cartable",
+              "filename": "CHAMBRE-ENFANT_0006_Calque-34.png"
+            },
+            "CHAMBRE-ENFANT_0007_Calque-33": {
+              "displayName": "sort du lit",
+              "filename": "CHAMBRE-ENFANT_0007_Calque-33.png"
+            },
+            "CHAMBRE-ENFANT_0008_Calque-32": {
+              "displayName": "dort sur le ventre",
+              "filename": "CHAMBRE-ENFANT_0008_Calque-32.png"
+            },
+            "CHAMBRE-ENFANT_0009_Calque-31": {
+              "displayName": "dort",
+              "filename": "CHAMBRE-ENFANT_0009_Calque-31.png"
+            },
+            "CHAMBRE-ENFANT_0010_Calque-30": {
+              "displayName": "dort sur le dos",
+              "filename": "CHAMBRE-ENFANT_0010_Calque-30.png"
+            },
+            "CHAMBRE-ENFANT_0013_Calque-28": {
+              "displayName": "se retourne en dormant",
+              "filename": "CHAMBRE-ENFANT_0013_Calque-28.png"
+            },
+            "CHAMBRE-ENFANT_0014_Calque-27": {
+              "displayName": "pousse la couverture en dormant",
+              "filename": "CHAMBRE-ENFANT_0014_Calque-27.png"
+            },
+            "CHAMBRE-ENFANT_0015_Calque-26": {
+              "displayName": "dort la bouche ouverte",
+              "filename": "CHAMBRE-ENFANT_0015_Calque-26.png"
+            },
+            "CHAMBRE-ENFANT_0016_Calque-25": {
+              "displayName": "sommeille",
+              "filename": "CHAMBRE-ENFANT_0016_Calque-25.png"
+            },
+            "CHAMBRE-ENFANT_0029_Calque-16": {
+              "displayName": "s'asseoit sur le lit",
+              "filename": "CHAMBRE-ENFANT_0029_Calque-16.png"
+            },
+            "CHAMBRE-ENFANT_0031_Calque-14bis": {
+              "displayName": "discute avec quelqu'un",
+              "filename": "CHAMBRE-ENFANT_0031_Calque-14bis.png"
+            },
+            "CHAMBRE-ENFANT_0033_Calque-13bis": {
+              "displayName": "entre dans la chambre",
+              "filename": "CHAMBRE-ENFANT_0033_Calque-13bis.png"
+            },
+            "CHAMBRE-ENFANT_0036_Calque-11": {
+              "displayName": "descend du lit",
+              "filename": "CHAMBRE-ENFANT_0036_Calque-11.png"
+            },
+            "CHAMBRE-ENFANT_0038_Calque-10": {
+              "displayName": "laisse tomber son livre",
+              "filename": "CHAMBRE-ENFANT_0038_Calque-10.png"
+            },
+            "CHAMBRE-ENFANT_0043_Calque-5": {
+              "displayName": "qui rit en lisant son livre",
+              "filename": "CHAMBRE-ENFANT_0043_Calque-5.png"
+            },
+            "CHAMBRE-ENFANT_0044_Calque-4": {
+              "displayName": "lit un livre",
+              "filename": "CHAMBRE-ENFANT_0044_Calque-4.png"
+            },
+            "CHAMBRE-ENFANT_0045_Calque-3": {
+              "displayName": "rentre dans la chambre avec son cartable",
+              "filename": "CHAMBRE-ENFANT_0045_Calque-3.png"
+            }
+          },
+          "kid_and_green_monster": {
+            "displayName": "",
+            "CHAMBRE-ENFANT_0021_Calque-21": {
+              "displayName": "jouent ensemble en riant",
+              "filename": "CHAMBRE-ENFANT_0021_Calque-21.png"
+            },
+            "CHAMBRE-ENFANT_0022_Calque-20": {
+              "displayName": "jouent calmement",
+              "filename": "CHAMBRE-ENFANT_0022_Calque-20.png"
+            },
+            "CHAMBRE-ENFANT_0023_Calque-19": {
+              "displayName": "guettent la porte de la chambre",
+              "filename": "CHAMBRE-ENFANT_0023_Calque-19.png"
+            },
+            "CHAMBRE-ENFANT_0030_Calque-15": {
+              "displayName": "dansent sur le lit",
+              "filename": "CHAMBRE-ENFANT_0030_Calque-15.png"
+            }
+          },
+          "mom": {
+            "displayName": "la maman",
+            "CHAMBRE-ENFANT_0011_Calque-29": {
+              "displayName": "éteint la lampe de chevet",
+              "filename": "CHAMBRE-ENFANT_0011_Calque-29.png"
+            },
+            "CHAMBRE-ENFANT_0012_Calque-28bis": {
+              "displayName": "entre dans la chambre en chemise de nuit",
+              "filename": "CHAMBRE-ENFANT_0012_Calque-28bis.png"
+            },
+            "CHAMBRE-ENFANT_0037_Calque-10bis": {
+              "displayName": "sort de la chambre en éteignant la lumière",
+              "filename": "CHAMBRE-ENFANT_0037_Calque-10bis.png"
+            },
+            "CHAMBRE-ENFANT_0039_Calque-9": {
+              "displayName": "embrasse le petit garçon",
+              "filename": "CHAMBRE-ENFANT_0039_Calque-9.png"
+            }
+          }
+        },
+        "object": {
+          "CHAMBRE-ENFANT_0000_Calque-40": {
+            "displayName": "la porte entrouverte",
+            "time": "night",
+            "filename": "CHAMBRE-ENFANT_0000_Calque-40.png"
+          },
+          "CHAMBRE-ENFANT_0001_Calque-39": {
+            "displayName": "la porte entrouverte",
+            "time": "day",
+            "filename": "CHAMBRE-ENFANT_0001_Calque-39.png"
+          },
+          "CHAMBRE-ENFANT_0002_Calque-38": {
+            "displayName": "le livre sur le sol",
+            "filename": "CHAMBRE-ENFANT_0002_Calque-38.png"
+          }
+        }
+      }
+    },
+    "kitchen": {
+      "kitchen": {
+        "displayName": "la cuisine",
+        "background": {
+          "night": {
+            "displayName": "night",
+            "filename": "night.png"
+          },
+          "day": {
+            "displayName": "day",
+            "filename": "day.png"
+          }
+        },
+        "character": {
+          "dad": {
+            "displayName": "le papa",
+            "CUISINE_0001_Calque-45": {
+              "displayName": "met la table du petit déjeuner",
+              "filename": "CUISINE_0001_Calque-45.png"
+            },
+            "CUISINE_0025_Calque-26": {
+              "displayName": "rempli la théière",
+              "filename": "CUISINE_0025_Calque-26.png"
+            },
+            "CUISINE_0030_Calque-22": {
+              "displayName": "écoute quelqu'un dans l'entrée",
+              "filename": "CUISINE_0030_Calque-22.png"
+            },
+            "CUISINE_0044_Calque-8": {
+              "displayName": "met la table",
+              "filename": "CUISINE_0044_Calque-8.png"
+            },
+            "CUISINE_0046_Calque-6": {
+              "displayName": "choisi des ingrédients dans le frigo",
+              "filename": "CUISINE_0046_Calque-6.png"
+            }
+          },
+          "family": {
+            "displayName": "la famille",
+            "CUISINE_0000_Calque-46": {
+              "displayName": "prend le petit déjeuner",
+              "filename": "CUISINE_0000_Calque-46.png"
+            },
+            "CUISINE_0033_Calque-19": {
+              "displayName": "finis de manger",
+              "filename": "CUISINE_0033_Calque-19.png"
+            },
+            "CUISINE_0034_Calque-18": {
+              "displayName": "mange calmement",
+              "filename": "CUISINE_0034_Calque-18.png"
+            },
+            "CUISINE_0036_Calque-16": {
+              "displayName": "mange en discutant",
+              "filename": "CUISINE_0036_Calque-16.png"
+            },
+            "CUISINE_0037_Calque-15": {
+              "displayName": "se prépare a manger le repas",
+              "filename": "CUISINE_0037_Calque-15.png"
+            },
+            "CUISINE_0038_Calque-14": {
+              "displayName": "mange le repas",
+              "filename": "CUISINE_0038_Calque-14.png"
+            },
+            "CUISINE_0039_Calque-13": {
+              "displayName": "s'apprête à manger",
+              "filename": "CUISINE_0039_Calque-13.png"
+            },
+            "CUISINE_0040_Calque-12": {
+              "displayName": "se fait servir par maman",
+              "filename": "CUISINE_0040_Calque-12.png"
+            },
+            "CUISINE_0043_Calque-9": {
+              "displayName": "est dans la cuisine",
+              "filename": "CUISINE_0043_Calque-9.png"
+            }
+          },
+          "kid": {
+            "displayname": "le petit garçon",
+            "CUISINE_0035_Calque-17": {
+              "displayName": "réclame un yahourt",
+              "filename": "CUISINE_0035_Calque-17.png"
+            }
+          },
+          "mom": {
+            "displayName": "la maman",
+            "CUISINE_0016_Calque-31": {
+              "displayName": "entre dans la cuisine en chemise de nuit",
+              "filename": "CUISINE_0016_Calque-31.png"
+            }
+          },
+          "mom_and_dad": {
+            "displayName": "le papa et la maman",
+            "CUISINE_0031_Calque-21": {
+              "displayName": "finissent de manger",
+              "filename": "CUISINE_0031_Calque-21.png"
+            },
+            "CUISINE_0032_Calque-20": {
+              "displayName": "terminent le repas",
+              "filename": "CUISINE_0032_Calque-20.png"
+            },
+            "CUISINE_0045_Calque-7": {
+              "displayName": "se font un bisou",
+              "filename": "CUISINE_0045_Calque-7.png"
+            }
+          },
+          "mouse": {
+            "displayName": "les souris",
+            "CUISINE_0011_Calque-35": {
+              "displayName": "fuient vers le trou de souris",
+              "filename": "CUISINE_0011_Calque-35.png"
+            },
+            "CUISINE_0012_Calque-34": {
+              "displayName": "utilisent la poubelle comme catapulte",
+              "filename": "CUISINE_0012_Calque-34.png"
+            },
+            "CUISINE_0014_Calque-33": {
+              "displayName": "se réunissent sur la table",
+              "filename": "CUISINE_0014_Calque-33.png"
+            },
+            "CUISINE_0015_Calque-32": {
+              "displayName": "se promènent dans la cuisine",
+              "filename": "CUISINE_0015_Calque-32.png"
+            },
+            "CUISINE_0017_Calque-48": {
+              "displayName": "se cache dans la cuisine",
+              "filename": "CUISINE_0017_Calque-48.png"
+            },
+            "CUISINE_0018_Calque-47": {
+              "displayName": "se cache dans la cuisine",
+              "filename": "CUISINE_0018_Calque-47.png"
+            },
+            "CUISINE_0024_Calque-27": {
+              "displayName": "entendent un bruit inquiétant dans l'entrée",
+              "filename": "CUISINE_0024_Calque-27.png"
+            },
+            "CUISINE_0026_Calque-25": {
+              "displayName": "s'introduisent discrètement dans la cuisine",
+              "filename": "CUISINE_0026_Calque-25.png"
+            },
+            "CUISINE_0047_Calque-5": {
+              "displayName": "rentrent dans le trou de souris",
+              "filename": "CUISINE_0047_Calque-5.png"
+            },
+            "CUISINE_0048_Calque-4": {
+              "displayName": "fouillent dans le placard",
+              "filename": "CUISINE_0048_Calque-4.png"
+            },
+            "CUISINE_0049_Calque-3": {
+              "displayName": "boivent dans un bol sur le sol",
+              "filename": "CUISINE_0049_Calque-3.png"
+            }
+          },
+          "cat": {
+            "displayName": "le chat",
+            "CUISINE_0019_Calque-30": {
+              "displayName": "cherche les souris",
+              "filename": "CUISINE_0019_Calque-30.png"
+            }
+          },
+          "mouse_and_cat": {
+            "displayName": "le chat et les souris",
+            "CUISINE_0020_Calque-29": {
+              "displayName": "se pourchassent",
+              "filename": "CUISINE_0020_Calque-29.png"
+            },
+            "CUISINE_0022_Calque-28": {
+              "displayName": "se courent après",
+              "filename": "CUISINE_0022_Calque-28.png"
+            }
+          },
+          "pink_and_green": {
+            "displayName": "les monstres",
+            "CUISINE_0002_Calque-44": {
+              "displayName": "prennent soin d'un oiseau",
+              "filename": "CUISINE_0002_Calque-44.png"
+            },
+            "CUISINE_0003_Calque-43": {
+              "displayName": "sont surpis par l'oiseau qui tombe de la hotte",
+              "filename": "CUISINE_0003_Calque-43.png"
+            },
+            "CUISINE_0004_Calque-42": {
+              "displayName": "trinquent",
+              "filename": "CUISINE_0004_Calque-42.png"
+            },
+            "CUISINE_0005_Calque-41": {
+              "displayName": "partagent un repas bizzare",
+              "filename": "CUISINE_0005_Calque-41.png"
+            },
+            "CUISINE_0006_Calque-40": {
+              "displayName": "sont heureux",
+              "filename": "CUISINE_0006_Calque-40.png"
+            }
+          },
+          "pink_monster": {
+            "displayName": "le monstre rose",
+            "CUISINE_0007_Calque-39": {
+              "displayName": "écoute ce qu'il se passe dans l'entrée",
+              "filename": "CUISINE_0007_Calque-39.png"
+            },
+            "CUISINE_0008_Calque-38": {
+              "displayName": "bois une mixture étrange",
+              "filename": "CUISINE_0008_Calque-38.png"
+            },
+            "CUISINE_0009_Calque-37": {
+              "displayName": "prépare une mixture bizzare",
+              "filename": "CUISINE_0009_Calque-37.png"
+            },
+            "CUISINE_0010_Calque-36": {
+              "displayName": "fouille dans le placard",
+              "filename": "CUISINE_0010_Calque-36.png"
+            }
+          }
+        },
+        "object": {
+          "CUISINE_0013_tasse": {
+            "displayName": "une tasse verte",
+            "filename": "CUISINE_0013_tasse.png"
+          },
+          "CUISINE_0021_theiere-casserole-nuit": {
+            "displayName": "une théière et la casserole",
+            "time": "night",
+            "filename": "CUISINE_0021_theiere-casserole-nuit.png"
+          },
+          "CUISINE_0023_theiere-casserole": {
+            "displayName": "une théière et la casserole",
+            "time": "day",
+            "filename": "CUISINE_0023_theiere-casserole.png"
+          },
+          "CUISINE_0027_evier": {
+            "displayName": "de la vaisselle dans l'évier",
+            "filename": "CUISINE_0027_evier.png"
+          },
+          "CUISINE_0028_Calque-24": {
+            "displayName": "la casserole qui fait de la vapeur",
+            "filename": "CUISINE_0028_Calque-24.png"
+          }
+        }
+      }
+    },
+    "roof": {
+      "roof": {
+        "displayName": "le toît",
+        "background": {
+          "displayName": "day",
+          "day": {
+            "displayName": "",
+            "filename": "day.png"
+          },
+          "night": {
+            "displayName": "night",
+            "filename": "night.png"
+          }
+        },
+        "character": {
+          "bird": {
+            "displayName": "les oiseaux",
+            "TOITURE_0000_Calque-41": {
+              "displayName": "se reposent dans le nid",
+              "filename": "TOITURE_0000_Calque-41.png"
+            },
+            "TOITURE_0010_Calque-31": {
+              "displayName": "sont dans le nid",
+              "filename": "TOITURE_0010_Calque-31.png"
+            },
+            "TOITURE_0012_Calque-29": {
+              "displayName": "sont dans le nid",
+              "filename": "TOITURE_0012_Calque-29.png"
+            },
+            "TOITURE_0014_Calque-27": {
+              "displayName": "sont dans le nid",
+              "filename": "TOITURE_0014_Calque-27.png"
+            },
+            "TOITURE_0015_Calque-26": {
+              "displayName": "se reposent dans le nid",
+              "filename": "TOITURE_0015_Calque-26.png"
+            },
+            "TOITURE_0016_Calque-25": {
+              "displayName": "dorment dans le nid",
+              "filename": "TOITURE_0016_Calque-25.png"
+            },
+            "TOITURE_0018_Calque-23": {
+              "displayName": "dorment dans le nid",
+              "filename": "TOITURE_0018_Calque-23.png"
+            },
+            "TOITURE_0028_Calque-17": {
+              "displayName": "dorment dans le nid",
+              "filename": "TOITURE_0028_Calque-17.png"
+            },
+            "TOITURE_0030_Calque-15": {
+              "displayName": "sont dans le nid",
+              "filename": "TOITURE_0030_Calque-15.png"
+            }
+          },
+          "bird_kid": {
+            "displayName": "les oisillons",
+            "TOITURE_0031_Calque-14": {
+              "displayName": "réclament à manger",
+              "filename": "TOITURE_0031_Calque-14.png"
+            },
+            "TOITURE_0032_Calque-13": {
+              "displayName": "réclament à manger",
+              "filename": "TOITURE_0032_Calque-13.png"
+            },
+            "TOITURE_0033_Calque-12": {
+              "displayName": "réclament à manger",
+              "filename": "TOITURE_0033_Calque-12.png"
+            },
+            "TOITURE_0034_Calque-11": {
+              "displayName": "réclament à manger à leur mère",
+              "filename": "TOITURE_0034_Calque-11.png"
+            },
+            "TOITURE_0037_Calque-8": {
+              "displayName": "réclament à manger",
+              "filename": "TOITURE_0037_Calque-8.png"
+            },
+            "TOITURE_0038_Calque-7": {
+              "displayName": "réclament à manger... (ce qui intrigue le chat)",
+              "filename": "TOITURE_0038_Calque-7.png"
+            },
+            "TOITURE_0039_Calque-6": {
+              "displayName": "mangent des vers de terre",
+              "filename": "TOITURE_0039_Calque-6.png"
+            },
+            "TOITURE_0041_Calque-4": {
+              "displayName": "attendent leur mère",
+              "filename": "TOITURE_0041_Calque-4.png"
+            },
+            "TOITURE_0042_Calque-3": {
+              "displayName": "appellent leur mère",
+              "filename": "TOITURE_0042_Calque-3.png"
+            }
+          },
+          "bird_mom": {
+            "displayName": "la maman oiseau",
+            "TOITURE_0001_Calque-40": {
+              "displayName": "est désorientée",
+              "filename": "TOITURE_0001_Calque-40.png"
+            },
+            "TOITURE_0035_Calque-10": {
+              "displayName": "donne un gros ver de terre a ses oisillons",
+              "filename": "TOITURE_0035_Calque-10.png"
+            },
+            "TOITURE_0036_Calque-9": {
+              "displayName": "a trouvé un gros ver de terre",
+              "filename": "TOITURE_0036_Calque-9.png"
+            },
+            "TOITURE_0040_Calque-5": {
+              "displayName": "rapporte un petit ver de terre",
+              "filename": "TOITURE_0040_Calque-5.png"
+            }
+          },
+          "cat": {
+            "displayName": "le chat",
+            "TOITURE_0002_Calque-39": {
+              "displayName": "rentre par la fenêtre",
+              "filename": "TOITURE_0002_Calque-39.png"
+            },
+            "TOITURE_0003_Calque-38": {
+              "displayName": "cherche quelque chose sur le toît",
+              "filename": "TOITURE_0003_Calque-38.png"
+            },
+            "TOITURE_0004_Calque-37": {
+              "displayName": "s'interroge",
+              "filename": "TOITURE_0004_Calque-37.png"
+            },
+            "TOITURE_0005_Calque-36": {
+              "displayName": "attaque la maman oiseau",
+              "filename": "TOITURE_0005_Calque-36.png"
+            },
+            "TOITURE_0006_Calque-35": {
+              "displayName": "a peur de la maman oiseau",
+              "filename": "TOITURE_0006_Calque-35.png"
+            },
+            "TOITURE_0007_Calque-34": {
+              "displayName": "est assomé",
+              "filename": "TOITURE_0007_Calque-34.png"
+            },
+            "TOITURE_0008_Calque-33": {
+              "displayName": "qui dégringole le toît",
+              "filename": "TOITURE_0008_Calque-33.png"
+            },
+            "TOITURE_0009_Calque-32": {
+              "displayName": "rend visite aux oiseaux",
+              "filename": "TOITURE_0009_Calque-32.png"
+            },
+            "TOITURE_0011_Calque-30": {
+              "displayName": "a découvert le nid des oiseaux",
+              "filename": "TOITURE_0011_Calque-30.png"
+            },
+            "TOITURE_0013_Calque-28": {
+              "displayName": "est placé sur le toît par le monstre vert",
+              "filename": "TOITURE_0013_Calque-28.png"
+            }
+          },
+          "dirigeable": {
+            "displayName": "le dirigeable",
+            "TOITURE_0024_Calque-21": {
+              "displayName": "disparait",
+              "filename": "TOITURE_0024_Calque-21.png"
+            },
+            "TOITURE_0025_Calque-20": {
+              "displayName": "s'en va",
+              "filename": "TOITURE_0025_Calque-20.png"
+            },
+            "TOITURE_0026_Calque-19": {
+              "displayName": "avance",
+              "filename": "TOITURE_0026_Calque-19.png"
+            },
+            "TOITURE_0027_Calque-18": {
+              "displayName": "arrive",
+              "filename": "TOITURE_0027_Calque-18.png"
+            }
+          },
+          "dad": {
+            "displayName": "le papa",
+            "TOITURE_0023_Calque-22": {
+              "displayName": "ouvre la fenêtre",
+              "filename": "TOITURE_0023_Calque-22.png"
+            }
+          }
+        },
+        "object": {
+          "TOITURE_0019_fenetre-ouverte-eteinte-jour": {
+            "displayName": "la fenêtre",
+            "time": "night",
+            "filename": "TOITURE_0019_fenetre-ouverte-eteinte-jour.png"
+          },
+          "TOITURE_0021_fenetre-ouverte-allumée-jour": {
+            "displayName": "la fenêtre",
+            "time": "day",
+            "filename": "TOITURE_0021_fenetre-ouverte-allumée-jour.png"
+          }
+        }
+      }
+    }
+  }
+}
