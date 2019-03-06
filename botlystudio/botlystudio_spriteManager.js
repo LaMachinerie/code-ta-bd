@@ -70,7 +70,6 @@ SpriteManager.getBackgroundSubTree = function (room) {
 }
 
 
-
 SpriteManager.getActionsSubTree = function (room, character) {
     tree = SpriteManager.getCharacterSubTree(room)[character];
     var actionsTree = {}
@@ -108,7 +107,6 @@ SpriteManager.getJsonElementByName = function (json, name) {
 }
 
 SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
-    room = SpriteManager.getRoomSubTree[roomKey];
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     if(background != undefined)
         return SpriteManager.basePath + "room/" + roomKey + "/background/" + background.filename;

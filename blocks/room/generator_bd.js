@@ -14,7 +14,7 @@ Blockly.JavaScript['room'] = function (block) {
   return code;
 };
 
-/*
+
 Blockly.JavaScript['light'] = function (block) {
   var room = null;
   if (block.previousConnection.isConnected()) {
@@ -31,4 +31,3 @@ Blockly.JavaScript['light'] = function (block) {
   var code = 'room("' + room + '", "' + dropdown_light + '");\n'
   return code;
 };
-*/
