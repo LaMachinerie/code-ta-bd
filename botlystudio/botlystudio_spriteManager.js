@@ -1,17 +1,48 @@
 var SpriteManager = SpriteManager || {};
 
-SpriteManager.basePath = "botlystudio/sprites/";
+SpriteManager.basePath = "assets/"
 SpriteManager.missingPath = SpriteManager.basePath + "missingFile.png";
 SpriteManager.treeBuffer = {};
+SpriteManager.Tree = {};
+SpriteManager.defaultTree = {
+    rooms : {
+        entrance : {
+            displayName : "Entrée",
+            character : {
+                dad : {
+                    displayName : "Papa",
+                    actions : {}
+                }
+            },
+            background : {
+                day :{
+                    displayName : "jour",
+                    filename : "day.png"
+                },
+                night :{
+                    displayName : "nuit",
+                    filename : "night.png"
+                }
+            }
+        }
+    }
+}
+/*
+var s = {name: "raul", age: "22", gender: "Male"}
+   var keys = [];
+   for(var k in s) keys.push(k);
 
+*/
 
+SpriteManager.initSpriteManager = function (){
+    ElectronIPC.getJsonTree();
+}
 
 SpriteManager.getRoomSubTree = function () {
     tree = SpriteManager.Tree;
     if (tree != null) return tree.room;
-    else return SpriteManager.defaultTree.room;
+    else return SpriteManager.defaultTree.rooms;
 }
-
 
 
 SpriteManager.getCharacterSubTree = function (room) {
@@ -21,9 +52,8 @@ SpriteManager.getCharacterSubTree = function (room) {
         if (roomJSON != null) return roomJSON.character
         else return null;
     }
-    else return SpriteManager.defaultTree.room.entrance.character;
+    else return SpriteManager.defaultTree.rooms.entrance.character;
 }
-
 
 
 SpriteManager.getBackgroundSubTree = function (room) {
@@ -31,9 +61,9 @@ SpriteManager.getBackgroundSubTree = function (room) {
     if (tree != null) {
         roomJSON = tree[room];
         if (roomJSON != null) return roomJSON.background
-        else return SpriteManager.defaultTree.room.entrance.background;
+        else return SpriteManager.defaultTree.rooms.entrance.background;
     }
-    else return SpriteManager.defaultTree.room.entrance.background;
+    else return SpriteManager.defaultTree.rooms.entrance.background;
 }
 
 
@@ -43,9 +73,9 @@ SpriteManager.getActionsSubTree = function (room, character) {
     if (tree != null) {
         characterJSON = tree[character];
         if (characterJSON != null) return characterJSON.actions
-        else return SpriteManager.defaultTree.room.entrance.character.actions;
+        else return SpriteManager.defaultTree.rooms.entrance.character.actions;
     }
-    else return SpriteManager.defaultTree.room.entrance.character.actions;
+    else return SpriteManager.defaultTree.rooms.entrance.character.actions;
 }
 
 
@@ -59,19 +89,6 @@ SpriteManager.getJsonElementByName = function (json, name) {
     return json[0];
 }
 
-
-
-SpriteManager.getJsonElementById = function (json, id) {
-    for (subTree in json) {
-        if (subTree.id == id) {
-            return subTree;
-        }
-    }
-    return json[0];
-}
-
-
-
 SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
     room = SpriteManager.getRoomSubTree[roomKey];
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
@@ -80,10 +97,8 @@ SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
     else return SpriteManager.missingPath;
 }
 
-
-
 SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
-    if (characterKey == "missing") return SpriteManager.missingPath;
+    if (characterKey == "default") return SpriteManager.missingPath;
     room = SpriteManager.getRoomSubTree[roomKey];
     character = SpriteManager.getCharacterSubTree(roomKey)[characterKey];
     path = SpriteManager.basePath + "room/" + roomKey + "/character/" + characterKey + '/actions/' + character.actions[actionKey].filename;
@@ -93,7 +108,7 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
 
 
 
-SpriteManager.getDisplayNameArray = function (tree) {
+SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     array = [];
     if (tree != null) {
         for (obj in tree) {
@@ -101,13 +116,13 @@ SpriteManager.getDisplayNameArray = function (tree) {
         }
     }
     if (array[0] != null) return array;
-    else return [["Default", "missing"]];
+    else return defaultArray;
 }
 
 
 
 SpriteManager.importTreeJson = function (override) {
-    BotlyStudioIPC.getJson("tree.json", 'root', null, null, override);
+    ElectronIPC.getJsonTree();
 }
 
 SpriteManager.saveTree = function(){
@@ -118,7 +133,6 @@ SpriteManager.processRootJson = function (rootJson, override) {
     for (roomKey in rootJson) {
         if (SpriteManager.Tree.room[roomKey] == null || override)
             SpriteManager.Tree.room[roomKey] = rootJson[roomKey];
-        BotlyStudioIPC.getJson(roomKey + "/tree.json", 'room', roomKey, null);
     }
 }
 
@@ -126,7 +140,6 @@ SpriteManager.processRoomJson = function (roomJson, roomKey, override) {
     for (cat in roomJson) {
         if (SpriteManager.Tree.room[roomKey][cat] == null || override)
             SpriteManager.Tree.room[roomKey][cat] = {};
-        BotlyStudioIPC.getJson(roomKey + "/" + cat + "/tree.json", cat, roomKey, null);
     }
 }
 
@@ -134,7 +147,6 @@ SpriteManager.processCharacterJson = function (characterJson, roomKey, override)
     for (characterKey in characterJson) {
         if (SpriteManager.Tree.room[roomKey].character[characterKey] == null || override)
             SpriteManager.Tree.room[roomKey].character[characterKey] = characterJson[characterKey];
-        BotlyStudioIPC.getJson(roomKey + "/character/" + characterKey  + "/actions/tree.json", 'actions', roomKey, characterKey);
     }
 }
 
@@ -152,23 +164,6 @@ SpriteManager.processBackgroundJson = function (backgroundJson, roomKey, overrid
     }
 }
 
-/*
-SpriteManager.addRoom = function(key, displayName){
-    BotlyStudioIPC.addJsonElement("tree.json", {})
-}
-
-SpriteManager.addCharacter = function (room, key, displayName) {
-
-}
-
-SpriteManager.addActions = function (room, character, key, displayName) {
-
-}
-
-SpriteManager.addBackground = function (room, key, displayName) {
-
-}
-*/
 
 SpriteManager.downloadJson = function(){
 	var content = JSON.stringify(SpriteManager.Tree,null,2);
@@ -181,3 +176,24 @@ SpriteManager.downloadJson = function(){
 
 	saveAs(blob, filename);
 }
+
+SpriteManager.loadAsset = function(){
+    ElectronIPC.importAsset();
+}
+
+
+SpriteManager.loadPicture = function(){
+    $('#sprite_dialog').openModal({
+        dismissible: true,
+        opacity: .5,
+        in_duration: 200,
+        out_duration: 250
+      });
+}
+
+SpriteManager.saveAsset = function(){
+
+
+}
+
+
