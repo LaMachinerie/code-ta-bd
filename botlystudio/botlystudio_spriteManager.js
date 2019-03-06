@@ -110,7 +110,7 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
 
 SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     array = [];
-    if (tree != null) {
+    if (tree != undefined) {
         for (obj in tree) {
             array.push([tree[obj].displayName, obj]);
         }

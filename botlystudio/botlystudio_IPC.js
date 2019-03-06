@@ -12,7 +12,6 @@ BotlyStudioIPC.initIPC = function () {
 }
 
 
-
 BotlyStudioIPC.processResponse = function (json_str) {
   BotlyStudioIPC.pendingRequest--;
   var json = JSON.parse(json_str);
