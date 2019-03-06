@@ -8,6 +8,8 @@ Renderer.sprites = [];
 Renderer.canvas = null;
 Renderer.pidList = [];
 Renderer.pause = 10;
+Renderer.currentBackGround = "none";
+
 
 Renderer.init = function () {
     Renderer.canvas = document.getElementById("display");
@@ -113,14 +115,16 @@ Renderer.setBackGround = function (path) {
 	Renderer.canvas.getContext("2d").clearRect(0, 0, Renderer.canvas.width, Renderer.canvas.height);
     Renderer.sprites = [];
 
-    
     var ctx = document.getElementById("display").getContext("2d");
     var background = new Image();
-    background.src = path;
 
-    // Make sure the image is loaded first otherwise nothing will draw.
-    background.onload = function(){
-        ctx.drawImage(background,0,0);   
+    if(path != currentBackGround){
+        background.src = path;
+        Renderer.currentBackGround = path;
+        // Make sure the image is loaded first otherwise nothing will draw.
+        background.onload = function(){
+            ctx.drawImage(background,0,0);   
+        }
     }
     Renderer.renderSprites();
 };
