@@ -125,10 +125,10 @@ Renderer.setBackGround = function (path) {
         // Make sure the image is loaded first otherwise nothing will draw.
         background.onload = function(){
             ctx.drawImage(background,0,0);   
-            currentBackGroundIMG = background;
+            Renderer.currentBackGroundIMG = background;
         }
     }else{
-        ctx.drawImage(currentBackGroundIMG,0,0);   
+        ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
     }
     Renderer.renderSprites();
 };
