@@ -61,6 +61,8 @@ function defaultDropdown(block){
 function bathRoomDropdown(block){
   var partDropdown = block.getField("PART")
   partDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray( SpriteManager.getBackgroundSubTree("bathroom") ,[["la pièce", "current"]]);
-  partDropdown.setText(partDropdown.menuGenerator_[0][0]);
-  partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
+  if(partDropdown.getFieldValue() == "current"){
+    partDropdown.setText(partDropdown.menuGenerator_[0][0]);
+    partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
+  }
 }
