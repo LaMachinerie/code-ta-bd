@@ -31,7 +31,7 @@ Blockly.JavaScript['light'] = function (block) {
   var dropdown_part = block.getFieldValue('PART');
   var code = "";
 
-  if(dropdown_part == "current") 
+  if(room != "bathroom") 
     code = 'room("' + room + '", "' + dropdown_light + '");\n'
   else{
     let tree = SpriteManager.getBackgroundSubTree("bathroom");
