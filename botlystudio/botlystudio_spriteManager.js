@@ -31,7 +31,10 @@ SpriteManager.defaultTree = {
     }
 }
 
-SpriteManager.bathroomLight = 3;
+SpriteManager.bathroomLight = {
+    bathroom: true,
+    stairs: true
+};
 
 /*
 var s = {name: "raul", age: "22", gender: "Male"}

@@ -34,17 +34,21 @@ Blockly.JavaScript['light'] = function (block) {
   if(room != "bathroom") 
     code = 'room("' + room + '", "' + dropdown_light + '");\n'
   else{
-    let tree = SpriteManager.getBackgroundSubTree("bathroom");
-    let id = 1;
-    if(tree[dropdown_part] != undefined)
-      id = tree[dropdown_part].id;
+    let state = true;
+    if(dropdown_light == "day") state = true;
+    if(dropdown_light == "night") state = false;
 
-    SpriteManager.bathroomLight += (dropdown_light == "day") ? id : -id;
-    for(var key in tree){
-      if(tree[key].id == SpriteManager.bathroomLight){
-        code = 'room("' + room + '", "' + key + '");\n'
-      }
-    }
+    if (dropdown_part == "bathroom_light") SpriteManager.bathroomLight.bathroom = state;
+    if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
+
+    if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
+      code = 'room("' + room + '", "full_light");\n'
+    if(SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
+      code = 'room("' + room + '", "bathroom_light");\n'
+    if(!SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
+      code = 'room("' + room + '", "stairs_light");\n'
+    if(!SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
+      code = 'room("' + room + '", "no_light");\n'
   }
 
 
