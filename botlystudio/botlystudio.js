@@ -275,6 +275,23 @@ BotlyStudio.refreshDynamicDropdown = function(){
         field.setValue(roomDropValue);
       }
       
+      var characterDropValue = b.getFieldValue("CHAR");
+      var actionsDropValue = b.getFieldValue("ACTIONS");
+      if(characterDropValue != undefined && actionsDropValue != undefined){
+        let field = b.getField("CHAR")
+        let parentRoom = b.getSurroundParent();
+        let possibilitieTree = SpriteManager.getCharacterSubTree(parentRoom);
+        let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(parentRoom), [["Quelqu'un","default"]]);
+        field.menuGenerator_ = possibilities;
+        field.setText(possibilitieTree[characterDropValue].displayName);
+        field.setValue(characterDropValue);
+
+        possibilitieTree = SpriteManager.getCharacterSubTree(parentRoom);
+        possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(parentRoom, characterDropValue), [["fait quelque chose","default"]]);
+        field.menuGenerator_ = possibilities;
+        field.setText(possibilitieTree[actionsDropValue].displayName);
+        field.setValue(actionsDropValue);
+      }
       //characterDropValue = b.getFieldValue();
       //Blocks[block].onchange();
     }
