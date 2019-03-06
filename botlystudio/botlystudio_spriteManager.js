@@ -85,9 +85,16 @@ SpriteManager.getActionsSubTree = function (room, character) {
         }
 
         if (actionsTree[0] != undefined) return actionsTree
-        else return SpriteManager.defaultTree.rooms.entrance.character.dad;
+        else {
+            
+            actionsTree["default"] = SpriteManager.defaultTree.rooms.entrance.character.dad.default;
+            return actionsTree;
+        }
     }
-    else return SpriteManager.defaultTree.rooms.entrance.character.dad;
+    else{
+        actionsTree["default"] = SpriteManager.defaultTree.rooms.entrance.character.dad.default;
+        return actionsTree;
+    }
 }
 
 
