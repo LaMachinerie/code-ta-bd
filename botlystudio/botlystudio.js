@@ -286,6 +286,7 @@ BotlyStudio.refreshDynamicDropdown = function(){
         field.setText(possibilitieTree[characterDropValue].displayName);
         field.setValue(characterDropValue);
 
+        let field = b.getField("ACTIONS")
         possibilitieTree = SpriteManager.getActionsSubTree(parentRoom, characterDropValue);
         possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(parentRoom, characterDropValue), [["fait quelque chose","default"]]);
         field.menuGenerator_ = possibilities;
