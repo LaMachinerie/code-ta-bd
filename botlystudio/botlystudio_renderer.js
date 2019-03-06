@@ -118,7 +118,7 @@ Renderer.setBackGround = function (path) {
     var ctx = document.getElementById("display").getContext("2d");
     var background = new Image();
 
-    if(path != currentBackGround){
+    if(path != Renderer.currentBackGround){
         background.src = path;
         Renderer.currentBackGround = path;
         // Make sure the image is loaded first otherwise nothing will draw.
