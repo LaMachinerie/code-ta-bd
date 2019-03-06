@@ -118,7 +118,7 @@ Renderer.setBackGround = function (path) {
 
         var ctx = document.getElementById("display").getContext("2d");
         var background = new Image();
-        
+
         background.src = path;
         Renderer.currentBackGround = path;
         // Make sure the image is loaded first otherwise nothing will draw.
@@ -188,7 +188,7 @@ Renderer.reset = function () {
     }
     Renderer.pidList.length = 0;
     Renderer.interpreter = null;
-
+    Renderer.currentBackGround = "none";
     SpriteManager.bathroomLight = {
         bathroom: true,
         stairs: true
