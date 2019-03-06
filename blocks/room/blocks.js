@@ -36,7 +36,6 @@ Blockly.Blocks['light'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(){
-    console.log("coucou")
     var surround = this.getSurroundParent();
     if(surround != null){
       if(surround.getFieldValue("ROOMS") != null){
