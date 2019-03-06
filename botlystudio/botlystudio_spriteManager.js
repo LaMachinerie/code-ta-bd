@@ -113,6 +113,7 @@ SpriteManager.getJsonElementByName = function (json, name) {
 }
 
 SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
+    if(backgroundKey = undefined) backgroundKey = "day";
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     if(background != undefined)
         return SpriteManager.basePath + "room/" + roomKey + "/background/" + background.filename;
