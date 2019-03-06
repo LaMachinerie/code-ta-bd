@@ -129,7 +129,7 @@ Renderer.setBackGround = function (path) {
         }
     }else{
         Renderer.sprites = [];
-        ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
+        //ctx.drawImage(Renderer.currentBackGroundIMG,0,0);   
     }
     Renderer.renderSprites();
 };
