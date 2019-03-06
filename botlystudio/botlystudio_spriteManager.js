@@ -35,7 +35,7 @@ var s = {name: "raul", age: "22", gender: "Male"}
 */
 
 SpriteManager.initSpriteManager = function (){
-    ElectronIPC.getJsonTree();
+    BotlyStudioIPC.getJsonTree();
 }
 
 SpriteManager.getRoomSubTree = function () {
@@ -122,7 +122,7 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
 
 
 SpriteManager.importTreeJson = function (override) {
-    ElectronIPC.getJsonTree();
+    BotlyStudioIPC.getJsonTree();
 }
 
 SpriteManager.saveTree = function(){
@@ -178,7 +178,7 @@ SpriteManager.downloadJson = function(){
 }
 
 SpriteManager.loadAsset = function(){
-    ElectronIPC.importAsset();
+    BotlyStudioIPC.importAsset();
 }
 
 
