@@ -262,7 +262,7 @@ BotlyStudio.loadUserXmlFile = function () {
 
 BotlyStudio.refreshDynamicDropdown = function(){
   let Blocks = BotlyStudio.workspace.getAllBlocks();
-  for(block in Blocks){
+  for(var block in Blocks){
     if(Blocks[block].isDynamic == true){
       b = Blocks[block];
       roomDropValue = b.getFieldValue("ROOMS");
