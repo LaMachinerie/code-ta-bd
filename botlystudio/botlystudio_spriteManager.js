@@ -79,8 +79,6 @@ SpriteManager.getActionsSubTree = function (room, character) {
         var keys = [];
         for(var k in tree) keys.push(k);
 
-        console.log(keys);
-
         for(var k in keys){
             if(keys[k] != "displayName")
                 actionsTree[keys[k]] = tree[keys[k]];
@@ -88,7 +86,6 @@ SpriteManager.getActionsSubTree = function (room, character) {
 
         if (actionsTree[0] != undefined) return actionsTree
         else {
-            
             actionsTree["default"] = SpriteManager.defaultTree.rooms.entrance.character.dad.default;
             return actionsTree;
         }

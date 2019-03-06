@@ -23,9 +23,11 @@ Blockly.Blocks['character'] = {
   },
   onchange: function(event) {
     var surround = this.getSurroundParent()
-    var selectedBlock = BotlyStudio.workspace.getBlockById(Blockly.selected.id);
+    var selectedBlock = undefined;
+    if(Blockly.selected != undefined)
+      selectedBlock = BotlyStudio.workspace.getBlockById(Blockly.selected.id);
+    
     if(event.type == Blockly.Events.MOVE && selectedBlock == this && !BotlyStudio.leftMouse && surround != this.oldSurround){
-      console.log(event);
       if(this.previousConnection.isConnected()){
         if(surround != null){
           if(surround.getFieldValue("ROOMS") != null){
