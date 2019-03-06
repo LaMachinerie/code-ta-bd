@@ -275,8 +275,8 @@ BotlyStudio.refreshDynamicDropdown = function(){
         field.setValue(roomDropValue);
       }
       
-      characterDropValue = b.getFieldValue();
-      Blocks[block].onchange();
+      //characterDropValue = b.getFieldValue();
+      //Blocks[block].onchange();
     }
   }
 }
