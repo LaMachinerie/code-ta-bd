@@ -261,11 +261,11 @@ BotlyStudio.loadUserXmlFile = function () {
 
 
 BotlyStudio.refreshDynamicDropdown = function(){
-  let Blocks = BotlyStudio.workspace.getAllBlocks();
+  var Blocks = BotlyStudio.workspace.getAllBlocks();
   for(var block in Blocks){
     if(Blocks[block].isDynamic == true){
-      b = Blocks[block];
-      roomDropValue = b.getFieldValue("ROOMS");
+      var b = Blocks[block];
+      var roomDropValue = b.getFieldValue("ROOMS");
       if(roomDropValue != undefined){
         let field = b.getField("ROOMS")
         let possibilitieTree = SpriteManager.getRoomSubTree();
