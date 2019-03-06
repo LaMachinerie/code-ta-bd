@@ -271,7 +271,7 @@ BotlyStudio.refreshDynamicDropdown = function(){
         let possibilitieTree = SpriteManager.getRoomSubTree();
         let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]]);
         field.menuGenerator_ = possibilities;
-        field.setText(possibilitieTree[roomDropValue].displayName());
+        field.setText(possibilitieTree[roomDropValue].displayName);
         field.setValue(roomDropValue);
       }
       
