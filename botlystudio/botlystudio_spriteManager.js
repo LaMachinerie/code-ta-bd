@@ -30,6 +30,9 @@ SpriteManager.defaultTree = {
         }
     }
 }
+
+SpriteManager.bathroomLight = 3;
+
 /*
 var s = {name: "raul", age: "22", gender: "Male"}
    var keys = [];
