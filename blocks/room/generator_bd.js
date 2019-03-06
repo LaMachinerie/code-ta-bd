@@ -35,6 +35,7 @@ Blockly.JavaScript['light'] = function (block) {
     code = 'room("' + room + '", "' + dropdown_light + '");\n'
   else{
     let tree = SpriteManager.getBackgroundSubTree("bathroom");
+    console.log(dropdown_part);
     let id = tree[dropdown_part].id;
     SpriteManager.bathroomLight += (dropdown_light == "day") ? id : -id;
     for(var key in tree){
