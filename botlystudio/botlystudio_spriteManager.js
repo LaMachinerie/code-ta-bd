@@ -113,9 +113,9 @@ SpriteManager.getJsonElementByName = function (json, name) {
 }
 
 SpriteManager.getBackgroundPath = function (roomKey, backgroundKey) {
-    if(backgroundKey = undefined && roomKey != "bathroom") backgroundKey = "day";
-    else if(backgroundKey = undefined && roomKey == "bathroom") backgroundKey = "full_light";
-    
+    if(backgroundKey == undefined && roomKey != "bathroom") backgroundKey = "day";
+    else if(backgroundKey == undefined && roomKey == "bathroom") backgroundKey = "full_light";
+
     background = SpriteManager.getBackgroundSubTree(roomKey)[backgroundKey];
     if(background != undefined)
         return SpriteManager.basePath + "room/" + roomKey + "/background/" + background.filename;
@@ -127,7 +127,7 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
     if (characterKey == "default") return SpriteManager.missingPath;
     room = SpriteManager.getRoomSubTree[roomKey];
     character = SpriteManager.getCharacterSubTree(roomKey)[characterKey];
-    path = SpriteManager.basePath + "room/" + roomKey + "/character/" + characterKey + '/actions/' + character.actions[actionKey].filename;
+    path = SpriteManager.basePath + "room/" + roomKey + "/character/" + characterKey + '/' + character[actionKey].filename;
     if (path != null) return path;
     else return SpriteManager.missingPath;
 }
