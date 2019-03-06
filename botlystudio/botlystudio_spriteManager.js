@@ -11,7 +11,10 @@ SpriteManager.defaultTree = {
             character : {
                 dad : {
                     displayName : "Papa",
-                    actions : {}
+                    missing :{
+                        displayName: "fait quelque chose",
+                        filename: "default"
+                    }
                 }
             },
             background : {
@@ -70,12 +73,21 @@ SpriteManager.getBackgroundSubTree = function (room) {
 
 SpriteManager.getActionsSubTree = function (room, character) {
     tree = SpriteManager.getCharacterSubTree(room);
+    var actionsTree = {}
+
     if (tree != null) {
-        characterJSON = tree[character];
-        if (characterJSON != null) return characterJSON.actions
-        else return SpriteManager.defaultTree.rooms.entrance.character.actions;
+        var keys = [];
+        for(var k in tree) keys.push(k);
+
+        for(var k in keys){
+            if(k != "displayName")
+                actionsTree[k] = tree[k];
+        }
+
+        if (actionsTree[0] != undefined) return actionsTree
+        else return SpriteManager.defaultTree.rooms.entrance.character;
     }
-    else return SpriteManager.defaultTree.rooms.entrance.character.actions;
+    else return SpriteManager.defaultTree.rooms.entrance.character;
 }
 
 
