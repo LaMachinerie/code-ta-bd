@@ -871,7 +871,7 @@
           }
         },
         "kid": {
-          "displayname": "le petit garçon",
+          "displayName": "le petit garçon",
           "CUISINE_0035_Calque-17": {
             "displayName": "réclame un yahourt",
             "filename": "CUISINE_0035_Calque-17.png"
