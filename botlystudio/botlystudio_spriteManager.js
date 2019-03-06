@@ -72,7 +72,7 @@ SpriteManager.getBackgroundSubTree = function (room) {
 
 
 SpriteManager.getActionsSubTree = function (room, character) {
-    tree = SpriteManager.getCharacterSubTree(room);
+    tree = SpriteManager.getCharacterSubTree(room)[character];
     var actionsTree = {}
 
     if (tree != null) {
