@@ -13,59 +13,29 @@ BotlyStudioIPC.initIPC = function () {
 
 
 
-BotlyStudioIPC.processResponse = function (json_str, flag, roomKey, characterKey, override) {
+BotlyStudioIPC.processResponse = function (json_str) {
   BotlyStudioIPC.pendingRequest--;
   var json = JSON.parse(json_str);
   if (json != null) {
-    switch (flag) {
-      case 'root':
-        SpriteManager.processRootJson(json, override);
-        break;
-      case 'room':
-        SpriteManager.processRoomJson(json, roomKey, override);
-        break;
-      case 'character':
-        SpriteManager.processCharacterJson(json, roomKey, override);
-        break;
-      case 'background':
-        SpriteManager.processBackgroundJson(json, roomKey, override);
-        break;
-      case 'actions':
-        SpriteManager.processActionsJson(json, roomKey, characterKey, override);
-        break;
-      default:
-        console.log("Unknown flag : " + flag);
-    }
+    SpriteManager.Tree = json;
   }
-
-  /* if (BotlyStudioIPC.pendingRequest <= 0) {
-      BotlyStudioIPC.pendingRequest = 0;
-      SpriteManager.saveTree();
-    } */
-
 };
 
 
 
-BotlyStudioIPC.getJson = function (path, flag, keyA, keyB, override) {
+BotlyStudioIPC.getJsonTree = function () {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
-  xobj.open('GET', 'botlystudio/sprites/' + path, true); // Replace 'my_data' with the path to your file
+  xobj.open('GET', 'botlystudio/sprites/tree.json', true); // Replace 'my_data' with the path to your file
   xobj.onreadystatechange = function () {
     if (xobj.readyState == 4 && xobj.status == "200") {
       // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-      BotlyStudioIPC.processResponse(xobj.responseText, flag, keyA, keyB, override);
+      BotlyStudioIPC.processResponse(xobj.responseText);
     }
   };
   xobj.send(null);
   BotlyStudioIPC.pendingRequest++;
 };
-
-
-BotlyStudioIPC.addJsonElement = function (path, jsonElement) {
-
-};
-
 
 
 BotlyStudioIPC.createElementFromJson = function (json_data) {
