@@ -32,10 +32,10 @@ Blockly.JavaScript['light'] = function (block) {
   var code = "";
 
   if(room != "bathroom"){
-    if(dropdown_light != block.light){
-      block.light = dropdown_light;
-      code = 'room("' + room + '", "' + dropdown_light + '");\n'
-    }
+
+    block.light = dropdown_light;
+    code = 'room("' + room + '", "' + dropdown_light + '");\n'
+    
   }
   else{
     let state = true;
