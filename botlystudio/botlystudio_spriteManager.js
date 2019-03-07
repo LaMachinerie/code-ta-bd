@@ -153,8 +153,9 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
             console.log(true)
             let array = SpriteManager.getTwice(object, roomKey);
             if(array != []){
-                for(mode in array){
+                for(var mode in array){
                     if(array[mode].time == lightMode){
+                        console.log(lightMode);
                         file = SpriteManager.basePath + "room/" + roomKey + "/object/" + array[mode].filename;
                         return file;
                     }
@@ -216,7 +217,7 @@ SpriteManager.getTwice = function(object, roomKey){
     for(var key in array){
         let isTwice = false;
         for(var k in buf){
-            if(buf[k].displayName == array[key].displayName) isTwice = true;
+            if(buf[k].displayName == array[key].displayName && buf[k].time != array[key].time) isTwice = true;
         }
         if(isTwice) buf.push(array[key]);
     }
