@@ -32,30 +32,31 @@ Blockly.JavaScript['light'] = function (block) {
   var dropdown_part = block.getFieldValue('PART');
   var code = "";
 
-  if(room != "bathroom"){
 
-    surround.light = dropdown_light;
-    code = 'room("' + room + '", "' + surround.light + '");\n'
-    
+  if(surround != undefined){
+    if(room != "bathroom"){
+        surround.light = dropdown_light;
+        code = 'room("' + room + '", "' + surround.light + '");\n'
+      
+    }
+    else{
+      let state = true;
+      if(dropdown_light == "day") state = true;
+      if(dropdown_light == "night") state = false;
+
+      if (dropdown_part == "bathroom_light") SpriteManager.bathroomLight.bathroom = state;
+      if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
+
+      if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
+        code = 'room("' + room + '", "full_light");\n'
+      if(SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
+        code = 'room("' + room + '", "bathroom_light");\n'
+      if(!SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
+        code = 'room("' + room + '", "stairs_light");\n'
+      if(!SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
+        code = 'room("' + room + '", "no_light");\n'
+    }
   }
-  else{
-    let state = true;
-    if(dropdown_light == "day") state = true;
-    if(dropdown_light == "night") state = false;
-
-    if (dropdown_part == "bathroom_light") SpriteManager.bathroomLight.bathroom = state;
-    if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
-
-    if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-      code = 'room("' + room + '", "full_light");\n'
-    if(SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-      code = 'room("' + room + '", "bathroom_light");\n'
-    if(!SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-      code = 'room("' + room + '", "stairs_light");\n'
-    if(!SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-      code = 'room("' + room + '", "no_light");\n'
-  }
-
 
   return code;
 };
