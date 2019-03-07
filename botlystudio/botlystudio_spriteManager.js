@@ -149,6 +149,8 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
     if(object != undefined){
         var file = SpriteManager.missingPath;
         if(SpriteManager.isTwice(object, roomKey)){
+            console.log("isTwice : ");
+            console.log(true)
             let array = SpriteManager.getTwice(object);
             if(array != []){
                 for(mode in array){
@@ -159,6 +161,8 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
                 }
             }
         }else{
+            console.log("isTwice : ");
+            console.log(false)
             return SpriteManager.basePath + "room/" + roomKey + "/object/" + object.filename;
         }
         return file;
@@ -189,6 +193,8 @@ SpriteManager.checkTwice = function(array){
         }
         if(!isTwice) buf.push(array[key]);
     }
+    console.log("checkTwice : ");
+    console.log(buf);
     return buf
 }
 
@@ -201,6 +207,8 @@ SpriteManager.getTwice = function(object){
         }
         if(isTwice) buf.push(array[key]);
     }
+    console.log("getTwice : ");
+    console.log(buf);
     return buf
 }
 
