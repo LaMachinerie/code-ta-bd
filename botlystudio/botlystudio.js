@@ -293,6 +293,20 @@ BotlyStudio.refreshDynamicDropdown = function(){
         actfield.setText(possibilitieTree[actionsDropValue].displayName);
         actfield.setValue(actionsDropValue);
       }
+
+      var lightDropValue = b.getFieldValue("PART");
+      if(lightDropValue != undefined){
+        let partfield = b.getField("PART")
+        let parentRoom = b.getSurroundParent().getFieldValue("ROOMS");
+        let possibilitieTree = SpriteManager.getBackgroundSubTree(parentRoom);
+        let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getBackgroundSubTree(parentRoom), [["la pièce","current"]]);
+        partfield.menuGenerator_ = possibilities;
+        partfield.setText(possibilitieTree[lightDropValue].displayName);
+        partfield.setValue(lightDropValue);
+      }
+      
+
+
       //characterDropValue = b.getFieldValue();
       //Blocks[block].onchange();
     }
