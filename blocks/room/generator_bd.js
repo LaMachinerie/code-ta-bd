@@ -18,8 +18,9 @@ Blockly.JavaScript['room'] = function (block) {
 
 Blockly.JavaScript['light'] = function (block) {
   var room = null;
+  var surround = undefined;
   if (block.previousConnection.isConnected()) {
-    var surround = block.getSurroundParent()
+    surround = block.getSurroundParent()
     if (surround != null) {
       if (surround.getFieldValue("ROOMS") != null) {
         room = surround.getFieldValue("ROOMS");
@@ -33,8 +34,8 @@ Blockly.JavaScript['light'] = function (block) {
 
   if(room != "bathroom"){
 
-    block.light = dropdown_light;
-    code = 'room("' + room + '", "' + dropdown_light + '");\n'
+    surround.light = dropdown_light;
+    code = 'room("' + room + '", "' + surround.light + '");\n'
     
   }
   else{
