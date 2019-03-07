@@ -188,12 +188,12 @@ SpriteManager.checkTwice = function(array){
     buf = [];
     console.log("array : ");
     console.log(array);
-    for(key in array){
+    for(var curkey in array){
         let isTwice = false;
         for(k in buf){
-            if(buf[k].displayName == array[key].displayName) isTwice = true;
+            if(buf[k].displayName == array[curkey].displayName) isTwice = true;
         }
-        if(!isTwice) buf.push(array[key]);
+        if(!isTwice) buf.push(array[curkey]);
     }
     console.log("checkTwice : ");
     console.log(buf);
