@@ -31,8 +31,12 @@ Blockly.JavaScript['light'] = function (block) {
   var dropdown_part = block.getFieldValue('PART');
   var code = "";
 
-  if(room != "bathroom") 
-    code = 'room("' + room + '", "' + dropdown_light + '");\n'
+  if(room != "bathroom"){
+    if(dropdown_light != block.light){
+      block.light = dropdown_light;
+      code = 'room("' + room + '", "' + dropdown_light + '");\n'
+    }
+  }
   else{
     let state = true;
     if(dropdown_light == "day") state = true;

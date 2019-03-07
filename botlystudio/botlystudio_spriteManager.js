@@ -144,10 +144,22 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
 }
 
 
-SpriteManager.getObjectPath = function (roomKey, objectKey) {
+SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
     object = SpriteManager.getObjectSubTree(roomKey)[objectKey];
-    if(object != undefined)
-        return SpriteManager.basePath + "room/" + roomKey + "/object/" + object.filename;
+    if(object != undefined){
+        var file = "SpriteManager.missingPath";
+        if(SpriteManager.isTwice(object)){
+            let array = SpriteManager.getTwice(object);
+            if(array != []){
+                for(mode in array){
+                    if(array[mode].time == lightMode){
+                        file = array[mode].filename;
+                    }
+                }
+            }
+        }
+        return SpriteManager.basePath + "room/" + roomKey + "/object/" + file;
+    }
     else 
         return SpriteManager.missingPath;
 }
@@ -165,7 +177,40 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     else return defaultArray;
 }
 
+SpriteManager.checkTwice = function(array){
+    buf = [];
+    for(key in array){
+        let isTwice = false;
+        for(k in buf){
+            if(buf[k].displayName == array[key].displayName) isTwice = true;
+        }
+        if(!isTwice) buf.push(array[key]);
+    }
+    return buf
+}
 
+SpriteManager.getTwice = function(object){
+    buf = [];
+    for(key in array){
+        let isTwice = false;
+        for(k in buf){
+            if(buf[k].displayName == array[key].displayName) isTwice = true;
+        }
+        if(isTwice) buf.push(array[key]);
+    }
+    return buf
+}
+
+
+SpriteManager.isTwice = function(obj){
+    let count = 0
+    objects = SpriteManager.getObjectSubTree(roomKey);
+    for(key in objects){
+        if(object[key].displayName == obj.displayName) count++;
+    }
+    if(count >= 2) return true;
+    else return false;
+}
 
 SpriteManager.importTreeJson = function (override) {
     BotlyStudioIPC.getJsonTree();

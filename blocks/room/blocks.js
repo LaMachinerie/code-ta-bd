@@ -21,7 +21,8 @@ Blockly.Blocks['room'] = {
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   },
-  isDynamic: true
+  isDynamic: true,
+  light: "day"
 };
 
 

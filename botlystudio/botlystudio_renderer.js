@@ -242,8 +242,8 @@ Renderer.initInterpreter = function (interpreter, scope) {
     interpreter.setProperty(scope, 'character',
         interpreter.createNativeFunction(wrapper));
 
-    wrapper = function (room, object) {
-        Renderer.spawnSprite(SpriteManager.getObjectPath(room, object));
+    wrapper = function (room, object, light) {
+        Renderer.spawnSprite(SpriteManager.getObjectPath(room, object, light));
         Renderer.renderSprites();
     };
     interpreter.setProperty(scope, 'object',
