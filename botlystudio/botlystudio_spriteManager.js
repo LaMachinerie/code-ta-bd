@@ -26,7 +26,8 @@ SpriteManager.defaultTree = {
                     displayName : "nuit",
                     filename : "night.png"
                 }
-            }
+            },
+            object : {}
         }
     }
 }
@@ -64,6 +65,16 @@ SpriteManager.getCharacterSubTree = function (room) {
     else return SpriteManager.defaultTree.rooms.entrance.character;
 }
 
+
+SpriteManager.getObjectSubTree = function (room) {
+    tree = SpriteManager.getRoomSubTree();
+    if (tree != null) {
+        roomJSON = tree[room];
+        if (roomJSON != null) return roomJSON.object
+        else return null;
+    }
+    else return SpriteManager.defaultTree.rooms.entrance.object;
+}
 
 SpriteManager.getBackgroundSubTree = function (room) {
     tree = SpriteManager.getRoomSubTree();
