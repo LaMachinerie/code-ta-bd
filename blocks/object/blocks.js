@@ -20,13 +20,15 @@ Blockly.Blocks['object'] = {
     this.setTooltip('');
   },
   onchange: function(event) {
-    let surround = this.getSurroundParent()
-    let roomKey = surround.getFieldValue("ROOMS");
-    if(roomKey != undefined){
-      var objectDropdown = block.getField("OBJ")
-      objectDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(roomKey),[["un objet", "default"]]);
-      objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
-      objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
+    let surround = this.getSurroundParent();
+    if(surround != undefined){
+      let roomKey = surround.getFieldValue("ROOMS");
+      if(roomKey != undefined){
+        var objectDropdown = this.getField("OBJ")
+        objectDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(roomKey),[["un objet", "default"]]);
+        objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
+        objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
+      }
     }
   },
   isDynamic: true
