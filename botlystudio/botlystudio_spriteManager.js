@@ -151,7 +151,7 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
         if(SpriteManager.isTwice(object, roomKey)){
             console.log("isTwice : ");
             console.log(true)
-            let array = SpriteManager.getTwice(object);
+            let array = SpriteManager.getTwice(object, roomKey);
             if(array != []){
                 for(mode in array){
                     if(array[mode].time == lightMode){
@@ -184,6 +184,7 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     else return defaultArray;
 }
 
+//DisplayName Array parsing
 SpriteManager.checkTwice = function(array){
     let buf = [];
     let twice = false;
@@ -207,11 +208,14 @@ SpriteManager.checkTwice = function(array){
     return buf
 }
 
-SpriteManager.getTwice = function(object){
+
+SpriteManager.getTwice = function(object, roomKey){
     let buf = [];
-    for(key in array){
+    let array = SpriteManager.getObjectSubTree(roomKey);
+
+    for(var key in array){
         let isTwice = false;
-        for(k in buf){
+        for(var k in buf){
             if(buf[k].displayName == array[key].displayName) isTwice = true;
         }
         if(isTwice) buf.push(array[key]);
@@ -225,7 +229,7 @@ SpriteManager.getTwice = function(object){
 SpriteManager.isTwice = function(obj, roomKey){
     let count = 0
     objects = SpriteManager.getObjectSubTree(roomKey);
-    for(key in objects){
+    for(var key in objects){
         if(objects[key].displayName == obj.displayName) count++;
     }
     if(count >= 2) return true;
