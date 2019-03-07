@@ -242,6 +242,12 @@ Renderer.initInterpreter = function (interpreter, scope) {
     interpreter.setProperty(scope, 'character',
         interpreter.createNativeFunction(wrapper));
 
+    wrapper = function (room, object) {
+        Renderer.spawnSprite(SpriteManager.getObjectPath(room, object));
+        Renderer.renderSprites();
+    };
+    interpreter.setProperty(scope, 'object',
+        interpreter.createNativeFunction(wrapper));
 
     wrapper = function (id) {
         console.log("Not implemented");

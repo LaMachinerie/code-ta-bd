@@ -144,6 +144,14 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
 }
 
 
+SpriteManager.getObjectPath = function (roomKey, objectKey) {
+    object = SpriteManager.getObjectSubTree(roomKey)[objectKey];
+    if(object != undefined)
+        return SpriteManager.basePath + "room/" + roomKey + "/object/" + object.filename;
+    else 
+        return SpriteManager.missingPath;
+}
+
 
 SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
     array = [];
