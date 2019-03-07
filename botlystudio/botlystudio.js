@@ -323,8 +323,8 @@ BotlyStudio.refreshDynamicDropdown = function(){
         if(parentRoom != "bathroom") {
           possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(parentRoom), [["un objet","default"]]);
           objfield.menuGenerator_ = possibilities;
-          objfield.setText(possibilitieTree[lightDropValue].displayName);
-          objfield.setValue(lightDropValue);
+          objfield.setText(possibilitieTree[objDropValue].displayName);
+          objfield.setValue(objDropValue);
         }
         else{
           possibilities = [["un objet","default"]];
