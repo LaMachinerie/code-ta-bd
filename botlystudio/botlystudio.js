@@ -299,10 +299,20 @@ BotlyStudio.refreshDynamicDropdown = function(){
         let partfield = b.getField("PART")
         let parentRoom = b.getSurroundParent().getFieldValue("ROOMS");
         let possibilitieTree = SpriteManager.getBackgroundSubTree(parentRoom);
-        let possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getBackgroundSubTree(parentRoom), [["la pièce","current"]]);
-        partfield.menuGenerator_ = possibilities;
-        partfield.setText(possibilitieTree[lightDropValue].displayName);
-        partfield.setValue(lightDropValue);
+        let possibilities = undefined;
+        if(parentRoom == "bathroom") {
+          possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getBackgroundSubTree(parentRoom), [["la pièce","current"]]);
+          partfield.menuGenerator_ = possibilities;
+          partfield.setText(possibilitieTree[lightDropValue].displayName);
+          partfield.setValue(lightDropValue);
+        }
+        else{
+          possibilities = [["la pièce","current"]];
+          partfield.menuGenerator_ = possibilities;
+          partfield.setText("la pièce");
+          partfield.setValue("current");
+        }
+
       }
       
 
