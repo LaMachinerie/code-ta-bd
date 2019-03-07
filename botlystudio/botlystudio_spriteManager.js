@@ -147,7 +147,7 @@ SpriteManager.getCharacterPath = function (roomKey, characterKey, actionKey) {
 SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
     object = SpriteManager.getObjectSubTree(roomKey)[objectKey];
     if(object != undefined){
-        var file = "SpriteManager.missingPath";
+        var file = SpriteManager.missingPath;
         if(SpriteManager.isTwice(object, roomKey)){
             let array = SpriteManager.getTwice(object);
             if(array != []){
@@ -157,6 +157,8 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
                     }
                 }
             }
+        }else{
+            SpriteManager.basePath + "room/" + roomKey + "/object/" + object[objectKey].filename;
         }
         return SpriteManager.basePath + "room/" + roomKey + "/object/" + file;
     }
