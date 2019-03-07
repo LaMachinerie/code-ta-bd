@@ -159,7 +159,7 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
                 }
             }
         }else{
-            return SpriteManager.basePath + "room/" + roomKey + "/object/" + object[objectKey].filename;
+            return SpriteManager.basePath + "room/" + roomKey + "/object/" + object.filename;
         }
         return file;
     }
