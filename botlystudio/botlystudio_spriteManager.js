@@ -149,22 +149,19 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
     if(object != undefined){
         var file = SpriteManager.missingPath;
         if(SpriteManager.isTwice(object, roomKey)){
-            console.log("isTwice : ");
-            console.log(true)
+
             let array = SpriteManager.getTwice(object, roomKey);
             if(array != []){
                 for(var mode in array){
                     if(array[mode].time == lightMode.data){
-                        console.log(lightMode.data);
-                        console.log(array[mode].time);
+
                         file = SpriteManager.basePath + "room/" + roomKey + "/object/" + array[mode].filename;
                         return file;
                     }
                 }
             }
         }else{
-            console.log("isTwice : ");
-            console.log(false)
+
             return SpriteManager.basePath + "room/" + roomKey + "/object/" + object.filename;
         }
         return file;
@@ -190,8 +187,6 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
 SpriteManager.checkTwice = function(array){
     let buf = [];
     let twice = false;
-    console.log("array : ");
-    console.log(array);
     for(var curkey in array){
         twice = false;
         for(var k in buf){
@@ -205,8 +200,6 @@ SpriteManager.checkTwice = function(array){
             buf.push(array[curkey]);
         }
     }
-    console.log("checkTwice : ");
-    console.log(buf);
     return buf
 }
 
@@ -222,8 +215,6 @@ SpriteManager.getTwice = function(object, roomKey){
         }
         if(isTwice) buf.push(array[key]);
     }
-    console.log("getTwice : ");
-    console.log(buf);
     return buf
 }
 
