@@ -206,7 +206,7 @@ SpriteManager.isTwice = function(obj, roomKey){
     let count = 0
     objects = SpriteManager.getObjectSubTree(roomKey);
     for(key in objects){
-        if(object[key].displayName == obj.displayName) count++;
+        if(objects[key].displayName == obj.displayName) count++;
     }
     if(count >= 2) return true;
     else return false;
