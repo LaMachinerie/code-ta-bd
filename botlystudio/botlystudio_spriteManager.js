@@ -154,8 +154,9 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
             let array = SpriteManager.getTwice(object, roomKey);
             if(array != []){
                 for(var mode in array){
-                    if(array[mode].time == lightMode){
-                        console.log(lightMode);
+                    if(array[mode].time == lightMode.data){
+                        console.log(lightMode.data);
+                        console.log(array[mode].time);
                         file = SpriteManager.basePath + "room/" + roomKey + "/object/" + array[mode].filename;
                         return file;
                     }
