@@ -186,10 +186,11 @@ SpriteManager.getDisplayNameArray = function (tree, defaultArray) {
 
 SpriteManager.checkTwice = function(array){
     let buf = [];
+    let twice = false;
     console.log("array : ");
     console.log(array);
     for(var curkey in array){
-        let twice = false;
+        twice = false;
         for(k in buf){
             if(buf[k].displayName == array[curkey].displayName) twice = true;
         }
