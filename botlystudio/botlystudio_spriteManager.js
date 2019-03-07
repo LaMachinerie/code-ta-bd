@@ -192,9 +192,9 @@ SpriteManager.checkTwice = function(array){
     for(var curkey in array){
         twice = false;
         for(var k in buf){
-            if(buf[k].displayName == array[curkey].displayName){
-                console.log(buf[k].displayName );
-                console.log(array[curkey].displayName);
+            if(buf[k][0] == array[curkey][0]){
+                console.log(buf[k][0]  );
+                console.log(array[curkey][0]);
                 twice = true;
             }
         }
