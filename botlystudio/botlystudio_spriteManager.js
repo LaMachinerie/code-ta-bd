@@ -148,7 +148,7 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
     object = SpriteManager.getObjectSubTree(roomKey)[objectKey];
     if(object != undefined){
         var file = "SpriteManager.missingPath";
-        if(SpriteManager.isTwice(object)){
+        if(SpriteManager.isTwice(object, roomKey)){
             let array = SpriteManager.getTwice(object);
             if(array != []){
                 for(mode in array){
@@ -202,7 +202,7 @@ SpriteManager.getTwice = function(object){
 }
 
 
-SpriteManager.isTwice = function(obj){
+SpriteManager.isTwice = function(obj, roomKey){
     let count = 0
     objects = SpriteManager.getObjectSubTree(roomKey);
     for(key in objects){
