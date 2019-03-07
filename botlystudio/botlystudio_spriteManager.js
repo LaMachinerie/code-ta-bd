@@ -153,14 +153,15 @@ SpriteManager.getObjectPath = function (roomKey, objectKey, lightMode) {
             if(array != []){
                 for(mode in array){
                     if(array[mode].time == lightMode){
-                        file = array[mode].filename;
+                        file = SpriteManager.basePath + "room/" + roomKey + "/object/" + array[mode].filename;
+                        return file;
                     }
                 }
             }
         }else{
-            SpriteManager.basePath + "room/" + roomKey + "/object/" + object[objectKey].filename;
+            return SpriteManager.basePath + "room/" + roomKey + "/object/" + object[objectKey].filename;
         }
-        return SpriteManager.basePath + "room/" + roomKey + "/object/" + file;
+        return file;
     }
     else 
         return SpriteManager.missingPath;
