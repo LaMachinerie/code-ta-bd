@@ -210,7 +210,7 @@ SpriteManager.checkTwice = function(array){
 
 
 SpriteManager.getTwice = function(object, roomKey){
-    let buf = [];
+    let buf = [object];
     let array = SpriteManager.getObjectSubTree(roomKey);
 
     for(var key in array){
