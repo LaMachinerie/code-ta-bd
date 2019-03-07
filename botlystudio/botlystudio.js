@@ -312,13 +312,27 @@ BotlyStudio.refreshDynamicDropdown = function(){
           partfield.setText("la pièce");
           partfield.setValue("current");
         }
-
       }
       
-
-
-      //characterDropValue = b.getFieldValue();
-      //Blocks[block].onchange();
+      var objDropValue = b.getFieldValue("OBJ");
+      if(objDropValue != undefined){
+        let objfield = b.getField("OBJ")
+        let parentRoom = b.getSurroundParent().getFieldValue("ROOMS");
+        let possibilitieTree = SpriteManager.getObjectSubTree(parentRoom);
+        let possibilities = undefined;
+        if(parentRoom != "bathroom") {
+          possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(parentRoom), [["un objet","default"]]);
+          objfield.menuGenerator_ = possibilities;
+          objfield.setText(possibilitieTree[lightDropValue].displayName);
+          objfield.setValue(lightDropValue);
+        }
+        else{
+          possibilities = [["un objet","default"]];
+          objfield.menuGenerator_ = possibilities;
+          objfield.setText("un objet");
+          objfield.setValue("default");
+        }
+      }
     }
   }
 }
