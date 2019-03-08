@@ -110,6 +110,7 @@ BotlyStudio.ideButtonLastAction = function () {
 
 BotlyStudio.saveCanvas = function(){
   
+  Renderer.spawnSprite("botlystudio/sprites/copyright.png");
   
 
   var canvas = document.getElementById("display");
