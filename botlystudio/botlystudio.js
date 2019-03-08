@@ -118,7 +118,7 @@ BotlyStudio.saveCanvas = function(){
 
   // Make sure the image is loaded first otherwise nothing will draw.
   cpyright.onload = function(){
-      ctx.drawImage(cpyright,1200,600,100,600);  
+      ctx.drawImage(cpyright,1400,600);  
 
       var canvas = document.getElementById("display");
       var img    = canvas.toDataURL("image/png");
