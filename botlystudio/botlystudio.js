@@ -111,24 +111,34 @@ BotlyStudio.ideButtonLastAction = function () {
 BotlyStudio.saveCanvas = function(){
   
   Renderer.spawnSprite("botlystudio/sprites/copyright.png");
-  
 
-  var canvas = document.getElementById("display");
-  var img    = canvas.toDataURL("image/png");
-  var filename = document.getElementById("sketch_name").value;
+  var cpyright = new Image();
+  cpyright.src = path;
+  var ctx = document.getElementById("display").getContext("2d");
 
-  var pom = document.createElement('a');
-  pom.setAttribute('href', img);
-  pom.setAttribute('download', filename);
+  // Make sure the image is loaded first otherwise nothing will draw.
+  cpyright.onload = function(){
+      ctx.drawImage(cpyright,0,1200);  
 
-  if (document.createEvent) {
-      var event = document.createEvent('MouseEvents');
-      event.initEvent('click', true, true);
-      pom.dispatchEvent(event);
+      var canvas = document.getElementById("display");
+      var img    = canvas.toDataURL("image/png");
+      var filename = document.getElementById("sketch_name").value;
+
+      var pom = document.createElement('a');
+      pom.setAttribute('href', img);
+      pom.setAttribute('download', filename);
+
+      if (document.createEvent) {
+          var event = document.createEvent('MouseEvents');
+          event.initEvent('click', true, true);
+          pom.dispatchEvent(event);
+      }
+      else {
+          pom.click();
+      }
   }
-  else {
-      pom.click();
-  }
+
+
 }
 
 /** Initialises the IDE buttons with the default option from the server. */
