@@ -100,13 +100,13 @@
             <i class="mdi-action-delete left"></i>
           </a>
         </li>
-        <li id="menu_settings">
+        <li id="menu_settings" hidden>
           <a href="#">
             <span class="translatable_settings">Paramètres</span>
             <i class="mdi-action-settings left"></i>
           </a>
         </li>
-        <li id="menu_sprite">
+        <li id="menu_sprite" hidden>
           <a href="#">
             <i class="medium material-icons left" style="line-height: 2">note_add</i>
             <span class="translatable_open">Ajouter un sprite</span>
@@ -114,7 +114,7 @@
         </li>
       </ul>
       <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
+        <ul class="collapsible collapsible-accordion" hidden>
           <li>
             <div class="collapsible-header">
               <span class="translatable_examples">Exemples</span>
@@ -142,7 +142,7 @@
         </a>
         <!-- Arduino IDE action buttons -->
         <div id="ide_buttons_wrapper">
-          <a id="button_ide_last" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow">
+          <a id="button_ide_last" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow" style="display: none">
             <i class="material-icons">code</i>
           </a>
           <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange">
