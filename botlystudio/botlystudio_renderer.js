@@ -24,6 +24,7 @@ Renderer.renderSprites = function () {
 
     for (var i = 0; i < Renderer.sprites.length; i++) {
         Renderer.sprites[i].render();
+        if(i = Renderer.sprites.length -1) Renderer.spawnSprite("botlystudio/sprites/copyright.png");
     }
     return i;
 };

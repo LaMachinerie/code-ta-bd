@@ -109,6 +109,9 @@ BotlyStudio.ideButtonLastAction = function () {
 
 
 BotlyStudio.saveCanvas = function(){
+  
+  
+
   var canvas = document.getElementById("display");
   var img    = canvas.toDataURL("image/png");
   var filename = document.getElementById("sketch_name").value;
