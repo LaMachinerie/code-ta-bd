@@ -34,6 +34,7 @@ Blockly.Blocks['object'] = {
         }
       }
     }else{
+      var objectDropdown = this.getField("OBJ")
       objectDropdown.menuGenerator_ = [["un objet", "default"]];
       objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
       objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
