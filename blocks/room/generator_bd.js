@@ -9,8 +9,9 @@ goog.require('Blockly.Javascript');
 
 Blockly.JavaScript['room'] = function (block) {
   var dropdown_rooms = block.getFieldValue('ROOMS');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'LIGHT', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_code = Blockly.JavaScript.statementToCode(block, 'CODE');
-  var code = 'room("' + dropdown_rooms + '");\n';
+  var code = 'room("' + dropdown_rooms + (value_name != undefined) ? (', "' + value_name) : ', "day' + '");\n';
   code += statements_code + '\n';
   return code;
 };
@@ -36,7 +37,7 @@ Blockly.JavaScript['light'] = function (block) {
   if(surround != undefined){
     if(room != "bathroom"){
         surround.light = dropdown_light;
-        code = 'room("' + room + '", "' + surround.light + '");\n'
+        code = surround.light
       
     }
     else{
@@ -48,13 +49,13 @@ Blockly.JavaScript['light'] = function (block) {
       if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
 
       if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-        code = 'room("' + room + '", "full_light");\n'
+        code = "full_light";
       if(SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-        code = 'room("' + room + '", "bathroom_light");\n'
+        code = "bathroom_light";
       if(!SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-        code = 'room("' + room + '", "stairs_light");\n'
+        code = "stairs_light";
       if(!SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-        code = 'room("' + room + '", "no_light");\n'
+        code = "no_light";
     }
   }
 
