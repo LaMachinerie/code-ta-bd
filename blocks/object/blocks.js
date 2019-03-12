@@ -24,15 +24,19 @@ Blockly.Blocks['object'] = {
     if(surround != undefined){
       let roomKey = surround.getFieldValue("ROOMS");
       if(roomKey != undefined){
+        this.room = roomKey;
         var objectDropdown = this.getField("OBJ")
         let buffer = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(roomKey),[["un objet", "default"]]);
         objectDropdown.menuGenerator_ = SpriteManager.checkTwice(buffer);
-        if(this.getFieldValue("OBJ") == "default"){
+        if(this.getFieldValue("OBJ") == "default" || this.room != roomKey){
           objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
           objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
         }
+      }else{
+        objectDropdown.menuGenerator_ = [["un objet", "default"]];
       }
     }
   },
-  isDynamic: true
+  isDynamic: true,
+  room: ""
 };
