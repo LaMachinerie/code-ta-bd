@@ -19,7 +19,7 @@ Blockly.JavaScript['room'] = function (block) {
 Blockly.JavaScript['light'] = function (block) {
   var room = null;
   var surround = undefined;
-  if (block.previousConnection.isConnected()) {
+  if (block.isConnected()) {
     surround = block.getSurroundParent()
     if (surround != null) {
       if (surround.getFieldValue("ROOMS") != null) {
