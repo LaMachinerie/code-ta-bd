@@ -12,8 +12,8 @@ Blockly.Blocks['room'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Dans")
+    this.appendValueInput("LIGHT")
         .appendField(new Blockly.FieldDropdown(SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]])), "ROOMS")
-        .appendValueInput("LIGHT");
     this.appendStatementInput("CODE")
         .setCheck(null);
     this.setPreviousStatement(true, null);
