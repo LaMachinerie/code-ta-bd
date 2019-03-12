@@ -558,10 +558,6 @@
           "time": "day",
           "filename": "ENTREE_0007_porte-manteau.png"
         },
-        "ENTREE_0008_cartable": {
-          "displayName": "le cartable",
-          "filename": "ENTREE_0008_cartable.png"
-        },
         "ENTREE_0009_manteau-jour": {
           "displayName": "un vêtement par terre",
           "time": "day",
