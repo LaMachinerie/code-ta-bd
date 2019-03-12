@@ -15,6 +15,7 @@ Blockly.Blocks['room'] = {
         .appendField(new Blockly.FieldDropdown(SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]])), "ROOMS")
     this.appendStatementInput("CODE")
         .setCheck(null);
+    this.appendValueInput("LIGHT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -31,9 +32,8 @@ Blockly.Blocks['light'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([["allumer", "day"], ["éteindre", "night"]]), "LIGHT")
         .appendField("la lumière dans")
-        .appendField(new Blockly.FieldDropdown([["la pièce", "current"]]), "PART")
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+        .appendField(new Blockly.FieldDropdown([["la pièce", "current"]]), "PART");
+    this.setOutput(true, null);
     this.setColour(160);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
