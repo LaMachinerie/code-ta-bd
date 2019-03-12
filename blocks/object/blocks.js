@@ -32,11 +32,11 @@ Blockly.Blocks['object'] = {
           objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
           this.room = roomKey;
         }
-      }else{
-        objectDropdown.menuGenerator_ = [["un objet", "default"]];
-        objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
-        objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
       }
+    }else{
+      objectDropdown.menuGenerator_ = [["un objet", "default"]];
+      objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
+      objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
     }
   },
   isDynamic: true,
