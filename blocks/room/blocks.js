@@ -32,7 +32,7 @@ Blockly.Blocks['light'] = {
         .appendField(new Blockly.FieldDropdown([["allumer", "day"], ["éteindre", "night"]]), "LIGHT")
         .appendField("la lumière dans")
         .appendField(new Blockly.FieldDropdown([["la pièce", "current"]]), "PART");
-    this.setOutput(true, null);
+    this.setOutput(true, "String");
     this.setColour(160);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
