@@ -10,9 +10,8 @@ Blockly.Blocks.room.HUE = 180;
 
 Blockly.Blocks['room'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Dans")
     this.appendValueInput("LIGHT")
+        .appendField("Dans")
         .appendField(new Blockly.FieldDropdown(SpriteManager.getDisplayNameArray(SpriteManager.getRoomSubTree(), [["une pièce","default"]])), "ROOMS")
     this.appendStatementInput("CODE")
         .setCheck(null);
