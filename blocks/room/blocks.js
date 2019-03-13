@@ -15,8 +15,8 @@ Blockly.Blocks['room'] = {
         .setCheck("String");
     this.appendStatementInput("CODE")
         .setCheck(null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(false, null);
     this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
