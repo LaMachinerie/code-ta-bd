@@ -14,7 +14,7 @@ Blockly.JavaScript['room'] = function (block) {
     else value_name = "day";
   }
   var statements_code = Blockly.JavaScript.statementToCode(block, 'CODE');
-  var code = 'room("' + dropdown_rooms + ((value_name != undefined) ? ('", "' + value_name) : '", "day') + '");\n';
+  var code = 'room("' + dropdown_rooms + '", "' + value_name + '");\n';
   code += statements_code + '\n';
   return code;
 };
