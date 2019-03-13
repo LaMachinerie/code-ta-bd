@@ -282,14 +282,14 @@ line-height: 64px;
   background-image: url("calques/room/0/0/room.png");
   background-size: contain;
   background-color: black;*/
-  width: 80%;
+  width: 90%;
   height: auto;
   /*border-style: solid;*/
   border-width: 3px;
   border-color: black;
   border-style: inset;
-  margin-left: 10%;
-  margin-top: 10%;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .scrollbar {
