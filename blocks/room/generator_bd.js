@@ -6,12 +6,11 @@ goog.provide('Blockly.Javascript.room');
 goog.require('Blockly.Javascript');
 
 
-
 Blockly.JavaScript['room'] = function (block) {
   var dropdown_rooms = block.getFieldValue("ROOMS");
   var value_name = Blockly.JavaScript.valueToCode(block, "LIGHT", Blockly.JavaScript.ORDER_ATOMIC);
   if(value_name = undefined){
-    if(dropdown_rooms == "bathroom") value_name = "fullbright";
+    if(dropdown_rooms == "bathroom") value_name = "full_light";
     else value_name = "day";
   }
   var statements_code = Blockly.JavaScript.statementToCode(block, 'CODE');
