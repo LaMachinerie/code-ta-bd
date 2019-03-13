@@ -31,7 +31,7 @@ Blockly.JavaScript['light'] = function (block) {
 
   var dropdown_light = block.getFieldValue('LIGHT');
   var dropdown_part = block.getFieldValue('PART');
-  let code = "";
+  let code = "day";
 
 
   if(surround != undefined){
