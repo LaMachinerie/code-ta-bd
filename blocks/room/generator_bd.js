@@ -9,10 +9,12 @@ goog.require('Blockly.Javascript');
 
 Blockly.JavaScript['room'] = function (block) {
   var dropdown_rooms = block.getFieldValue("ROOMS");
-  var value_name = "";
-  value_name = Blockly.JavaScript.valueToCode(block, "LIGHT", Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, "LIGHT", Blockly.JavaScript.ORDER_ATOMIC);
+  if(value_name = undefined){
+    if(dropdown_rooms == "bathroom") value_name = "fullbright";
+    else value_name = "day";
+  }
   var statements_code = Blockly.JavaScript.statementToCode(block, 'CODE');
-  console.log(value_name);
   var code = 'room("' + dropdown_rooms + ((value_name != undefined) ? ('", "' + value_name) : '", "day') + '");\n';
   code += statements_code + '\n';
   return code;
