@@ -1,7 +1,6 @@
 'use strict';
 var SpriteManager = SpriteManager || {};
 
-
 goog.provide('Blockly.Blocks.room');
 
 goog.require('Blockly.Blocks');
@@ -25,7 +24,6 @@ Blockly.Blocks['room'] = {
   isDynamic: true,
   light: "day"
 };
-
 
 Blockly.Blocks['light'] = {
   init: function() {
@@ -52,8 +50,6 @@ Blockly.Blocks['light'] = {
   isDynamic: true
 };
 
-
-
 function defaultDropdown(block){
   var partDropdown = block.getField("PART")
   partDropdown.menuGenerator_ = [["la pièce", "current"]];
@@ -61,10 +57,9 @@ function defaultDropdown(block){
   partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
 }
 
-
 function bathRoomDropdown(block){
   var partDropdown = block.getField("PART")
-  partDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray( SpriteManager.getBackgroundSubTree("bathroom") ,[["la pièce", "current"]]);
+  partDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray( [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],[]] ,[["la l'escalier", "stairs_light"]]);
   if(block.getFieldValue("PART") == "current"){
     partDropdown.setText(partDropdown.menuGenerator_[0][0]);
     partDropdown.setValue(partDropdown.menuGenerator_[0][1]);

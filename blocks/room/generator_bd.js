@@ -50,6 +50,10 @@ Blockly.JavaScript['light'] = function (block) {
 
       if (dropdown_part == "bathroom_light") SpriteManager.bathroomLight.bathroom = state;
       if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
+      if (dropdown_part == "all"){ 
+        SpriteManager.bathroomLight.stairs = state;
+        SpriteManager.bathroomLight.bathroom = state;
+      }
 
       if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
         code = 'full_light';
