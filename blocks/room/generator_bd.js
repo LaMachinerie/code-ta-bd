@@ -50,15 +50,16 @@ Blockly.JavaScript['light'] = function (block) {
       if (dropdown_part == "stairs_light") SpriteManager.bathroomLight.stairs = state;
 
       if(SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-        code = "full_light";
+        code = 'full_light';
       if(SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-        code = "bathroom_light";
+        code = 'bathroom_light';
       if(!SpriteManager.bathroomLight.bathroom && SpriteManager.bathroomLight.stairs)
-        code = "stairs_light";
+        code = 'stairs_light';
       if(!SpriteManager.bathroomLight.bathroom && !SpriteManager.bathroomLight.stairs)
-        code = "no_light";
+        code = 'no_light';
     }
   }
-
+  console.log("Code :")
+  console.log(code)
   return code;
 };
