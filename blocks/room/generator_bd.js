@@ -9,7 +9,7 @@ goog.require('Blockly.Javascript');
 Blockly.JavaScript['room'] = function (block) {
   var dropdown_rooms = block.getFieldValue("ROOMS");
   var value_name = Blockly.JavaScript.valueToCode(block, "LIGHT", Blockly.JavaScript.ORDER_ATOMIC);
-  if(value_name == undefined){
+  if(value_name == undefined || value_name == ""){
     if(dropdown_rooms == "bathroom") value_name = "full_light";
     else value_name = "day";
   }
