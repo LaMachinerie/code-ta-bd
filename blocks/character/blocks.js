@@ -63,7 +63,9 @@ Blockly.Blocks['character'] = {
       }
     }
   },
-  isDynamic: true
+  isDynamic: true,
+  lastCharacter: "default",
+  lastAction: ""
 };
 
 

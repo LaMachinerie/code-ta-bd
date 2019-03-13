@@ -190,10 +190,10 @@ line-height: 64px;
   min-height: 200px;
 }
 .blocks_panel_large {
-  height: -moz-calc(100vh - 190px);     /* Firefox  */
-  height: -webkit-calc(100vh - 190px);  /* WebKit   */
-  height: -o-calc(100vh - 190px);       /* Opera    */
-  height: calc(100vh - 190px);          /* Standard */
+  height: -moz-calc(100vh - 140px);     /* Firefox  */
+  height: -webkit-calc(100vh - 140px);  /* WebKit   */
+  height: -o-calc(100vh - 140px);       /* Opera    */
+  height: calc(100vh - 140px);          /* Standard */
 }
 .blocks_panel_small {
   height: -moz-calc(100vh - 350px);     /* Firefox  */
@@ -205,10 +205,7 @@ line-height: 64px;
   margin: 0;
   padding: 0;
   min-height: 200px;
-  height: -moz-calc(100vh - 190px);     /* Firefox  */
-  height: -webkit-calc(100vh - 190px);  /* WebKit   */
-  height: -o-calc(100vh - 190px);       /* Opera    */
-  height: calc(100vh - 190px);          /* Standard */
+  height: 100%;
 }
 
 #content_xml {
@@ -255,7 +252,7 @@ line-height: 64px;
   height: -moz-calc(100vh - 190px);     /* Firefox  */
   height: -webkit-calc(100vh - 190px);  /* WebKit   */
   height: -o-calc(100vh - 190px);       /* Opera    */
-  height: calc(100vh - 190px);          /* Standard */
+  height: calc(100vh - 140px);          /* Standard */
   /*padding-bottom: 98%;*/
   overflow: auto;
   min-height: 200px;
@@ -913,7 +910,7 @@ line-height: 64px;
 /*********************************/
 /* Modify container to have a larger width in all resolutions */
 .container {
-  width: 95%;
+  width: 100%;
   max-width: initial !important;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -930,7 +927,7 @@ line-height: 64px;
 }
 @media only screen and (min-width : 1380px) {
   .container {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -1029,8 +1026,8 @@ ul.side-nav li ul li ul li {
 /* Increase the size of Materialize Modal in small resolutions */
 @media only screen and (max-width : 600px) {
   .modal {
-    width: 90% !important;
-    max-width: 90% !important;
+    width: 95% !important;
+    max-width: 95% !important;
   }
 }
 
