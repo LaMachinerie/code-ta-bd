@@ -126,7 +126,7 @@ BotlyStudio.saveCanvas = function(){
 
       var canvas = document.getElementById("display");
       var img    = canvas.toDataURL("image/png");
-      var filename = document.getElementById("sketch_name").value + BotlyStudio.vignetteSpinbox.getValue();
+      var filename = document.getElementById("sketch_name").value + "_vignette_" + BotlyStudio.vignetteSpinbox.getValue();
 
       var pom = document.createElement('a');
       pom.setAttribute('href', img);
