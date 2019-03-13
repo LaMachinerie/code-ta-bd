@@ -3,7 +3,7 @@
 var BotlyStudio = BotlyStudio || {};
 var SpriteManager = SpriteManager || {};
 
-
+BotlyStudio.vignetteSpinbox = undefined;
 
 BotlyStudio.leftMouse = false;
 
@@ -14,6 +14,9 @@ BotlyStudio.init = function () {
   BotlyStudio.changeToolbox();
   BotlyStudio.initLanguage();
   BotlyStudio.initDifficulty();
+  BotlyStudio.vignetteSpinbox = new SpinBox("spinbox", {'minimum' : 1, 'maximum' : 6, 'step': 1});
+
+
   Renderer.init();
   BotlyStudio.initSlider();
   BotlyStudioIPC.initIPC();
@@ -24,6 +27,7 @@ BotlyStudio.init = function () {
 
   //BotlyStudio.importExtraBlocks();
 
+  
   
   document.body.onmousedown = BotlyStudio.setLeftButtonState;
   document.body.onmousemove = BotlyStudio.setLeftButtonState;
@@ -122,7 +126,7 @@ BotlyStudio.saveCanvas = function(){
 
       var canvas = document.getElementById("display");
       var img    = canvas.toDataURL("image/png");
-      var filename = document.getElementById("sketch_name").value;
+      var filename = document.getElementById("sketch_name").value + BotlyStudio.vignetteSpinbox.getValue();
 
       var pom = document.createElement('a');
       pom.setAttribute('href', img);
