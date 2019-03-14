@@ -57,7 +57,10 @@ Blockly.Blocks['character'] = {
               this.lastCharacter = currentCharacter;
             }
           }else if(event.name == "ACTIONS"){
-
+            let currentActions = this.getFieldValue("ACTIONS");
+            if(currentActions != this.lastAction){
+              this.lastAction= currentActions;
+            }
           }
         }
         break;
