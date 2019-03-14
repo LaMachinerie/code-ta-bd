@@ -32,12 +32,13 @@ Blockly.Blocks['character'] = {
 
     if(surround != undefined){
       var currentRoom = surround.getFieldValue("ROOMS");
-      if(currentRoom != lastRoom){
-        lastRoom = currentRoom;
+      if(currentRoom != this.lastRoom){
+        this.lastRoom = currentRoom;
         setRoom(currentRoom, this);
       }
     }else{
-      resetBlock();
+      if(this.lastRoom != "default")
+      resetBlock(this);
     }
 
   },
