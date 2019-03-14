@@ -27,9 +27,9 @@ Blockly.Blocks['character'] = {
     if(surround != undefined && surround.type != "room") 
       surround = undefined;
 
-    //var selectedBlock = undefined;
-    //if(Blockly.selected != undefined)
-    //  selectedBlock = Blockly.selected;
+    var selectedBlock = undefined;
+    if(Blockly.selected != undefined)
+      selectedBlock = Blockly.selected;
 
     switch(event.type){
       case Blockly.Events.MOVE:
@@ -48,7 +48,17 @@ Blockly.Blocks['character'] = {
         }
         break;
       case Blockly.Events.CHANGE:
+        if(surround != undefined && selectedBlock == this){
+          let currentRoom = surround.getFieldValue("ROOMS");
+          if(event.name == "CHAR"){
+            let currentCharacter = this.getFieldValue("CHAR");
+            if(currentCharacter != lastCharacter){
+              this.setCharacter(currentRoom, currentCharacter);
+            }
+          }else if(event.name == "ACTIONS"){
 
+          }
+        }
         break;
       case Blockly.Events.CREATE:
 
@@ -68,6 +78,13 @@ Blockly.Blocks['character'] = {
     CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
     CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
   
+    var char = this.getFieldValue("CHAR");
+    var actionsDropdown = this.getField('ACTIONS');
+    actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
+    actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
+    actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
+  },
+  setCharacter: function (room, char){
     var char = this.getFieldValue("CHAR");
     var actionsDropdown = this.getField('ACTIONS');
     actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
