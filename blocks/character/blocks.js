@@ -34,7 +34,7 @@ Blockly.Blocks['character'] = {
       var currentRoom = surround.getFieldValue("ROOMS");
       if(currentRoom != this.lastRoom){
         this.lastRoom = currentRoom;
-        setRoom(currentRoom, this);
+        this.setRoom(currentRoom);
         this.lastCharacter = this.getFieldValue("CHAR");
         this.lastAction = this.getFieldValue("ACTIONS");
       }else{
@@ -42,52 +42,50 @@ Blockly.Blocks['character'] = {
       }
     }else{
       if(this.lastRoom != "default")
-      resetBlock(this);
+      this.resetBlock();
     }
 
   },
   isDynamic: true,
   lastRoom: "default",
   lastCharacter: "default",
-  lastAction: "default"
+  lastAction: "default",
+  setRoom: function (room){
+    var CharacterDropdown = this.getField("CHAR")
+    CharacterDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(room),[["Quelqu'un", "default"]]);
+    CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
+    CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
+  
+    var char = this.getFieldValue("CHAR");
+    var actionsDropdown = this.getField('ACTIONS');
+    actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
+    actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
+    actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
+  },
+  setDropdown: function (room, char, action){
+    setRoom(room);
+    let characterDropdown = this.getField("CHAR");
+    let actionsDropdown = this.getField('ACTIONS');
+    characterDropdown.setValue(char);
+    actionsDropdown.setValue(action);
+    characterDropdown.setText(getDisplayName(characterDropdown.menuGenerator_, char));
+    actionsDropdown.setText(getDisplayName(actionsDropdown.menuGenerator_, action));
+  },
+  resetBlock: function (){
+    var CharacterDropdown = this.getField("CHAR")
+    CharacterDropdown.menuGenerator_ = [["Quelqu'un", "default"]];
+    CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
+    CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
+  
+    var actionsDropdown = this.getField('ACTIONS');
+    actionsDropdown.menuGenerator_ = [["fait quelque chose", "default"]];
+    actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
+    actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
+  }
 };
 
 
 
-function setRoom(room, block){
-  var CharacterDropdown = block.getField("CHAR")
-  CharacterDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(room),[["Quelqu'un", "default"]]);
-  CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
-  CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
-
-  var char = block.getFieldValue("CHAR");
-  var actionsDropdown = block.getField('ACTIONS');
-  actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
-  actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
-  actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
-}
-
-function setDropdown(room, char, action, block){
-  setRoom(room, block);
-  let characterDropdown = block.getField("CHAR");
-  let actionsDropdown = block.getField('ACTIONS');
-  characterDropdown.setValue(char);
-  actionsDropdown.setValue(action);
-  characterDropdown.setText(getDisplayName(characterDropdown.menuGenerator_, char));
-  actionsDropdown.setText(getDisplayName(actionsDropdown.menuGenerator_, action));
-}
-
-function resetBlock(block){
-  var CharacterDropdown = block.getField("CHAR")
-  CharacterDropdown.menuGenerator_ = [["Quelqu'un", "default"]];
-  CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
-  CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
-
-  var actionsDropdown = block.getField('ACTIONS');
-  actionsDropdown.menuGenerator_ = [["fait quelque chose", "default"]];
-  actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
-  actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
-}
 
 function getDisplayName(array, key){
   for(let i in array){
