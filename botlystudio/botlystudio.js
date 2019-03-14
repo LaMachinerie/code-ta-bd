@@ -39,8 +39,6 @@ BotlyStudio.init = function () {
   BotlyStudio.bindDesignEventListeners();
   BotlyStudio.bindActionFunctions();
   BotlyStudio.bindBlocklyEventListeners();
-  
-  setTimeout(function(){ BotlyStudio.refreshDynamicDropdown(); }, 2 * 1000);
   BotlyStudio.autosave();
 };
 
@@ -250,19 +248,19 @@ BotlyStudio.loadUserXmlFile = function () {
 
     var reader = new FileReader();
     reader.onload = function () {
+      Blockly.Events.disable();
       var success = BotlyStudio.replaceBlocksfromXml(reader.result);
       if (success) {
-        Blockly.Events.disable();
         BotlyStudio.renderContent();
         BotlyStudio.sketchNameSet(filename);
         BotlyStudio.refreshDynamicDropdown();
-        Blockly.Events.enable();
       } else {
         BotlyStudio.alertMessage(
           BotlyStudio.getLocalStr('invalidXmlTitle'),
           BotlyStudio.getLocalStr('invalidXmlBody'),
           false);
       }
+      Blockly.Events.enable();
     };
     reader.readAsText(xmlFile);
   };

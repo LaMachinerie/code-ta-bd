@@ -17,6 +17,7 @@ BotlyStudioIPC.processResponse = function (json_str) {
   var json = JSON.parse(json_str);
   if (json != null) {
     SpriteManager.Tree = json;
+    BotlyStudio.refreshDynamicDropdown();
   }
 };
 
