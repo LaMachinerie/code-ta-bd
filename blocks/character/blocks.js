@@ -35,6 +35,10 @@ Blockly.Blocks['character'] = {
       if(currentRoom != this.lastRoom){
         this.lastRoom = currentRoom;
         setRoom(currentRoom, this);
+        this.lastCharacter = this.getFieldValue("CHAR");
+        this.lastAction = this.getFieldValue("ACTIONS");
+      }else{
+        this.setDropdown(lastRoom, lastCharacter, lastAction);
       }
     }else{
       if(this.lastRoom != "default")
@@ -63,12 +67,14 @@ function setRoom(room, block){
   actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
 }
 
-function changeDropdown(room, block){
-  var char = block.getFieldValue("CHAR");
-  var actionsDrop = block.getField('ACTIONS');
-  actionsDrop.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
-  actionsDrop.setText(actionsDrop.menuGenerator_[0][0]);
-  actionsDrop.setValue(actionsDrop.menuGenerator_[0][1]);
+function setDropdown(room, char, action, block){
+  setRoom(room, block);
+  let characterDropdown = block.getField("CHAR");
+  let actionsDropdown = block.getField('ACTIONS');
+  characterDropdown.setValue(char);
+  actionsDropdown.setValue(action);
+  characterDropdown.setText(getDisplayName(characterDropdown.menuGenerator_, char));
+  actionsDropdown.setText(getDisplayName(actionsDropdown.menuGenerator_, action));
 }
 
 function resetBlock(block){
@@ -81,4 +87,13 @@ function resetBlock(block){
   actionsDropdown.menuGenerator_ = [["fait quelque chose", "default"]];
   actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
   actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
+}
+
+function getDisplayName(array, key){
+  for(let i in array){
+    if(array[i][1] == key){
+      return array[i][0];
+    }
+  }
+  return array[0][1];
 }
