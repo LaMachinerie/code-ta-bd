@@ -76,7 +76,8 @@ Blockly.Blocks['character'] = {
         }
         break;
       case Blockly.Events.CREATE:
-
+        if(selectedBlock == this)
+          this.resetBlock();
         break;
       case Blockly.Events.DELETE:
 
