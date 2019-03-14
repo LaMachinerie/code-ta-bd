@@ -168,7 +168,7 @@ BotlyStudio.loadSessionStorageBlocks = function() {
   if (loadOnce) {
     delete window.sessionStorage.loadOnceBlocks;
     var xml = Blockly.Xml.textToDom(loadOnce);
-    console.log("saved");
+    console.log("loaded");
     Blockly.Xml.domToWorkspace(xml, BotlyStudio.workspace);
   }
 };
