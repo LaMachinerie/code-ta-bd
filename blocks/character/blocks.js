@@ -22,7 +22,8 @@ Blockly.Blocks['character'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(event) {
-    var surround = this.getSurroundParent()
+    let id = this.id;
+    let surround = this.getSurroundParent()
     if(surround != undefined && surround.type != "room") 
       surround = undefined;
 
@@ -30,21 +31,33 @@ Blockly.Blocks['character'] = {
     //if(Blockly.selected != undefined)
     //  selectedBlock = Blockly.selected;
 
-    if(surround != undefined){
-      var currentRoom = surround.getFieldValue("ROOMS");
-      if(currentRoom != this.lastRoom){
-        this.lastRoom = currentRoom;
-        this.setRoom(currentRoom);
-        this.lastCharacter = this.getFieldValue("CHAR");
-        this.lastAction = this.getFieldValue("ACTIONS");
-      }else{
-        this.setDropdown(this.lastRoom, this.lastCharacter, this.lastAction);
-      }
-    }else{
-      if(this.lastRoom != "default")
-      this.resetBlock();
-    }
+    switch(event.type){
+      case Blockly.Events.MOVE:
+        if(surround != undefined){
+          let currentRoom = surround.getFieldValue("ROOMS");
+          if(currentRoom != this.lastRoom){
+            this.lastRoom = currentRoom;
+            this.setRoom(currentRoom);
+            this.lastCharacter = this.getFieldValue("CHAR");
+            this.lastAction = this.getFieldValue("ACTIONS");
+          }else{
+            this.setDropdown(this.lastRoom, this.lastCharacter, this.lastAction);
+          }
+        }else{
+          if(this.lastRoom != "default")
+          this.resetBlock();
+        }
+        break;
+      case Blockly.Events.CHANGE:
 
+        break;
+      case Blockly.Events.CREATE:
+
+        break;
+      case Blockly.Events.DELETE:
+
+        break;
+    }
   },
   isDynamic: true,
   lastRoom: "default",
