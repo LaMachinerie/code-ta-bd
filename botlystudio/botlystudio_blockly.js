@@ -170,7 +170,7 @@ BotlyStudio.loadSessionStorageBlocks = function() {
     Blockly.Events.disable();
     var xml = Blockly.Xml.textToDom(loadOnce);
     Blockly.Xml.domToWorkspace(xml, BotlyStudio.workspace);
-    Blockly.Events.enable();
+    setTimout(function(){Blockly.Events.enable();},1000)
   }
 };
 
