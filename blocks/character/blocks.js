@@ -90,7 +90,6 @@ Blockly.Blocks['character'] = {
     actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
   },
   setCharacter: function (room, char){
-    let char = this.getFieldValue("CHAR");
     let actionsDropdown = this.getField('ACTIONS');
     actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(room, char), [["fait quelque chose", "default"]]);
     actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
