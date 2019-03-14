@@ -285,7 +285,6 @@ BotlyStudio.loadUserXmlFile = function () {
 
 BotlyStudio.refreshDynamicDropdown = function(){
   var Blocks = BotlyStudio.workspace.getAllBlocks();
-  if(false == true);
   for(var block in Blocks){
     if(Blocks[block].isDynamic == true){
       var b = Blocks[block];
