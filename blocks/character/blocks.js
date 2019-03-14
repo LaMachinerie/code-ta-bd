@@ -23,54 +23,33 @@ Blockly.Blocks['character'] = {
   },
   onchange: function(event) {
     var surround = this.getSurroundParent()
-    var selectedBlock = undefined;
-    if(Blockly.selected != undefined)
-      selectedBlock = BotlyStudio.workspace.getBlockById(Blockly.selected.id);
-    
-    if(event.type == Blockly.Events.MOVE && selectedBlock == this && !BotlyStudio.leftMouse && surround != this.oldSurround){
-      if(this.previousConnection.isConnected()){
-        if(surround != null){
-          if(surround.getFieldValue("ROOMS") != null){
-            var room = surround.getFieldValue("ROOMS");
-            this.oldSurround = surround;
-            setDropdown(room, this);
-            return;
-          }
-        }
+    if(surround.type != "room") 
+      surround = undefined;
+
+    //var selectedBlock = undefined;
+    //if(Blockly.selected != undefined)
+    //  selectedBlock = Blockly.selected;
+
+    if(surround != undefined){
+      var currentRoom = surround.getFieldValue("ROOMS");
+      if(currentRoom != lastRoom){
+        lastRoom = currentRoom;
+        setRoom(currentRoom, this);
       }
-      resetDropdown(this);
-    }else if(event.type == Blockly.Events.CHANGE && event.element == 'field' && event.name == 'CHAR' && selectedBlock == this){
-      if(this.previousConnection.isConnected()){
-        var surround = this.getSurroundParent()
-        if(surround != null){
-          if(surround.getFieldValue("ROOMS") != null){
-            var room = surround.getFieldValue("ROOMS");
-            changeDropdown(room, this)
-            return;
-          }
-        }
-      }
-    }else if(event.type == Blockly.Events.CHANGE && event.element == 'field' && event.name == 'ROOMS'){
-      if(this.previousConnection.isConnected()){
-        var surround = this.getSurroundParent()
-        if(surround != null){
-          if(surround.getFieldValue("ROOMS") != null){
-            var room = surround.getFieldValue("ROOMS");
-            setDropdown(room, this);
-            return;
-          }
-        }
-      }
+    }else{
+      resetBlock();
     }
+
   },
   isDynamic: true,
+  lastRoom: "default",
   lastCharacter: "default",
-  lastAction: ""
+  lastAction: "default"
 };
 
 
 
-function setDropdown(room, block){
+function setRoom(room, block){
   var CharacterDropdown = block.getField("CHAR")
   CharacterDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(room),[["Quelqu'un", "default"]]);
   CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
@@ -91,16 +70,14 @@ function changeDropdown(room, block){
   actionsDrop.setValue(actionsDrop.menuGenerator_[0][1]);
 }
 
-function resetDropdown(block){
+function resetBlock(block){
   var CharacterDropdown = block.getField("CHAR")
-  CharacterDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getCharacterSubTree(),[["Quelqu'un", "default"]]);
+  CharacterDropdown.menuGenerator_ = [["Quelqu'un", "default"]];
   CharacterDropdown.setText(CharacterDropdown.menuGenerator_[0][0]);
   CharacterDropdown.setValue(CharacterDropdown.menuGenerator_[0][1]);
 
   var actionsDropdown = block.getField('ACTIONS');
-  actionsDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getActionsSubTree(), [["fait quelque chose", "default"]]);
+  actionsDropdown.menuGenerator_ = [["fait quelque chose", "default"]];
   actionsDropdown.setText(actionsDropdown.menuGenerator_[0][0]);
   actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
-
-  block.oldSurround = null;
 }
