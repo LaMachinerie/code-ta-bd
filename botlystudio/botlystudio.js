@@ -250,9 +250,11 @@ BotlyStudio.loadUserXmlFile = function () {
     reader.onload = function () {
       var success = BotlyStudio.replaceBlocksfromXml(reader.result);
       if (success) {
+        Blockly.Events.disable();
         BotlyStudio.renderContent();
         BotlyStudio.sketchNameSet(filename);
         BotlyStudio.refreshDynamicDropdown();
+        Blockly.Events.enable();
       } else {
         BotlyStudio.alertMessage(
           BotlyStudio.getLocalStr('invalidXmlTitle'),
