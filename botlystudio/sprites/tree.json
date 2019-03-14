@@ -102,7 +102,7 @@
         "dad_and_mom": {
           "displayName": "le papa et la maman",
           "SDB_0024_Calque-26": {
-            "displayName": "se prépare à aller dormir",
+            "displayName": "se préparent à aller dormir",
             "filename": "SDB_0024_Calque-26.png"
           },
           "SDB_0025_Calque-25": {
@@ -113,7 +113,7 @@
         "green_monster": {
           "displayName": "le monstre vert",
           "SDB_0010_Calque-40": {
-            "displayName": "écoute a la porte",
+            "displayName": "écoute à la porte",
             "filename": "SDB_0010_Calque-40.png"
           }
         },
@@ -147,7 +147,7 @@
         "mom": {
           "displayName": "la maman",
           "SDB_0002_Calque-48": {
-            "displayName": "appelle son le petit garçon",
+            "displayName": "appelle le petit garçon",
             "filename": "SDB_0002_Calque-48.png"
           },
           "SDB_0006_Calque-44": {
@@ -322,7 +322,7 @@
             "filename": "CHAMBRE-_0013_Calque-20.png"
           },
           "CHAMBRE-_0020_Calque-15": {
-            "displayName": "regarde le plafond",
+            "displayName": "regardent le plafond",
             "filename": "CHAMBRE-_0020_Calque-15.png"
           }
         },
@@ -496,7 +496,7 @@
         "mom_and_kid": {
           "displayName": "la maman et le petit garçon",
           "ENTREE_0004_Calque-27": {
-            "displayName": "se prépare a sortir",
+            "displayName": "se préparent a sortir",
             "filename": "ENTREE_0004_Calque-27.png"
           },
           "ENTREE_0040_Calque-3": {
@@ -523,7 +523,7 @@
             "filename": "ENTREE_COMPLET_0014_Calque-17.png"
           },
           "ENTREE_COMPLET_0019_Calque-12": {
-            "displayName": "fui le papa",
+            "displayName": "fuit le papa",
             "filename": "ENTREE_COMPLET_0019_Calque-12.png"
           }
         },
@@ -545,7 +545,7 @@
           "filename": "bag.png"
         },
         "ENTREE_0005_manteau-accroché": {
-          "displayName": "une echarpe blanche",
+          "displayName": "une écharpe blanche",
           "filename": "ENTREE_0005_manteau-accroché.png"
         },
         "ENTREE_0006_porte-manteau-nuit": {
@@ -569,7 +569,7 @@
           "filename": "ENTREE_0012_manteau-nuit.png"
         },
         "ENTREE_0037_vestes-full": {
-          "displayName": "le porte mateau plein",
+          "displayName": "le porte manteau plein",
           "filename": "ENTREE_0037_vestes-full.png"
         }
       }
@@ -602,7 +602,7 @@
             "filename": "CHAMBRE-ENFANT_0018_Calque-23bis.png"
           },
           "CHAMBRE-ENFANT_0040_Calque-8": {
-            "displayName": "se reveille",
+            "displayName": "se réveille",
             "filename": "CHAMBRE-ENFANT_0040_Calque-8.png"
           },
           "CHAMBRE-ENFANT_0041_Calque-7": {
@@ -834,7 +834,7 @@
             "filename": "CUISINE_0000_Calque-46.png"
           },
           "CUISINE_0033_Calque-19": {
-            "displayName": "finis de manger",
+            "displayName": "finit de manger",
             "filename": "CUISINE_0033_Calque-19.png"
           },
           "CUISINE_0034_Calque-18": {
@@ -846,7 +846,7 @@
             "filename": "CUISINE_0036_Calque-16.png"
           },
           "CUISINE_0037_Calque-15": {
-            "displayName": "se prépare a manger le repas",
+            "displayName": "se prépare à manger le repas",
             "filename": "CUISINE_0037_Calque-15.png"
           },
           "CUISINE_0038_Calque-14": {
@@ -869,7 +869,7 @@
         "kid": {
           "displayName": "le petit garçon",
           "CUISINE_0035_Calque-17": {
-            "displayName": "réclame un yahourt",
+            "displayName": "réclame un dessert",
             "filename": "CUISINE_0035_Calque-17.png"
           }
         },
@@ -914,11 +914,11 @@
             "filename": "CUISINE_0015_Calque-32.png"
           },
           "CUISINE_0017_Calque-48": {
-            "displayName": "se cache dans la cuisine",
+            "displayName": "se cachent dans la cuisine",
             "filename": "CUISINE_0017_Calque-48.png"
           },
           "CUISINE_0018_Calque-47": {
-            "displayName": "se cache dans la cuisine",
+            "displayName": "se cachent dans la cuisine",
             "filename": "CUISINE_0018_Calque-47.png"
           },
           "CUISINE_0024_Calque-27": {
@@ -990,7 +990,7 @@
             "filename": "CUISINE_0007_Calque-39.png"
           },
           "CUISINE_0008_Calque-38": {
-            "displayName": "bois une mixture étrange",
+            "displayName": "boit une mixture étrange",
             "filename": "CUISINE_0008_Calque-38.png"
           },
           "CUISINE_0009_Calque-37": {
@@ -1127,7 +1127,7 @@
             "filename": "TOITURE_0001_Calque-40.png"
           },
           "TOITURE_0035_Calque-10": {
-            "displayName": "donne un gros ver de terre a ses oisillons",
+            "displayName": "donne un gros ver de terre à ses oisillons",
             "filename": "TOITURE_0035_Calque-10.png"
           },
           "TOITURE_0036_Calque-9": {
@@ -1178,7 +1178,7 @@
             "filename": "TOITURE_0011_Calque-30.png"
           },
           "TOITURE_0013_Calque-28": {
-            "displayName": "est placé sur le toît par le monstre vert",
+            "displayName": "est déposé sur le toît par le monstre vert",
             "filename": "TOITURE_0013_Calque-28.png"
           }
         },
