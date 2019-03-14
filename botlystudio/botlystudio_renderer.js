@@ -110,8 +110,8 @@ Renderer.spawnSprite = function (path) {
     });
 
 
-    Renderer.sprites[spriteIndex].x = 0;
-    Renderer.sprites[spriteIndex].y = 0;
+    //Renderer.sprites[spriteIndex].x = 0;
+    //Renderer.sprites[spriteIndex].y = 0;
     Renderer.sprites[spriteIndex].scaleRatio = 1;
 
     // Load sprite sheet
