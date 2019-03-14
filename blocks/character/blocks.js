@@ -23,7 +23,7 @@ Blockly.Blocks['character'] = {
   },
   onchange: function(event) {
     var surround = this.getSurroundParent()
-    if(surround.type != "room") 
+    if(surround != undefined && surround.type != "room") 
       surround = undefined;
 
     //var selectedBlock = undefined;
