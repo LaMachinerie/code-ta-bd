@@ -34,7 +34,7 @@ BotlyStudio.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
       comments: true,
       css: true,
       disable: true,
-      grid: false,
+      grid: true,
       maxBlocks: Infinity,
       media: blocklyPath + '/media/',
       rtl: false,
