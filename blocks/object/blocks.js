@@ -20,6 +20,7 @@ Blockly.Blocks['object'] = {
     this.setTooltip('');
   },
   onchange: function(event) {
+    BotlyStudio.autosave();
     let surround = this.getSurroundParent()
     if(surround != undefined && surround.type != "room") 
       surround = undefined;

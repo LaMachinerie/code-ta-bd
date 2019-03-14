@@ -39,7 +39,6 @@ BotlyStudio.init = function () {
   BotlyStudio.bindDesignEventListeners();
   BotlyStudio.bindActionFunctions();
   BotlyStudio.bindBlocklyEventListeners();
-  BotlyStudio.autosave();
 };
 
 BotlyStudio.setLeftButtonState = function(e) {
@@ -50,7 +49,6 @@ BotlyStudio.setLeftButtonState = function(e) {
 
 BotlyStudio.autosave = function(){
   BotlyStudio.saveSessionStorageBlocks();
-  setTimeout(function(){ BotlyStudio.autosave(); }, 5 * 1000);
 }
 
 

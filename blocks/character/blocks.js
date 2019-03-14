@@ -22,6 +22,7 @@ Blockly.Blocks['character'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(event) {
+    BotlyStudio.autosave();
     let surround = this.getSurroundParent()
     if(surround != undefined && surround.type != "room") 
       surround = undefined;
@@ -32,7 +33,6 @@ Blockly.Blocks['character'] = {
 
     switch(event.type){
       case Blockly.Events.MOVE:
-        console.log("move !");
         if(surround != undefined){
           let currentRoom = surround.getFieldValue("ROOMS");
           if(currentRoom != this.lastRoom){
@@ -48,7 +48,6 @@ Blockly.Blocks['character'] = {
         }
         break;
       case Blockly.Events.CHANGE:
-        console.log("change !");
         if(surround != undefined){
           let currentRoom = surround.getFieldValue("ROOMS");
           if(selectedBlock == this){
@@ -78,7 +77,6 @@ Blockly.Blocks['character'] = {
         }
         break;
       case Blockly.Events.CREATE:
-        console.log("create !");
         if(selectedBlock == this)
           this.resetBlock();
         if(selectedBlock == surround && selectedBlock != undefined){

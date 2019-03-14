@@ -37,6 +37,7 @@ Blockly.Blocks['light'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(){
+    BotlyStudio.autosave();
     var surround = this.getSurroundParent();
     if(surround != null){
       if(surround.getFieldValue("ROOMS") != null){
