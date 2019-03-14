@@ -34,6 +34,7 @@ BotlyStudio.init = function () {
   document.body.onmouseup = BotlyStudio.setLeftButtonState;
 
   BotlyStudio.designJsInit();
+  BotlyStudio.showExtraIdeButtons();
   BotlyStudio.initialiseIdeButtons();
 
   BotlyStudio.bindDesignEventListeners();
