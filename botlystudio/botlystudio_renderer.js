@@ -34,8 +34,8 @@ Renderer.sprite = function (options) {
     that.context = options.context;
     that.width = options.width;
     that.height = options.height;
-    that.x = 0;
-    that.y = 0;
+    that.x = options.x;
+    that.y = options.y;
     that.image = options.image;
     that.scaleRatio = 1;
 
@@ -73,10 +73,21 @@ Renderer.destroySprite = function (sprite) {
 
 
 Renderer.spawnSprite = function (path) {
-
     var spriteIndex,
         spriteImg;
 
+    let Twidth, Theight, Tx,Ty;
+    if(path == SpriteManager.missingPath){
+        Twidth = 1380;
+        Theight = 1380;
+        Tx = 600;
+        Ty = 100;
+    }else{
+        Twidth = 1380;
+        Theight = 1380;
+        Tx = 0;
+        Ty = 0;
+    }
     // Create sprite sheet
     spriteImg = new Image();
 
@@ -91,8 +102,10 @@ Renderer.spawnSprite = function (path) {
     // Create sprite
     Renderer.sprites[spriteIndex] = Renderer.sprite({
         context: Renderer.canvas.getContext("2d"),
-        width: 1380,
-        height: 1380,
+        width: Twidth,
+        height: Theight,
+        x: Tx,
+        y: Ty,
         image: spriteImg,
     });
 
