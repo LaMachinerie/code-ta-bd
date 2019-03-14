@@ -38,7 +38,7 @@ Blockly.Blocks['character'] = {
         this.lastCharacter = this.getFieldValue("CHAR");
         this.lastAction = this.getFieldValue("ACTIONS");
       }else{
-        this.setDropdown(lastRoom, lastCharacter, lastAction);
+        this.setDropdown(this.lastRoom, this.lastCharacter, this.lastAction);
       }
     }else{
       if(this.lastRoom != "default")
