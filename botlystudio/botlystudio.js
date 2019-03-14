@@ -321,12 +321,18 @@ BotlyStudio.refreshDynamicDropdown = function(){
       if(lightDropValue != undefined){
         let partfield = b.getField("PART")
         let parentRoom = b.getSurroundParent().getFieldValue("ROOMS");
-        let possibilitieTree = SpriteManager.getBackgroundSubTree(parentRoom);
         let possibilities = undefined;
         if(parentRoom == "bathroom") {
-          possibilities = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
+          let displayName;
+          let array = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
+          for(let i in array){
+            if(array[i][1] == key){
+              displayName = array[i][0];
+            }
+          }
+          possibilities = array;
           partfield.menuGenerator_ = possibilities;
-          partfield.setText(possibilitieTree[lightDropValue].displayName);
+          partfield.setText(displayName);
           partfield.setValue(lightDropValue);
         }
         else{
