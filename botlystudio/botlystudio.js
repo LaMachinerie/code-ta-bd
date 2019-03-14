@@ -326,7 +326,7 @@ BotlyStudio.refreshDynamicDropdown = function(){
           let displayName;
           let array = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
           for(let i in array){
-            if(array[i][1] == key){
+            if(array[i][1] == lightDropValue){
               displayName = array[i][0];
             }
           }
