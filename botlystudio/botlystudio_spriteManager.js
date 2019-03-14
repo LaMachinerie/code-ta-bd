@@ -1,7 +1,7 @@
 var SpriteManager = SpriteManager || {};
 
 SpriteManager.basePath = "botlystudio/sprites/"
-SpriteManager.missingPath = SpriteManager.basePath + "missingFile.png";
+SpriteManager.missingPath = SpriteManager.basePath + "copyright.png";
 SpriteManager.treeBuffer = {};
 SpriteManager.Tree = {};
 SpriteManager.defaultTree = {
