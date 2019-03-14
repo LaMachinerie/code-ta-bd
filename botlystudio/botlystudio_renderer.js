@@ -78,10 +78,10 @@ Renderer.spawnSprite = function (path) {
 
     let Twidth, Theight, Tx,Ty;
     if(path == SpriteManager.missingPath){
-        Twidth = 1380;
-        Theight = 1380;
-        Tx = 600;
-        Ty = 100;
+        Twidth = 600;
+        Theight = 100;
+        Tx = 0;
+        Ty = 1300;
     }else{
         Twidth = 1380;
         Theight = 1380;
