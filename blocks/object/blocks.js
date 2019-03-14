@@ -87,7 +87,8 @@ Blockly.Blocks['object'] = {
   },
   setRoom: function (room){
     let objectDropdown = this.getField("OBJ")
-    objectDropdown.menuGenerator_ = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(room), [["un objet", "default"]]);
+    let buffer = SpriteManager.getDisplayNameArray(SpriteManager.getObjectSubTree(room), [["un objet", "default"]]);
+    objectDropdown.menuGenerator_ = SpriteManager.checkTwice(buffer);
     objectDropdown.setText(objectDropdown.menuGenerator_[0][0]);
     objectDropdown.setValue(objectDropdown.menuGenerator_[0][1]);
   },
