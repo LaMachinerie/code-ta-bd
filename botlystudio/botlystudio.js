@@ -39,7 +39,6 @@ BotlyStudio.init = function () {
   BotlyStudio.bindDesignEventListeners();
   BotlyStudio.bindActionFunctions();
   BotlyStudio.bindBlocklyEventListeners();
-  BotlyStudio.loadSessionStorageBlocks();
   BotlyStudio.autosave();
 };
 
