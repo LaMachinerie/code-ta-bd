@@ -324,7 +324,7 @@ BotlyStudio.refreshDynamicDropdown = function(){
         let possibilitieTree = SpriteManager.getBackgroundSubTree(parentRoom);
         let possibilities = undefined;
         if(parentRoom == "bathroom") {
-          possibilities = SpriteManager.getDisplayNameArray(SpriteManager.getBackgroundSubTree(parentRoom), [["la pièce","current"]]);
+          possibilities = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
           partfield.menuGenerator_ = possibilities;
           partfield.setText(possibilitieTree[lightDropValue].displayName);
           partfield.setValue(lightDropValue);

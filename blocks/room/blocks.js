@@ -45,27 +45,28 @@ Blockly.Blocks['light'] = {
     if(surround != null){
       if(surround.getFieldValue("ROOMS") != null){
         var room = surround.getFieldValue("ROOMS");
-        if(room == "bathroom") bathRoomDropdown(this)
-        else defaultDropdown(this);
+        if(room == "bathroom") this.bathRoomDropdown()
+        else this.defaultDropdown();
         return;
       }
     }
   },
-  isDynamic: true
-};
-
-function defaultDropdown(block){
-  var partDropdown = block.getField("PART")
-  partDropdown.menuGenerator_ = [["la pièce", "current"]];
-  partDropdown.setText(partDropdown.menuGenerator_[0][0]);
-  partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
-}
-
-function bathRoomDropdown(block){
-  var partDropdown = block.getField("PART")
-  partDropdown.menuGenerator_ = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
-  if(block.getFieldValue("PART") == "current"){
+  isDynamic: true,
+  defaultDropdown: function (){
+    var partDropdown = this.getField("PART")
+    partDropdown.menuGenerator_ = [["la pièce", "current"]];
     partDropdown.setText(partDropdown.menuGenerator_[0][0]);
     partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
+  },
+  bathRoomDropdown: function (){
+    var partDropdown = this.getField("PART")
+    partDropdown.menuGenerator_ = [["toutes les pièces", "all"],["la salle de bain", "bathroom_light"],["la l'escalier", "stairs_light"]];
+    if(this.getFieldValue("PART") == "current"){
+      partDropdown.setText(partDropdown.menuGenerator_[0][0]);
+      partDropdown.setValue(partDropdown.menuGenerator_[0][1]);
+    }
   }
-}
+};
+
+
+
