@@ -22,7 +22,6 @@ Blockly.Blocks['character'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   onchange: function(event) {
-    let id = this.id;
     let surround = this.getSurroundParent()
     if(surround != undefined && surround.type != "room") 
       surround = undefined;
@@ -48,19 +47,30 @@ Blockly.Blocks['character'] = {
         }
         break;
       case Blockly.Events.CHANGE:
-        if(surround != undefined && selectedBlock == this){
+        if(surround != undefined){
           let currentRoom = surround.getFieldValue("ROOMS");
-          if(event.name == "CHAR"){
-            let currentCharacter = this.getFieldValue("CHAR");
-            if(currentCharacter != this.lastCharacter){
-              this.setCharacter(currentRoom, currentCharacter);
-              this.lastCharacter = currentCharacter;
-              this.lastAction = this.getFieldValue("CHAR");
+          if(selectedBlock == this){
+            if(event.name == "CHAR"){
+              let currentCharacter = this.getFieldValue("CHAR");
+              if(currentCharacter != this.lastCharacter){
+                this.setCharacter(currentRoom, currentCharacter);
+                this.lastCharacter = currentCharacter;
+                this.lastAction = this.getFieldValue("CHAR");
+              }
+            }else if(event.name == "ACTIONS"){
+              let currentActions = this.getFieldValue("ACTIONS");
+              if(currentActions != this.lastAction){
+                this.lastAction= currentActions;
+              }
             }
-          }else if(event.name == "ACTIONS"){
-            let currentActions = this.getFieldValue("ACTIONS");
-            if(currentActions != this.lastAction){
-              this.lastAction= currentActions;
+          }else{
+            if(event.name == "ROOMS"){
+              if(currentRoom != this.lastRoom){
+                this.lastRoom = currentRoom;
+                this.setRoom(currentRoom);
+                this.lastCharacter = this.getFieldValue("CHAR");
+                this.lastAction = this.getFieldValue("ACTIONS");
+              }
             }
           }
         }

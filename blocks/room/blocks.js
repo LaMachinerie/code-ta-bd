@@ -22,7 +22,7 @@ Blockly.Blocks['room'] = {
     this.setHelpUrl('http://www.example.com/');
   },
   isDynamic: true,
-  light: "day"
+  light: "day",
 };
 
 Blockly.Blocks['light'] = {

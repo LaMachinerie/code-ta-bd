@@ -48,5 +48,3 @@ Blockly.Blocks['object'] = {
   isDynamic: true,
   room: ""
 };
-
-var handlerbizzare;
