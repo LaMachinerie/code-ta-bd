@@ -131,9 +131,6 @@ Blockly.Blocks['character'] = {
   }
 };
 
-
-
-
 function getDisplayName(array, key){
   for(let i in array){
     if(array[i][1] == key){
