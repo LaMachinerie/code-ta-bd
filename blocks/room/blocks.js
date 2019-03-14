@@ -23,6 +23,9 @@ Blockly.Blocks['room'] = {
   },
   isDynamic: true,
   light: "day",
+  onchange: function(){
+    BotlyStudio.autosave();
+  }
 };
 
 Blockly.Blocks['light'] = {
