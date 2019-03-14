@@ -52,7 +52,7 @@ Blockly.Blocks['character'] = {
           let currentRoom = surround.getFieldValue("ROOMS");
           if(event.name == "CHAR"){
             let currentCharacter = this.getFieldValue("CHAR");
-            if(currentCharacter != lastCharacter){
+            if(currentCharacter != this.lastCharacter){
               this.setCharacter(currentRoom, currentCharacter);
             }
           }else if(event.name == "ACTIONS"){
