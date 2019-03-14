@@ -63,7 +63,7 @@ Blockly.Blocks['character'] = {
     actionsDropdown.setValue(actionsDropdown.menuGenerator_[0][1]);
   },
   setDropdown: function (room, char, action){
-    setRoom(room);
+    this.setRoom(room);
     let characterDropdown = this.getField("CHAR");
     let actionsDropdown = this.getField('ACTIONS');
     characterDropdown.setValue(char);
