@@ -123,7 +123,7 @@ BotlyStudio.showExtraIdeButtons = function(show) {
   var IdeButtonLeft = document.getElementById('button_ide_left');
   var IdeButtonMiddle = document.getElementById('button_ide_middle');
   var IdeButtonLast = document.getElementById('button_ide_last');
-  if (show) {
+  if (true) {
     // prevent previously set time-out to hide buttons while trying to show them
     clearTimeout(BotlyStudio.outHoldtimeoutHandle);
     clearTimeout(BotlyStudio.hidetimeoutHandle);
