@@ -44,7 +44,6 @@ Blockly.Blocks['character'] = {
             this.setDropdown(this.lastRoom, this.lastCharacter, this.lastAction);
           }
         }else{
-          if(this.lastRoom != "default")
           this.resetBlock();
         }
         break;
