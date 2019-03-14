@@ -26,7 +26,7 @@ BotlyStudio.init = function () {
     BotlyStudio.TOOLBOX_XML, 'blockly/');
 
   //BotlyStudio.importExtraBlocks();
-
+  BotlyStudio.refreshDynamicDropdown();
   
   
   document.body.onmousedown = BotlyStudio.setLeftButtonState;
@@ -50,7 +50,7 @@ BotlyStudio.setLeftButtonState = function(e) {
 
 BotlyStudio.autosave = function(){
   BotlyStudio.saveSessionStorageBlocks();
-  setTimeout(function(){ BotlyStudio.autosave(); }, 10000);
+  setTimeout(function(){ BotlyStudio.autosave(); }, 5 * 1000);
 }
 
 

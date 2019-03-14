@@ -149,27 +149,25 @@ BotlyStudio.loadBlocksfromXmlDom = function(blocksXmlDom) {
  * sessionStorage on file:// URLs.
  */
 BotlyStudio.saveSessionStorageBlocks = function() {
-  if (window.localStorage) {
+  if (window.sessionStorage) {
     var xml = Blockly.Xml.workspaceToDom(BotlyStudio.workspace);
     var text = Blockly.Xml.domToText(xml);
-    window.localStorage.loadOnceBlocks = text;
+    window.sessionStorage.loadOnceBlocks = text;
   }
 };
 
 /** Load blocks saved on session storage and deletes them from storage. */
 BotlyStudio.loadSessionStorageBlocks = function() {
   try {
-    var loadOnce = window.localStorage.loadOnceBlocks;
+    var loadOnce = window.sessionStorage.loadOnceBlocks;
   } catch (e) {
     // Firefox sometimes throws a SecurityError when accessing sessionStorage.
     // Restarting Firefox fixes this, so it looks like a bug.
     var loadOnce = null;
   }
   if (loadOnce) {
-    delete window.localStorage.loadOnceBlocks;
+    delete window.sessionStorage.loadOnceBlocks;
     var xml = Blockly.Xml.textToDom(loadOnce);
-    console.log("loaded");
-    console.log(xml);
     Blockly.Xml.domToWorkspace(xml, BotlyStudio.workspace);
   }
 };
