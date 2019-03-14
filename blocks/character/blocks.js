@@ -79,7 +79,7 @@ Blockly.Blocks['character'] = {
         if(selectedBlock == this)
           this.resetBlock();
         if(selectedBlock == surround)
-          this.setDropdown(this.lastRoom, this.lastCharacter, this.lastAction);
+          this.resetBlock();
         break;
       case Blockly.Events.DELETE:
 
