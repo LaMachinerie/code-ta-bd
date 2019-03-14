@@ -51,7 +51,7 @@ BotlyStudio.setLeftButtonState = function(e) {
 
 BotlyStudio.autosave = function(){
   BotlyStudio.saveSessionStorageBlocks();
-  setTimeout(function(){ autosave() }, 10000);
+  setTimeout(function(){ BotlyStudio.autosave() }, 10000);
 }
 
 
