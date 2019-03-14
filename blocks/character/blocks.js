@@ -78,7 +78,7 @@ Blockly.Blocks['character'] = {
       case Blockly.Events.CREATE:
         if(selectedBlock == this)
           this.resetBlock();
-        if(selectedBlock == surround)
+        if(selectedBlock == surround && selectedBlock != undefined)
           this.setRoom(surround.getFieldValue("ROOMS"));
         break;
       case Blockly.Events.DELETE:
