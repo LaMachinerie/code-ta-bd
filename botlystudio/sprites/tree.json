@@ -95,7 +95,7 @@
             "filename": "SDB_0023_Calque-27.png"
           },
           "SDB_0036_Calque-14": {
-            "displayName": "est au toilette",
+            "displayName": "est aux toilettes",
             "filename": "SDB_0036_Calque-14.png"
           }
         },
@@ -124,7 +124,7 @@
             "filename": "SDB_0001_Calque-49.png"
           },
           "SDB_0033_Calque-17": {
-            "displayName": "est au toilette",
+            "displayName": "est aux toilettes",
             "filename": "SDB_0033_Calque-17.png"
           },
           "SDB_0034_Calque-16": {
@@ -186,7 +186,7 @@
         "mom_and_kid": {
           "displayName": "la maman et le petit garçon",
           "SDB_0032_Calque-18": {
-            "displayName": "discutent au toilette",
+            "displayName": "discutent aux toilettes",
             "filename": "SDB_0032_Calque-18.png"
           }
         },
@@ -406,7 +406,7 @@
             "filename": "ENTREE_0023_Calque-17.png"
           },
           "ENTREE_0026_Calque-32": {
-            "displayName": "s'enfui",
+            "displayName": "s'enfuit",
             "filename": "ENTREE_0026_Calque-32.png"
           }
         },
@@ -436,7 +436,7 @@
         "green_monster": {
           "displayName": "le monstre vert",
           "ENTREE_0015_Calque-24": {
-            "displayName": "s'enfui en courant",
+            "displayName": "s'enfuit en courant",
             "filename": "ENTREE_0015_Calque-24.png"
           },
           "ENTREE_0016_Calque-23": {
@@ -511,7 +511,7 @@
             "filename": "ENTREE_0022_Calque-33.png"
           },
           "ENTREE_0025_Calque-15": {
-            "displayName": "s'enfui de la cuisine",
+            "displayName": "s'enfuit de la cuisine",
             "filename": "ENTREE_0025_Calque-15.png"
           },
           "ENTREE_0030_Calque-11": {
@@ -1029,7 +1029,7 @@
       }
     },
     "roof": {
-      "displayName": "le toît",
+      "displayName": "le toit",
       "background": {
         "displayName": "day",
         "day": {
@@ -1146,7 +1146,7 @@
             "filename": "TOITURE_0002_Calque-39.png"
           },
           "TOITURE_0003_Calque-38": {
-            "displayName": "cherche quelque chose sur le toît",
+            "displayName": "cherche quelque chose sur le toit",
             "filename": "TOITURE_0003_Calque-38.png"
           },
           "TOITURE_0004_Calque-37": {
@@ -1166,7 +1166,7 @@
             "filename": "TOITURE_0007_Calque-34.png"
           },
           "TOITURE_0008_Calque-33": {
-            "displayName": "qui dégringole le toît",
+            "displayName": "qui dégringole le toit",
             "filename": "TOITURE_0008_Calque-33.png"
           },
           "TOITURE_0009_Calque-32": {
@@ -1178,7 +1178,7 @@
             "filename": "TOITURE_0011_Calque-30.png"
           },
           "TOITURE_0013_Calque-28": {
-            "displayName": "est déposé sur le toît par le monstre vert",
+            "displayName": "est déposé sur le toit par le monstre vert",
             "filename": "TOITURE_0013_Calque-28.png"
           }
         },
