@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  apache:
+    image: 'bitnami/apache:latest'
+    container_name: code-ta-bd
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - .:/app
+    labels:
+      - "traefik.port=80"
+      - "traefik.backend=code-ta-bd"
+      - "traefik.frontend.rule=Host:stage.code-ta-bd.fr,www.stage.code-ta-bd.fr"
+      - "traefik.docker.network=machinerie-network"
+    networks:
+      - machinerie-network
+    restart: always
+
+networks:
+  machinerie-network:
+    external:
+      name: machinerie-network
