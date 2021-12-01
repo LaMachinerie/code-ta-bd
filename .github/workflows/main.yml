@@ -3,9 +3,9 @@ name: Build & Test
 
 on:
   push:
-    branches: [ stage ]
+    branches: [ master ]
   pull_request:
-    branches: [ stage ]
+    branches: [ master ]
 
   workflow_dispatch:
 
