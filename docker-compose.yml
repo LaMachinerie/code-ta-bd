@@ -3,7 +3,7 @@ version: '2'
 services:
   apache:
     image: 'bitnami/apache:latest'
-    container_name: code-ta-bd
+    container_name: $NAME
     volumes:
       - .:/app
     labels:
